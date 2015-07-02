@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+    <head>
+	<meta charset="utf-8">
+	{% block metadata %}
+	{% endblock %}
+	{%if not article%}
+	{% include 'metadata.html' %}
+	{%endif%}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+	<script type="text/javascript" src="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/js/bootstrap.js"></script>
+
+	<!-- Bootstrap CSS  -->
+	<link rel="stylesheet" href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/css/bootstrap.css"/>
+	<link rel="stylesheet" href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/css/responsive.css"/>
+	
+	<!-- Generated favicons markup -->
+	<link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
+	<link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="/assets/images/favicons/manifest.json">
+	<link rel="shortcut icon" href="/assets/images/favicons/favicon.ico">
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+	<meta name="msapplication-config" content="/assets/images/favicons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	<!-- LESS generated css for Nuja theme -->
+	<link rel="stylesheet" href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/css/NujaStructure.css"/>
+	<!-- Highlight -->
+	<link rel="stylesheet" href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/css/pygment.css"/>
+
+	<link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+	<!--[if IE]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
+
+	<!-- setup feeds and third-party services -->
+	{% if FEED_ALL_ATOM %}
+	<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+	{% endif %}
+	{% if FEED_ALL_RSS %}
+	<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+	{% endif %}
+	<!-- to clean up later for the new theme -->
+	<script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-968141-17', 'auto');
+ga('send', 'pageview');
+
+	</script>
+	<meta name="google-site-verification" content="4TETrzpAoVPu2-VrTpOxQJFmmynS9VzPq_boE45VKa8" />
+	<meta name="msvalidate.01" content="E2790C576E7623BE2F59AC965B48361D" />
+    </head>
+    <body>
+
+	<div class="container">
+	    <div class="header-container">
+		<header>
+		    <a href="{{ SITEURL }}/">
+			<h4>{{ SITENAME }} {% if SITESUBTITLE %}<span>{{SITESUBTITLE}}</span></h4>{%endif%}
+		    </a>
+
+		    <nav>
+			<ul>
+			    <li><a href="{{SITEURL}}/">Home</a></li>
+			    {%if DISPLAY_PAGES_ON_MENU %}
+			    {% for page in PAGES %}
+			    <li><a href="{{SITEURL}}/{{page.url}}">{{page.title}}</a></li>
+			    {%endfor%}
+			    {%endif%}
+
+			    {% for title, link in MENUITEMS %}
+			    <li><a href="{{link}}">{{ title}}</a></li>
+			    {%endfor%}
+
+			</ul>
+		    </nav>
+		</header>
+
+
+	    </div>
+	    <div class="clearfix"></div>
+	    {% include 'term-block.html' %}
+	    <div class="row">
+		<div class="span9">
+
+		    <div class="span10">
+
+
+			{% block content %}
+			{% endblock %}
+
+
+			{%if article %}	    
+			{% include 'disqus.html' %}
+			{%endif%}
+		    </div>
+		</div>
+		{% include 'sidebar.html' %}
+	    </div>
+	    <!--footer-->
+	    <div class="row">
+		<div class="span12">
+		    <footer>
+			<p>Powered by <a href="http://getpelican.org">Pelican</a>.</p>
+			<p><a href="">Nuja theme</a> designed by <a rel="bookmark" href="http://dgzen.pw">DGZen</a>.</p>
+		    </footer>
+		</div>
+	    </div>
+	</div>
+
+
+    </body>
+</html>

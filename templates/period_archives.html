@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Archives for {{SITENAME}}{% endblock %}
+{% block content %}
+<!-- begin article -->
+<div class="row">
+
+    <div class="span8 alpha">
+	<div class="entry-container">
+	    <article  class="entry">
+		<header>
+		    <a href="">
+		    
+		<h2>Archives for {{ period | reverse | join(' ')}}</h2>
+		    </a>
+		</header>
+		{% for article in dates %}
+		<ul class="archive-section">
+		    <li class="date">{{ article.date|strftime('%B %d, %Y')}}</li>
+		    <li class="title"><a  rel="bookmark" href="{{SITEURL}}/{{article.url}}">{{article.title}}</a></li>
+
+		</ul>
+		<div class="clearfix"></div>
+
+		{%endfor%}    
+	    </article>
+
+
+
+	    <!--
+	    In case any image breaks the theme
+	    I was going to use :after but it didn't quite work for me, maybe next time-->
+	    <div class="clearfix"></div>
+
+
+
+
+	</div>
+    </div>
+</div>
+<!-- end article -->
+{% endblock %}

@@ -1,0 +1,28 @@
+	
+	<meta name="description" content="{{SITESUBTITLE}}">
+	<meta name="author" content="David">
+	<meta name="robots" content="index,follow">
+
+
+	<!-- OpenGraph -->
+	<meta property="og:property" content="{{ DEFAULT_LANG }}">
+	<meta property="og:image" content="/assets/images/favicons/apple-touch-icon-180x180.png">
+{%if article%}
+<meta property="og:title" content="{{article.title}}">
+	{%elif page%}
+
+	<meta property="og:title" content="{{page.title}}">
+	{%elif tag %}
+
+	<meta property="og:title" content="{{SITENAME}}: You are now browsing: {{tag}} tag">
+	{%elif category%}
+	<meta property="og:title" content="{{SITENAME}} articles in {{ category }} category">
+{%elif period%}
+<meta property="og:title" content="Archives of {{SITENAME}}">
+{%else%}
+
+<meta property="og:title" content="{{SITENAME}}">
+
+{%endif%}
+	<meta property="og:type" content="website">
+	<meta property="og:description" content="{{SITESUBTITLE}}">
