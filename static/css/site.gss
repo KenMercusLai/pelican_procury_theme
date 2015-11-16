@@ -1,0 +1,31 @@
+headerHeight == 221;
+
+#header {
+    y: == 0;
+    x: == 0;
+    width: == ::window[width];    
+    height: == headerHeight;
+};
+
+#menu[height] + #social-search[height] == headerHeight;
+
+#social-search {
+    background-color: rgb(224,224,224);
+    width: == #header[width];
+    height: == 50;
+    top: == #header[top];
+    x: == $intrinsic-left;
+};
+
+.container {
+    width: <= 1170;
+    y: == 50;
+};
+
+.container[cx] == #social-search[cx];
+.container[top] == 0;
+
+#menu {
+    top: == #social-search[bottom];
+    width: == #header[width];
+};
