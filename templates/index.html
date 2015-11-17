@@ -1342,45 +1342,20 @@
                         <h4 class="widget-title ts_sidebar_title">最新视频</h4>
                         <div class="widget-delimiter"></div>
                         <ul class="widget-items">
-                          <li>
-                            <article class="row">
-                              <div class="col-lg-4 col-sm-4">
-                                <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/">
-                                  <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/117H-450x300.jpg" class="attachment-grid" alt="117H" />
-                                </a>
-                              </div>
-                              <div class="col-lg-8 col-sm-8">
-                                <h6 class=""><a href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/">
-                                Moldovenii s-au născut                                  </a></h6>
-                              </div>
-                            </article>
-                          </li>
-                          <li>
-                            <article class="row">
-                              <div class="col-lg-4 col-sm-4">
-                                <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/fox-tale/">
-                                  <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/v2c2sscas-450x300.jpg" class="attachment-grid" alt="v2c2sscas" />
-                                </a>
-                              </div>
-                              <div class="col-lg-8 col-sm-8">
-                                <h6 class=""><a href="http://demo.touchsize.com/videotouch/video/fox-tale/">
-                                A fox tale                                  </a></h6>
-                              </div>
-                            </article>
-                          </li>
-                          <li>
-                            <article class="row">
-                              <div class="col-lg-4 col-sm-4">
-                                <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/partly-cloudy/">
-                                  <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/d23d2dfd-450x300.jpg" class="attachment-grid" alt="d23d2dfd" />
-                                </a>
-                              </div>
-                              <div class="col-lg-8 col-sm-8">
-                                <h6 class=""><a href="http://demo.touchsize.com/videotouch/video/partly-cloudy/">
-                                Partly cloudy                                   </a></h6>
-                              </div>
-                            </article>
-                          </li>
+                          {% for i in articles[:3] %}
+                            <li>
+                              <article class="row">
+                                <div class="col-lg-4 col-sm-4" style="width: 95px; height: 63px">
+                                  <a class="entry-img" href="{{ i.url }}">
+                                    <img width="450" height="300" src="{{ i.cover }}" class="attachment-grid" alt="{{ i.title }}" style="object-fit: cover; height: 63px"/>
+                                  </a>
+                                </div>
+                                <div class="col-lg-8 col-sm-8">
+                                  <h6 class=""><a href="{{ i.url }}">{{ i.title }}</a></h6>
+                                </div>
+                              </article>
+                            </li>
+                          {% endfor %}
                         </ul>
                       </div>
                     </aside>
