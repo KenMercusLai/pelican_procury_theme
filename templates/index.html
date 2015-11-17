@@ -939,82 +939,50 @@
                     </div>
                     <div class="row content-block ">
                       <section class="ts-big-posts animated opacited ">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                          <article class=" article-split-1-2 article-meta-shown title-above-excerpt post-184 video type-video status-publish has-post-thumbnail hentry">
-                            <div class="row">
-                              <header class="col-lg-6 col-md-6 col-sm-12">
-                                <div class="image-holder default-effect">
-                                  <a href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/">
-                                    <img src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/117H-720x400.jpg" alt="Moldovenii s-au născut" />
-                                  </a>
-                                  <div class="overlay-effect">
-                                    <a href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/" class="view-more"><i class="icon-icon-play fa fa-play-circle-o"></i><span>浏览</span></a>
+                        {% for category, articles in categories %}
+                          {% if category|lower == 'brain magic' %}
+                            {% for i in articles[:2] %}
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <article class=" article-split-1-2 article-meta-shown title-above-excerpt post-184 video type-video status-publish has-post-thumbnail hentry">
+                                  <div class="row">
+                                    <header class="col-lg-6 col-md-6 col-sm-12">
+                                      <div class="image-holder default-effect">
+                                        <a href="{{ i.url }}">
+                                          <img src="{{ i.cover }}" alt="{{ i.title }}" />
+                                        </a>
+                                        <div class="overlay-effect">
+                                          <a href="{{ i.url }}" class="view-more"><i class="icon-icon-play fa fa-play-circle-o"></i><span>浏览</span></a>
+                                        </div>
+                                      </div>
+                                    </header>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                      <section>
+                                        <div class="entry-title">
+                                          <a href="{{ i.url }}" title="{{ i.title }}"><h3 class="title">{{ i.title }}</h3></a>
+                                        </div>
+                                        <div class="entry-author">
+                                          <ul>
+                                            <li class="author-name">
+                                              by
+                                              <a href="http://demo.touchsize.com/videotouch/author/admin/">{{ i.author }}</a>
+                                            </li>
+                                            <li class="author-published">added
+                                              <span>{{ i.date }}</span>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                        <div class="entry-excerpt excerpt">
+                                          {{ i.content }}
+                                        </div>
+                                        <a class="btn small" href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/" title="Moldovenii s-au născut">浏览 <i class="icon-right fa fa-angle-right"></i></a>
+                                      </section>
+                                    </div>
                                   </div>
-                                </div>
-                              </header>
-                              <div class="col-lg-6 col-md-6 col-sm-12">
-                                <section>
-                                  <div class="entry-title">
-                                    <a href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/" title="Moldovenii s-au născut"><h3 class="title">Moldovenii s-au născut</h3></a>
-                                  </div>
-                                  <div class="entry-author">
-                                    <ul>
-                                      <li class="author-name">
-                                        by
-                                        <a href="http://demo.touchsize.com/videotouch/author/admin/">John Doe</a>
-                                      </li>
-                                      <li class="author-published">added
-                                        <span>1 year ago</span>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                  <div class="entry-excerpt excerpt">
-                                    Praesent ultricies porttitor odio, sed hendrerit lacus efficitur vitae. Sed in magna bibendum, tincidunt metus eu, pellentesque tellus. Cras ultricies vel arcu non consectetur. Mauris eu nisi dictum urna conval...
-                                  </div>
-                                  <a class="btn small" href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/" title="Moldovenii s-au născut">浏览 <i class="icon-right fa fa-angle-right"></i></a>
-                                </section>
+                                </article>
                               </div>
-                            </div>
-                          </article>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                          <article class=" article-split-1-2 article-meta-shown title-above-excerpt post-150 video type-video status-publish has-post-thumbnail hentry">
-                            <div class="row">
-                              <header class="col-lg-6 col-md-6 col-sm-12">
-                                <div class="image-holder default-effect">
-                                  <a href="http://demo.touchsize.com/videotouch/video/tania-cerga-inima/">
-                                    <img src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/Screen-Shot-2014-10-10-at-1.22.26-PM-720x400.png" alt="Tania Cerga &#8211; Inima" />
-                                  </a>
-                                  <div class="overlay-effect">
-                                    <a href="http://demo.touchsize.com/videotouch/video/tania-cerga-inima/" class="view-more"><i class="icon-icon-play fa fa-play-circle-o"></i><span>浏览</span></a>
-                                  </div>
-                                </div>
-                              </header>
-                              <div class="col-lg-6 col-md-6 col-sm-12">
-                                <section>
-                                  <div class="entry-title">
-                                    <a href="http://demo.touchsize.com/videotouch/video/tania-cerga-inima/" title="Tania Cerga &#8211; Inima"><h3 class="title">Tania Cerga &#8211; Inima</h3></a>
-                                  </div>
-                                  <div class="entry-author">
-                                    <ul>
-                                      <li class="author-name">
-                                        by
-                                        <a href="http://demo.touchsize.com/videotouch/author/admin/">John Doe</a>
-                                      </li>
-                                      <li class="author-published">added
-                                        <span>1 year ago</span>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                  <div class="entry-excerpt excerpt">
-                                    Nulla nunc ante, tempus non convallis eu, placerat at orci. Sed lacinia purus nec turpis volutpat vestibulum. Suspendisse potenti. Ut in venenatis eros, imperdiet molestie arcu. Donec id leo pulvinar, pharetra ...
-                                  </div>
-                                  <a class="btn small" href="http://demo.touchsize.com/videotouch/video/tania-cerga-inima/" title="Tania Cerga &#8211; Inima">浏览 <i class="icon-right fa fa-angle-right"></i></a>
-                                </section>
-                              </div>
-                            </div>
-                          </article>
-                        </div>
+                            {% endfor %}
+                          {% endif %}
+                        {% endfor %}
                       </section>
                     </div>
                     <div class="row content-block ">
