@@ -1378,21 +1378,9 @@
                               <div class="widget-delimiter"></div>
                               <!-- panel tags -->
                               <div class="tab_menu_content tags-container">
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/touchsize/"> touchsize</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/touchsizer/"> touchsizer</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/more/"> more</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/funny-2/"> funny</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/some/"> some</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/music/"> music</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/tag/"> tag</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/animation-2/"> animation</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/excellent/"> excellent</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/test/"> test</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/country/"> country</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/slimtime/"> slimtime</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/moldova/"> moldova</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/on/"> on</a>
-                                <a class="tag" href="http://demo.touchsize.com/videotouch/tag/music-video/"> music video</a>
+                                {% for tag, articles in tags[:15]|sort %}
+                                  <a class="tag" href="{{tag.url}}"> {{tag.name}}</a>
+                                {% endfor %}
                               </div>
                             </div>
                           </aside>
