@@ -1,144 +1,1066 @@
 <!DOCTYPE html>
-<html lang="{{ DEFAULT_LANG }}" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
-  <head>
-    <meta charset="utf-8">
-    <!-- {%if not article%}
-    {% include 'metadata.html' %}
-    {%endif%} -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ article.title|striptags }}</title>
-    
-    <link rel="stylesheet/gss" type="text/gss" href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/css/article.gss">
-    <script src="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/js/gss.min.js"></script>
-    <script type="text/javascript">
-    window.engine = new GSS(document);
-    </script>
-    
-    <!-- Generated favicons markup -->
-    <!-- <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/assets/images/favicons/manifest.json">
-    <link rel="shortcut icon" href="/assets/images/favicons/favicon.ico">
-    <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
-    <meta name="msapplication-config" content="/assets/images/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff"> -->
-    <!-- Highlight -->
-    <!-- <link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'> -->
-    <!--[if IE]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!-- setup feeds and third-party services -->
-    <!-- {% if FEED_ALL_ATOM %}
-      <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
-    {% endif %}
-    {% if FEED_ALL_RSS %}
-      <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
-    {% endif %} -->
-    <!-- to clean up later for the new theme -->
-
-    <!-- <meta name="google-site-verification" content="4TETrzpAoVPu2-VrTpOxQJFmmynS9VzPq_boE45VKa8" />
-    <meta name="msvalidate.01" content="E2790C576E7623BE2F59AC965B48361D" />
-    <meta name="description" content="{{ article.summary|striptags }}"/> -->
-    <!-- <meta name="keywords" content="{% for tag in article.tags %}{{tag}}{%if not loop.last %},{% endif %}{%endfor%}"> -->
-    <!-- <meta name="author" content="{% for author in article.authors %}{{author}}{%endfor%}"> -->
-    <!-- <meta name="robots" content="index,follow"> -->
-    <!-- OpenGraph -->
-    <!-- <meta property="og:property" content="{{ DEFAULT_LANG }}"> -->
-    <!-- <meta property="og:title" content="{{article.title|striptags}}"> -->
-    <!-- <meta property="og:type" content="article"> -->
-    <!-- <meta property="og:description" content="{{article.summary|striptags}}"> -->
-    <!-- <meta property="article:published_time" content="{{ article.date.strftime('%Y-%m-%d') }}"> -->
-    <!-- {%if article.modified%}<meta property="article:modified_time" content="{{ article.modified.strftime('%Y-%m-%d') }}">{%endif%} -->
-    <!-- {% for tag in article.tags %} -->
-    <!-- <meta property="article:tag" content="{{tag}}"> -->
-    <!-- {% endfor %} -->
-    <!-- <meta property="article:section" content="{{article.category}}"> -->
-  </head>
-  <body>
-    <!-- content part-->
-    <!-- < div class="content">
-    {%if articles_page %}
-    <div class="span1 metadata alpha">
-      {# Entry Date #}
-      <aside>
-        <div class="entry-date">
-          <div class="month-day">
-            <time pubdate datetime="{{ article.date.isoformat() }}" title="{{ article.date|strftime('%b %d, %y')}}">
-            {{ article.date|strftime('%b')}}.<span class="day">{{ article.date|strftime('%d')}}</span>
-            <div class="year">{{ article.date|strftime('%y')}}</div>
-            </time>
-          </div>
-        </div>
-      </aside>
-      {# End of Date #}
-    </div>
-    {%endif%}
-    <div class="{%if articles_page%}span7{%else%}span9 alpha{%endif%}">
-      <div class="entry-container ">
-        <article  class="entry hentry" >
-          <header>
-            <a href="{{ siteurl }}/{{ article.url }}" rel="bookmark" title="permalink for {{ article.title|striptags }}" ><h2 class="entry-title">{{article.title}}</h2></a>
-            <div class="author-details vcard">
-              by {% for author in article.authors %}<a  class="url fn" href="{{ siteurl }}/{{ author.url}}">{{ author }}</a>{% endfor %}  file under <a href="{{ siteurl }}/{{ article.category.url }}">{{ article.category }}</a>{% if article.tags %} with tags {% for tag in article.tags %}
-              <a href="{{SITEURL}}/{{tag.url}}" title="Browse tag: {{tag}}" rel="tag">{{tag}}</a>{%if not loop.last %}, {%endif%}{% endfor %}{% endif %}
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- Viewports for mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <![endif]-->
+        <title>ProjectMercury</title>
+        <link rel="profile" href="http://gmpg.org/xfn/11" />
+        <link rel="pingback" href="{{ SITEURL }}/xmlrpc.php" />
+        <link rel="shortcut icon" href="{{ SITEURL }}/wp-content/themes/videotouch/favicon.png" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Fira+Sans:400,400italic,700&subset=latin" type="text/css" media="all" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Fira+Sans:400,400italic,700&subset=latin" type="text/css" media="all" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Fira+Sans:400,400italic,700&subset=latin" type="text/css" media="all" />
+        <!-- This site is optimized with the Yoast SEO plugin v2.3.5 - https://yoast.com/wordpress/plugins/seo/ -->
+        <link rel="canonical" href="{{ SITEURL }}/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Homepage 1 - ProjectMercury" />
+        <meta property="og:url" content="{{ SITEURL }}/" />
+        <meta property="og:site_name" content="VideoTouch" />
+        <script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","url":"http:\/\/demo.touchsize.com\/videotouch\/","name":"VideoTouch","potentialAction":{"@type":"SearchAction","target":"http:\/\/demo.touchsize.com\/videotouch\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+        <!-- / Yoast SEO plugin. -->
+        <link rel="alternate" type="application/rss+xml" title="VideoTouch &raquo; Feed" href="{{ SITEURL }}/feed/" />
+        <link rel="alternate" type="application/rss+xml" title="VideoTouch &raquo; Comments Feed" href="{{ SITEURL }}/comments/feed/" />
+        <link rel="alternate" type="application/rss+xml" title="VideoTouch &raquo; Homepage 1 Comments Feed" href="{{ SITEURL }}/homepage-1/feed/" />
+        <script type="text/javascript">
+        window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/demo.touchsize.com\/videotouch\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.2.5"}};
+        !function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+        </script>
+        <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 .07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+        }
+        </style>
+        <link rel='stylesheet' id='videotouch.widgets-css' href='{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/widgets.css' type='text/css' media='all' />
+        <link rel='stylesheet' id='videotouch.bootstrap-css' href='{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.css' type='text/css' media='all' />
+        <link rel='stylesheet' id='lightbox-css' href='{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/prettyphoto.css' type='text/css' media='all' />
+        <link rel='stylesheet' id='videotouch.style-css' href='{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css' type='text/css' media='all' />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-includes/js/jquery/jquery.js?ver=1.11.2'></script>
+        <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="{{ SITEURL }}/xmlrpc.php?rsd" />
+        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{{ SITEURL }}/wp-includes/wlwmanifest.xml" />
+        <link rel='shortlink' href='{{ SITEURL }}/' />
+    </head>
+    <body class="single single-video postid-169  videotouch">
+        <style type="text/css">
+        /*************** Theme:  VideoTouch *************/
+        /*************** Theme Version:  1.5 ************/
+        a{
+        color: #e10d0d;
+        }
+        a:hover, a:focus{
+        color: #BA2121;
+        }
+        .post-navigator ul li a:hover div{
+        color: #BA2121;
+        }
+        .ts-grid-view article a, .ts-thumbnail-view article a, .ts-big-posts article a, .ts-list-view article a, .ts-super-posts article a, .product-view article a{
+        color: #434A54;
+        }
+        .product-view article .entry-categories a{
+        color: #d6cbcb;
+        }
+        .archive-title span,
+        .archive-desc p,
+        footer .related .related-list .related-content .ts-view-entry-meta-date,
+        .ts-timeline-view .entry-meta .post-date-add,
+        .ts-grid-view article .ts-view-entry-meta-date,
+        .ts-bigpost-view article .ts-view-entry-meta-date,
+        .ts-list-view article .ts-view-entry-meta-date{
+        color: #d6cbcb;
+        }
+        article .overlay-effect,
+        article .overlay-effect a,
+        .ts-grid-view article .overlay-effect a:hover, .ts-thumbnail-view article .overlay-effect a:hover, .ts-big-posts article .overlay-effect a:hover, .ts-list-view article .overlay-effect a:hover, .ts-super-posts article .overlay-effect a:hover, .product-view article .overlay-effect a:hover{
+        color: #FFFFFF;
+        }
+        article .overlay-effect{
+        background-color: rgba(225,13,13, 0.8);
+        }
+        .ts-grid-view article a:hover, .ts-thumbnail-view article a:hover, .ts-big-posts article a:hover, .ts-list-view article a:hover, .ts-super-posts article a:hover, .product-view article a:hover{
+        color: #656D78;
+        }
+        body{
+        color: #3f4549;
+        }
+        .ts-user-profile-dw .user-info a,
+        .ts-user-header-profile #ts-show-login-modal{
+        color: inherit;
+        }
+        .ts-user-profile-dw .user-info .dropdown > .dropdown-menu a:hover{
+        color: #3f4549;
+        }
+        .ts-user-profile-dw .user-info .user-role,
+        .ts-user-header-profile #ts-show-register-modal{
+        color: inherit;
+        opacity: 0.7;
+        }
+        .flickr_badge_image:hover a img{
+        border-color: #e10d0d;
+        }
+        .teams article .article-title, .post-slider .post-slider-list .entry-title h4 i{
+        background-color: #e10d0d;
+        color: #FFFFFF;
+        }
+        body.videotouch .wp-playlist-light .wp-playlist-playing, body.videotouch .mejs-controls .mejs-time-rail .mejs-time-current{
+        background-color: #e10d0d;
+        color: #FFFFFF;
+        }
+        .product-view .overlay-effect .entry-overlay > a{
+        color: #a0a8ab;
+        background-color: #ECF0F1;
+        }
+        .product-view .overlay-effect .entry-overlay > a:hover{
+        color: #b5c0c4;
+        background-color: #eff2f4;
+        }
+        .product-view .overlay-effect .entry-overlay > a:not(.entry-view-more){
+        color: #FFFFFF;
+        background-color: #e10d0d            }
+        .product-view .overlay-effect .entry-overlay > a:not(.entry-view-more):hover{
+        color: #f5f6f7 !important;
+        background-color: #BA2121 !important;
+        }
+        .ts-features-default section .readmore a:after,
+        .ts-features-fullbg footer .readmore{
+        background-color: #e10d0d;
+        }
+        .ts-features-fullbg footer .readmore a{
+        color: #FFFFFF;
+        }
+        .ts-features-default header .article-header-content .image-container{
+        color: #FFFFFF;
+        }
+        .ts-features-fullbg article:hover header .article-header-content .image-container{
+        color: #e10d0d;
+        }
+        .block-title-lineariconcenter .block-title-container i[class^="icon"]{
+        color: #e10d0d;
+        }
+        .ts-features-default section .readmore a:hover span{
+        color: #FFFFFF;
+        }
+        .ts-features-fullbg header .article-header-content .image-container{
+        box-shadow: inset 0 0 0 10px #FFFFFF;
+        }
+        .ts-features-fullbg article:hover header .article-header-content .image-container{
+        box-shadow: inset 0 0 0 3px #FFFFFF;
+        }
+        .ts-features-fullbg header .article-header-content .image-container:after{
+        background-color: #FFFFFF;
+        }
+        .carousel-wrapper ul.carousel-nav > li:hover {
+        background-color: #BA2121;
+        color: #f5f6f7;
+        }
+        .ts-clients-view .carousel-wrapper ul.carousel-nav > li:hover {
+        background-color: #BA2121;
+        color: #f5f6f7;
+        }
+        .ts-clients-view div[data-tooltip]:hover:before {
+        background-color: rgba(225,13,13, 0.8);
+        color: #FFFFFF;
+        }
+        .ts-clients-view div[data-tooltip]:hover:after {
+        border-top-color: rgba(225,13,13, 0.8);
+        }
+        .ts-header-menu .main-menu li a:hover,
+        .ts-sticky-menu .main-menu li a:hover,
+        .ts-mobile-menu .main-menu li a:hover {
+        color: #E10D0D;
+        }
+        .ts-header-menu .main-menu > .menu-item-has-children ul li > a:before,
+        .ts-sticky-menu .main-menu > .menu-item-has-children ul li > a:before,
+        .ts-mobile-menu .main-menu > .menu-item-has-children ul li > a:before{
+        background-color: #f3f3f3;
+        }
+        .ts-header-menu .main-menu li > a,
+        .ts-sticky-menu .main-menu li > a,
+        .ts-mobile-menu .main-menu li > a {
+        color: #616669;
+        }
+        .ts-header-menu .sub-menu,
+        .ts-sticky-menu .sub-menu,
+        .ts-mobile-menu .sub-menu {
+        background-color: #FFF;
+        }
+        .ts-mega-menu .main-menu .ts_is_mega_div .title{
+        color: #616669;
+        }
+        .ts-mega-menu .main-menu .ts_is_mega_div .title:after,
+        .ts-mobile-menu .main-menu .ts_is_mega_div .title:after{
+        background-color: #e10d0d;
+        }
+        .rsDefault .rsArrowIcn,
+        .rsDefault .rsThumbsArrowIcn {
+        background-color: rgba(225,13,13, 0.7);
+        }
+        .rsDefault .rsArrowIcn:hover,
+        .rsDefault .rsThumbsArrowIcn:hover {
+        background-color: #BA2121;
+        }
+        .rsDefault .rsBullet span {
+        background-color: rgba(225,13,13, 0.3);
+        }
+        .rsDefault .rsBullet.rsNavSelected span {
+        background-color: #e10d0d;
+        }
+        .ts-header-menu .main-menu .current-menu-item > a,
+        .ts-header-menu .main-menu .current-menu-parent > a,
+        .ts-header-menu .main-menu .current-menu-ancestor > a,
+        .ts-mobile-menu .main-menu .current-menu-item > a,
+        .ts-mobile-menu .main-menu .current-menu-parent > a,
+        .ts-mobile-menu .main-menu .current-menu-ancestor  > a,
+        .ts-sticky-menu .main-menu .current-menu-item > a,
+        .ts-sticky-menu .main-menu .current-menu-parent > a,
+        .ts-sticky-menu .main-menu .current-menu-ancestor  > a{
+        color: #e10d0d !important;
+        }
+        .sub-menu li a:hover{
+        color: #E10D0D;
+        }
+        .testimonial-item .author-position{
+        color: #d6cbcb;
+        }
+        .sf-default li:after{
+        background: #e10d0d;
+        }
+        .post-title-meta, .ts-big-posts .big-post-meta > ul > li, .ts-grid-view .entry-meta > ul > li, .views-delimiter{
+        color: #d6cbcb;
+        }
+        .tags-container a.tag, .tags-container a[rel="tag"], .ts-list-view-tags a[rel="tag"]{
+        background-color: #e10d0d;
+        color: #FFFFFF;
+        }
+        .tags-container a.tag:hover, .tags-container a[rel="tag"]:hover, .ts-list-view-tags a[rel="tag"]:hover{
+        background-color: #ECF0F1;
+        color: #b5c0c4;
+        }
+        .ts-thumbnail-view .thumb-post-categories a, .ts-grid-view .grid-post-categories a, .ts-big-posts .big-post-categories a, .post-title-meta .post-categories a, .ts-super-posts .ts-super-posts-categories a{
+        color: #e10d0d;
+        }
+        .ts-thumbnail-view .thumb-post-categories a:hover, .ts-grid-view .grid-post-categories a:hover, .ts-big-posts .big-post-categories a:hover, .post-title-meta .post-categories a:hover, .ts-super-posts .ts-super-posts-categories a:hover{
+        color: #e10d0d;
+        }
+        .user-profile-page .edit-post-link{
+        color: #FFFFFF;
+        background-color: #e10d0d;
+        }
+        .user-profile-page .edit-post-link:hover{
+        color: #f5f6f7;
+        background-color: #BA2121;
+        }
+        #searchbox input[type="text"]:focus{
+        border-bottom-color: #e10d0d;
+        }
+        #searchbox input.searchbutton:hover + i.icon-search{
+        color: #e10d0d;
+        }
+        .search-no-results .searchpage,
+        .search .attention{
+        color: #e10d0d;
+        }
+        .video-single-resize:hover b{
+        color: #e10d0d;
+        }
+        .search-results .searchcount{
+        color: #d6cbcb;
+        }
+        #commentform .form-submit input[type="submit"]{
+        color: #FFFFFF;
+        }
+        .post-navigator ul li a div{
+        color: #e10d0d;
+        }
+        .widget-title:after {
+        background: #e10d0d;
+        display: block;
+        content: '';
+        width: 30px;
+        height: 2px;
+        margin-top: 10px;
+        }
+        .post-navigator ul li a:hover div{
+        color: #BA2121;
+        }
+        .callactionr a.continue, .commentlist > li .comment .comment-reply-link{
+        background-color: #e10d0d;
+        color: #FFFFFF;
+        }
+        .callactionr a.continue:hover{
+        background-color: #ECF0F1;
+        color: #a0a8ab;
+        }
+        .block-title-lineafter .block-title-container .the-title:after{
+        background-color: #e10d0d;
+        }
+        .ts-grid-view .entry-meta a, .ts-big-posts .big-post-meta a, .post-author-box > .author-title{
+        color: #e10d0d;
+        }
+        .ts-list-view .readmore{
+        background-color: #e10d0d;
+        }
+        .ts-super-posts .title-holder{
+        background-color: #e10d0d;
+        }
+        .ts-thumbnail-view .item-hover{
+        /*background-color: rgba(225,13,13, 0.8);*/
+        }
+        .ts-thumbnail-view .item-hover span, .ts-grid-view .item-hover span{
+        color: #e10d0d;
+        }
+        .ts-grid-view .item-hover{
+        background-color: rgba(236,240,241, 0.8);
+        }
+        .ts-grid-view .readmore:hover{
+        color: #e10d0d;
+        }
+        .ts-filters li a.active{
+        background-color: #e10d0d;
+        color: #FFFFFF;
+        }
+        .ts-filters li a.active:after{
+        border-top-color: #e10d0d;
+        }
+        .ts-filters li a:not(.active):hover{
+        color: #ECF0F1;
+        }
+        .post-navigator ul li a{
+        border-top-color: #e10d0d;
+        }
+        .post-navigator ul li a:hover{
+        border-top-color: #ECF0F1;
+        }
+        #commentform .form-submit input[type="submit"]{
+        background-color: #e10d0d;
+        }
+        .listed-two-view .item-hover, .ts-big-posts .item-hover{
+        background-color: rgba(225,13,13, 0.8);
+        }
+        .block-title-linerect .block-title-container:before{
+        background-color: #e10d0d;
+        }
+        .teams article:hover .image-holder img{
+        border-color: #e10d0d;
+        }
+        .teams article:hover .article-title{
+        border-color: #ECF0F1;
+        }
+        .delimiter.iconed:before{
+        color: #e10d0d;
+        }
+        .block-title-leftrect .block-title-container:before{
+        background-color: #e10d0d;
+        }
+        a.tag:hover, a[rel="tag"]:hover{
+        color: #e10d0d;
+        }
+        input.contact-form-submit{
+        background: #e10d0d;
+        }
+        .dl-menuwrapper button:hover,
+        .dl-menuwrapper button.dl-active,
+        .dl-menuwrapper ul {
+        background: #e10d0d;
+        }
+        .dl-menuwrapper button{
+        background: #ECF0F1;
+        }
+        .post-slider .post-slider-list .entry-category ul li a, .post-slider .main-entry .entry-category a{
+        color: #e10d0d;
+        }
+        .post-slider .main-entry .entry-content .entry-title:hover{
+        border-right-color: #e10d0d;
+        }
+        .tweet-entry .icon-twitter{
+        color: #e10d0d;
+        }
+        /* Set the background and text color of the view articles */
+        .ts-pagination ul .page-numbers{
+        background: #f7f7f7;
+        color: #343434;
+        }
+        .ts-pagination ul .page-numbers.current{
+        background: #e10d0d;
+        color: #FFFFFF;
+        }
+        .ts-pagination ul .page-numbers:hover{
+        background: #ECF0F1;
+        }
+        .views-read-more{
+        background: #e10d0d;
+        color: #FFFFFF !important;
+        }
+        #searchform input[type="submit"]{
+        color: #3f4549;
+        }
+        .ts-pricing-view article > header:after{
+        border-top-color: #e10d0d;
+        }
+        .ts-pricing-view article > header, .ts-pricing-view article > footer a.btn{
+        background: #e10d0d;
+        color: #FFFFFF;
+        }
+        .slyscrollbar .handle{
+        background: #e10d0d;
+        }
+        .touchsize-likes .touchsize-likes-count:before, .post-meta .post-meta-likes span.touchsize-likes-count:before{
+        color: #e10d0d;
+        }
+        .touchsize-likes.active .touchsize-likes-count:before, .post-meta .post-meta-likes .touchsize-likes.active span.touchsize-likes-count:before{
+        color: #BA2121;
+        }
+        .ts-grid-view article .entry-footer .btn-play-video:hover > i{
+        background: #e10d0d;
+        color: #FFFFFF;
+        }
+        .btn:hover,
+        .btn:active,
+        .btn:focus{
+        border-color: #e10d0d;
+        }
+        .btn.active{
+        background-color: #e10d0d;
+        color: #FFFFFF;
+        }
+        .purchase-btn{
+        color: #ECF0F1;
+        }
+        .purchase-btn:hover{
+        background: #ECF0F1;
+        }
+        .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+        background: #e10d0d;
+        }
+        .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:hover, .mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
+        background: #BA2121;
+        }
+        .mosaic-view article section{
+        /*background: rgba(225,13,13, 0.7);*/
+        }
+        .nav-tabs .tab-item.active > a:before,
+        .nav-tabs .tab-item.active > a:hover:before,
+        .nav-tabs .tab-item.active > a:focus:before{
+        border-color: #e10d0d;
+        }
+        .ts-tags-container > a:after,
+        a.tag:hover, a[rel="tag"]:hover,
+        article .default-effect .overlay-effect .view-more > span:before,
+        article .default-effect .overlay-effect .view-more > span:after{
+        background: #e10d0d;
+        }
+        article.type-post .page-title .touchsize-likes .touchsize-likes-count{
+        color: #d6cbcb;
+        }
+        .ts-thumbnail-view article h3.title:after{
+        background: #e10d0d;
+        }
+        .ts-user-login-modal .modal-title{
+        color: #3f4549;
+        }
+        #ts-timeline .timeline-entry:before, .ts-grid-view article .entry-footer .btn-grid-more:hover > i{
+        background-color: #e10d0d;
+        }
+        .ts-video-carousel .nav-arrow .nav-icon{
+        color: #e10d0d;
+        }
+        body.single-video article.type-video .post-content .content-cortina{
+        background: -moz-linear-gradient(top, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0.7) 41%, rgba(255,255,255, 1) 83%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255, 0)), color-stop(41%,rgba(255,255,255, 0.7)), color-stop(83%,rgba(255,255,255, 1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(255,255,255, 0) 0%,rgba(255,255,255, 0.7) 41%,rgba(255,255,255, 1) 83%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(255,255,255, 0) 0%,rgba(255,255,255, 0.7) 41%,rgba(255,255,255, 1) 83%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(255,255,255, 0) 0%,rgba(255,255,255, 0.7) 41%,rgba(255,255,255, 1) 83%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(255,255,255, 0) 0%,rgba(255,255,255, 0.7) 41%,rgba(255,255,255, 1) 83%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+        }
+        h1{font-size: 52px}
+        h2{font-size: 44px}
+        h3{font-size: 38px}
+        h4{font-size: 32px}
+        h5{font-size: 26px}h1, h2, h3, h4, h5, h6  {
+        font-family: "Fira Sans";
+        font-weight: 700;
+        font-style: normal;
+        }            body{font-size: 14px;}body {
+        font-family: "Fira Sans";
+        font-weight: normal;
+        font-style: normal;
+        }            .ts-behold-menu, .ts-behold-menu .main-menu > .menu-item-has-children > a:after, .main-menu li{font-size: 14px;}.ts-behold-menu, .main-menu li {
+        font-family: "Fira Sans";
+        font-weight: normal;
+        font-style: normal;
+        }
+        .ts-sticky-menu{
+        background-color: #FFFFFF;
+        }
+        .ts-sticky-menu .sf-menu li ul{
+        background-color: #FFFFFF;
+        }
+        .ts-sticky-menu .container .sf-menu li a, .ts-sticky-menu .container .sf-menu li, .ts-sticky-menu .sf-menu{
+        color:#444444;}
+        .ts-sticky-menu .container .sf-menu li.current-menu-item > a{
+        color: #e10d0d;
+        }            /* --- Custom CSS Below ----  */
+        #menu-main-header li#menu-item-195:after {
+        content: '>';
+        position: absolute;
+        left: 0;
+        margin-left: -20px;
+        top: 16px;
+        background: #E10D0D;
+        padding: 0 7px;
+        color: #FFF;
+        border-radius: 50%;
+        -webkit-transition: transform .2s ease-out;
+        transition: transform .2s ease-out;
+        animation-name: bounce;
+        animation-duration: 2s;
+        animation-iteration-count: 99999;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+        -webkit-animation-name: bounce;
+        -webkit-animation-duration: 2s;
+        -webkit-animation-iteration-count: 99999;
+        -webkit-animation-direction: alternate;
+        -webkit-animation-timing-function: ease-in-out;
+        }
+        @keyframes bounce {
+        0% {
+        }
+        50% {
+        transform: translateX(15px);
+        -webkit-transform: translateX(15px);
+        }
+        100% {
+        transform: translateY(0);
+        -webkit-transform: translateX(5px);
+        }
+        }
+        @-webkit-keyframes bounce {
+        0% {
+        }
+        50% {
+        transform: translateX(15px);
+        -webkit-transform: translateX(15px);
+        }
+        100% {
+        transform: translateX(0);
+        -webkit-transform: translateX(5px);
+        }
+        }
+        body.page-id-931 .ts-custom-menu-colors .main-menu > li > a{color: #FFF !important}
+        </style>
+        <div id="wrapper" class="">
+            <header id="header" class="row">
+                <div class="col-lg-12">
+                    <div data-alignment="top" class="site-section " style=" background-color: #ffffff;  color: #343434;  margin-top: 0px;  margin-bottom: 0px;  padding-top: 30px;  padding-bottom: 40px; ">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12"></div>
+                                <div class="col-lg-3 col-md-3">
+                                    <div class="row content-block ">
+                                        <div class="col-lg-12 ">
+                                            <a href="{{ SITEURL }}" class="logo">
+                                                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/text-logo.png" alt="VideoTouch" style="width: 266px; height: auto;" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 col-md-7">
+                                    <div class="row content-block ">
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <nav id="nav" class="ts-header-menu ts-mega-menu    menu-element-17513662  megaWrapper">
+                                                <ul id="menu-main-header" class="main-menu">
+                                                    <li id="menu-item-195" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-122 current_page_item menu-item-has-description " style="disicon-play fa fa-play-circle-o: inline-block;">
+                                                        <a href="{{ SITEURL }}" style="disicon-play fa fa-play-circle-o: block;"><i class="icon-home"></i>首页</a>
+                                                    </li>
+                                                    <li id="menu-item-215" class="menu-item menu-item-type-taxonomy menu-item-object-videos_categories menu-item-has-description  menu-item-has-children is_mega">
+                                                        <a href="{{ SITEURL }}/videos_categories/music-videos/"><i class="icon-movie"></i>所有视频</a>
+                                                        <div class="ts_is_mega_div ts_is_mega5" style="left: -325px;">
+                                                            
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                            <div id="ts-mobile-menu" class="ts-mobile-menu mobile-menu-element-294265398  ">
+                                                <div class="mobile_header nav-header">
+                                                    <a href="#" data-toggle="mobile_menu" class="trigger"><i class="icon-menu"></i></a>
+                                                </div>
+                                                <div class="mobile_menu  megaWrapper">
+                                                    <ul id="menu-main-header" class="main-menu">
+                                                        <li id="menu-item-195" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-122 current_page_item menu-item-has-description ">
+                                                            <a href="{{ SITEURL }}/"><i class="icon-home"></i>首页</a>
+                                                        </li>
+                                                        <li id="menu-item-215" class="menu-item menu-item-type-taxonomy menu-item-object-videos_categories menu-item-has-description is_mega">
+                                                            <a href="{{ SITEURL }}/videos_categories/music-videos/"><i class="icon-movie"></i>所有视频</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="featured-image video-featured-image without-sidebar">
+                <div class="container ">
+                    <div class="embedded_videos ">
+                        <div id="videoframe" class="video-frame" data-display-button="true">
+                            <div class="overimg">
+                                <div class="play-btn">
+                                    <a class="videoPlay" href="#"><i class="icon-play"></i></a>
+                                </div>
+                                <div class="over-image">
+                                    <img width="1600" height="1067" src="{{ article.cover }}" class="attachment-full wp-post-image" alt="v2c2sscas" />
+                                </div>
+                                <div class="thumb-image"></div>
+                            </div>
+                            <div id="post-video">
+                                <div class="video-container">
+                                    <p><iframe style="width:704px;height:436px;" src="https://ssl.acfun.tv/block-player-homura.html#vid={{ article.acfun }};from=http://www.acfun.tv" id="ACFlashPlayer-re" frameborder="0"></iframe></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-single-resize in">
+                        <i class="icon-right"></i>
+                        <b class="icon-video"></b>
+                        <span>resize video</span>
+                        <i class="icon-left"></i>
+                    </div>
+                </div>
             </div>
-          </header>
-          <div class="entry-content">
-          {{ article.content }} </div>
-        </article> -->
-        <!--
-        in case any image breaks the theme
-        i was going to use :after but it didn't quite work for me, maybe next time
-        <div class="clearfix"></div>
-      </div>
-    </div>
-  </div> -->
-  <!-- content part end -->
-  <!-- <div class="container">
-    <div class="header-container">
-      <header>
-        <a href="{{ SITEURL }}/">
-          <h4>{{ SITENAME }} {% if SITESUBTITLE %}<span>{{SITESUBTITLE}}</span></h4>{%endif%}
-        </a>
-        <nav>
-          <ul>
-            <li><a href="{{SITEURL}}/">Home</a></li>
-            {%if DISPLAY_PAGES_ON_MENU %}
-            {% for page in PAGES %}
-              <li><a href="{{SITEURL}}/{{page.url}}">{{page.title}}</a></li>
-              {%endfor%}
-              {%endif%}
-              {% for title, link in MENUITEMS %}
-                <li><a href="{{link}}">{{ title}}</a></li>
-                {%endfor%}
-              </ul>
-            </nav>
-          </header>
-        </div>
-      </div> -->
-      <!-- <div class="entry-content">{{ article.content }} </div> -->
-      
-      <!--footer-->
-      <div id="footer-nav"></div>
-      <img id="author-avatar" src="https://d262ilb51hltx0.cloudfront.net/fit/c/64/64/0*llKpsFld-5XxTJLL.jpeg">
-      <div id="author">{% for author in article.authors %}{{author}}{%endfor%}</div>
-      <!-- footer end -->
-    </body>
-    
-  </html>
+            <section id="main">
+                <div class="container singular-container">
+                    <div id="primary" class="col-lg-12">
+                        <div id="content" role="main">
+                            <article class="post-169 video type-video status-publish has-post-thumbnail hentry tag-fox tag-here tag-some tag-tale tag-touchsize tag-video videos_categories-animation">
+                                <header class="post-header">
+                                    <div class="row">
+                                        <div class="ts-breadcrumbs breadcrumbs-single-video">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-lg-12">
+                                                        <div class="ts-breadcrumbs-content">
+                                                            <a href="{{ SITEURL }}">首页</a> /
+                                                            <a href="{{ SITEURL }}/videos_categories/animation/">{{ article.category }}</a> / {{ article.title }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-12">
+                                            <h1 class="post-title video-title">{{ article.title }}</h1>
+                                        </div>
+                                        
+                                        <div class="col-lg-12 col-md-12 post-author-block">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                                    <ul>
+                                                        <li class="author-name">by
+                                                            <a href="{{ SITEURL }}/author/admin/">{{ article.author }}</a>
+                                                        </li>
+                                                        <li class="author-published">Published
+                                                            <span>{{ article.date }}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </header>
+                                <div class="post-content ">
+                                    {{ article.content }}
+                                    <div>
+                                        <i class="icon-category"></i>
+                                        <ul class="single-video-categories">
+                                            <li>
+                                                <a href="{{ SITEURL }}/videos_categories/animation/" title="View all articles from: Animation">{{ article.category }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <i class="icon-tags"></i>
+                                        <ul class="single-video-tags">
+                                            {% for i in article.tag %}
+                                                <li>
+                                                    <a href="{{ SITEURL }}/tag/fox/" rel="tag">{{ i.name }}</a>
+                                                </li>       
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <div class="content-cortina"></div>
+                                </div>
+                                <div class="video-post-open">
+                                    <i class="icon-down"></i>
+                                    <span>details</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="ts-related-video-container row">
+                    <div class="container">
+                        <div class="ts-tab-container">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="active">
+                                    <a role="tab" data-toggle="tab" href="#related">Related posts</a>
+                                </li>
+                                <li>
+                                    <a role="tab" data-toggle="tab" href="#related-author">By the author</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="related">
+                                    <div class="row">
+                                        <section class="ts-thumbnail-view no-effect cols-by-4 ">
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-184 video type-video status-publish has-post-thumbnail hentry tag-moldova tag-more tag-music-video tag-touchsize tag-video videos_categories-music-videos">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/moldovenii-s-au-nascut/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/117H-450x370.jpg" alt="Moldovenii s-au născut" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-184" title="Like this"><span class="touchsize-likes-count icon-heart">481</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/moldovenii-s-au-nascut/"><h3 class="title">Moldovenii s-au născut<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-166 video type-video status-publish has-post-thumbnail hentry tag-animate tag-animation-2 tag-more tag-touchsize tag-video videos_categories-animation">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/partly-cloudy/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/d23d2dfd-450x370.jpg" alt="Partly cloudy" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-166" title="Like this"><span class="touchsize-likes-count icon-heart">459</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/partly-cloudy/"><h3 class="title">Partly cloudy<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-163 video type-video status-publish has-post-thumbnail hentry tag-animation-2 tag-more tag-touchsize tag-vampire tag-video videos_categories-animation">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/vampires-crown/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/fdsff2f2f2d2-450x370.jpg" alt="Vampire&#8217;s crown" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-163" title="Like this"><span class="touchsize-likes-count icon-heart">364</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/vampires-crown/"><h3 class="title">Vampire&#8217;s crown<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-160 video type-video status-publish has-post-thumbnail hentry tag-more tag-tolerantia tag-touchsize tag-video videos_categories-animation">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/tolerantia/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/ff3f2f2f23f2ffa-450x370.jpg" alt="Tolerantia" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-160" title="Like this"><span class="touchsize-likes-count icon-heart">250</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/tolerantia/"><h3 class="title">Tolerantia<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="related-author">
+                                    <div class="row">
+                                        <section class="ts-thumbnail-view no-effect cols-by-4 ">
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-184 video type-video status-publish has-post-thumbnail hentry tag-moldova tag-more tag-music-video tag-touchsize tag-video videos_categories-music-videos">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/moldovenii-s-au-nascut/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/117H-450x370.jpg" alt="Moldovenii s-au născut" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-184" title="Like this"><span class="touchsize-likes-count icon-heart">481</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/moldovenii-s-au-nascut/"><h3 class="title">Moldovenii s-au născut<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-169 video type-video status-publish has-post-thumbnail hentry tag-fox tag-here tag-some tag-tale tag-touchsize tag-video videos_categories-animation">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/fox-tale/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/v2c2sscas-450x370.jpg" alt="A fox tale" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-169" title="Like this"><span class="touchsize-likes-count icon-heart">632</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/fox-tale/"><h3 class="title">A fox tale<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-166 video type-video status-publish has-post-thumbnail hentry tag-animate tag-animation-2 tag-more tag-touchsize tag-video videos_categories-animation">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/partly-cloudy/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/d23d2dfd-450x370.jpg" alt="Partly cloudy" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-166" title="Like this"><span class="touchsize-likes-count icon-heart">459</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/partly-cloudy/"><h3 class="title">Partly cloudy<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-163 video type-video status-publish has-post-thumbnail hentry tag-animation-2 tag-more tag-touchsize tag-vampire tag-video videos_categories-animation">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/vampires-crown/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/fdsff2f2f2d2-450x370.jpg" alt="Vampire&#8217;s crown" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-163" title="Like this"><span class="touchsize-likes-count icon-heart">364</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/vampires-crown/"><h3 class="title">Vampire&#8217;s crown<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- Ad area 2 -->
+                <!-- // End of Ad Area 2 -->
+                <div class="container single-video-comments">
+                    <div class="row content-block">
+                        <div class="col-lg-12">
+                            <div id="comments">
+                                <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/videotouch/video/fox-tale/?pgid=1&amp;pgedit=1#respond" style="display:none;">Cancel reply</a></small></h3>
+                                    <form action="{{ SITEURL }}/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+                                        <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
+                                        <p class="comment-form-author"><label for="author">Name
+                                            <span class="required">*</span>
+                                            </label> <input id="author" name="author" type="text" value="" size="30" aria-required='true' required='required' /></p>
+                                            <p class="comment-form-email"><label for="email">Email
+                                                <span class="required">*</span>
+                                                </label> <input id="email" name="email" type="text" value="" size="30" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+                                                <p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" /></p>
+                                                <p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-describedby="form-allowed-tags" aria-required="true" required="required"></textarea></p>
+                                                <p class="form-allowed-tags" id="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </code></p>
+                                                <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='169' id='comment_post_ID' /><input type='hidden' name='comment_parent' id='comment_parent' value='0' /></p>
+                                            </form>
+                                        </div>
+                                        <!-- #respond -->
+                                    </div>
+                                    <!-- #comments -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <footer class="" role="contentinfo" data-role="footer" data-fullscreen="true">
+                        <div data-alignment="top" class="site-section " style=" background-color: #161616;  color: #ffffff;  background-image:url('http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/dark_mosaic.png') ;  background-position: left center;  background-attachment: scroll;  background-repeat: repeat;  margin-top: 50px;  margin-bottom: 0px;  padding-top: 60px;  padding-bottom: 60px; ">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3">
+                                        <div class="row content-block ">
+                                            <div class="col-lg-12 text-left">
+                                                <a href="{{ SITEURL }}" class="logo">
+                                                    <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/text-logo.png" alt="ProjectMercury" style="width: 266px; height: auto;" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row content-block ">
+                                            <div data-element="spacer" data-show-mobile="n" style="height: 30px;"></div>
+                                        </div>
+                                        <div class="row content-block ">
+                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                <p>水星计划由一群爱好者自发成立的搬运&amp;翻译团队。成员来自于世界各地，有着各种不同的兴趣爱好。但我们同样的愿望就是希望能够将更多有意义的视频和大家一起分享</p>
+                                                <p><b>水星计划是希望通过自身的努力，让更多的人跨过语言障碍看到更多有意义的视频。</b></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3">
+                                        <div class="row content-block ">
+                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                <aside id="widget_touchsize_custom_post-2" class="widget ts_widget  widget_custom_post">
+                                                    <div class="widget-content">
+                                                        <h4 class="widget-title ts_sidebar_title">最新视频</h4>
+                                                        <div class="widget-delimiter"></div>
+                                                        <ul class="widget-items">
+                                                            {% for i in articles[:3] %}
+                                                                <li>
+                                                                    <article class="row">
+                                                                        <div class="col-lg-4 col-sm-4" style="width: 95px; height: 63px">
+                                                                            <a class="entry-img" href="{{ i.url }}">
+                                                                                <img width="450" height="300" src="{{ i.cover }}" class="attachment-grid" alt="{{ i.title }}" style="object-fit: cover; height: 63px"/>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="col-lg-8 col-sm-8">
+                                                                            <h6 class=""><a href="{{ i.url }}">{{ i.title }}</a></h6>
+                                                                        </div>
+                                                                    </article>
+                                                                </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </div>
+                                                </aside>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3">
+                                        <div class="row content-block ">
+                                        </div>
+                                        <div class="row content-block ">
+                                        </div>
+                                        <div class="row content-block ">
+                                            <div class="col-lg-12">
+                                                <div class="block-title block-title-simpleleft">
+                                                    <div class="row content-block ">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <aside id="widget_touchsize_tags-2" class="widget ts_widget  widget_tabber">
+                                                                <div class="widget-content">
+                                                                    <h4 class="widget-title ts_sidebar_title">视频标签</h4>
+                                                                    <div class="widget-delimiter"></div>
+                                                                    <div class="tab_menu_content tags-container">
+                                                                        {% for tag, articles in tags[:15]|sort %}
+                                                                            <a class="tag" href="{{tag.url}}"> {{tag.name}}</a>
+                                                                        {% endfor %}
+                                                                    </div>
+                                                                </div>
+                                                            </aside>
+                                                        </div>
+                                                    </div>
+                                                    <div data-element="spacer" data-show-mobile="n" style="height: 20px;"></div>
+                                                    <div class="block-title-container">
+                                                        <h6 class="the-title" style="color: #ffffff"><i class="icon-noicon"></i>关注我们</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row content-block ">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="social-icons">
+                                                    <ul class="text-left">
+                                                        <li>
+                                                            <a href="http://weibo.com/p/1005051436640375/" class="icon-weibo fa fa-weibo" target="_blank"></a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="{{ SITEURL }}/feed/" class="icon-rss fa fa-rss"> </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-alignment="top" class="site-section " style=" background-color: #121212;  color: #e4e4e4;  margin-top: 0px;  margin-bottom: 0px;  padding-top: 40px;  padding-bottom: 40px; ">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="row content-block ">
+                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                <p>All rights reserved.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+                <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-includes/js/comment-reply.min.js?ver=4.2.5'></script>
+                <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/html5.js?ver=1447632503'></script>
+                <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/echo.js?ver=1447632503'></script>
+                <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/jquery.cookie.js?ver=1447632503'></script>
+                <script type='text/javascript'>
+                /* <![CDATA[ */
+                var VideoTouch = {"contact_form_token":"3b9900cc0b","contact_form_success":"Sent successfully","contact_form_error":"Error!","ajaxurl":"http:\/\/demo.touchsize.com\/videotouch\/wp-admin\/admin-ajax.php","main_color":"#e10d0d","ts_enable_imagesloaded":"N","ts_logo_content":"<a href=\"http:\/\/demo.touchsize.com\/videotouch\"><img src=\"http:\/\/demo.touchsize.com\/videotouch\/wp-content\/themes\/videotouch\/images\/logo.png\" style=\"width: 266px;height: auto;\" alt=\"Logo\" \/><\/a>","ts_onepage_layout":"no","video_nonce":"6879710585","jwicon-play fa fa-play-circle-oer":"n"};
+                    /* ]]> */
+                    </script>
+                    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/scripting.js?ver=1447632503'></script>
+                    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/bootstrap.js?ver=1447632503'></script>
+                    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/mCustomScrollbar.js?ver=1447632503'></script>
+                </body>
+            </html>
