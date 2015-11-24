@@ -1,25 +1,339 @@
-{% extends "base.html" %}
-{% block title %}{{ article.title|striptags }}{% endblock %}
-{% block metadata %}
-
-<meta name="description" content="{{ article.summary|striptags }}">
-<meta name="keywords" content="{% for tag in article.tags %}{{tag}}{%if not loop.last %},{% endif %}{%endfor%}">
-<meta name="author" content="{% for author in article.authors %}{{author}}{%endfor%}">
-<meta name="robots" content="index,follow">
-
-
-<!-- OpenGraph -->
-<meta property="og:property" content="{{ DEFAULT_LANG }}">
-<meta property="og:title" content="{{article.title|striptags}}">
-<meta property="og:type" content="article">
-<meta property="og:description" content="{{article.summary|striptags}}">
-<meta property="article:published_time" content="{{ article.date.strftime('%Y-%m-%d') }}">
-{%if article.modified%}<meta property="article:modified_time" content="{{ article.modified.strftime('%Y-%m-%d') }}">{%endif%}
-{% for tag in article.tags %}
-<meta property="article:tag" content="{{tag}}">
-{% endfor %}
-<meta property="article:section" content="{{article.category}}">
-{% endblock %}
-{% block content %}
-{% include 'article_body.html' %}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+    {% include "head.html" %}
+    <body class="single single-video postid-169  videotouch">
+        {% include "inline-css.html" %}
+        <div id="wrapper" class="">
+            {% include "header.html" %}
+            
+            <div class="featured-image video-featured-image without-sidebar">
+                <div class="container ">
+                    <div class="embedded_videos ">
+                        <div id="videoframe" class="video-frame" data-display-button="true">
+                            <div class="overimg">
+                                <div class="play-btn">
+                                    <a class="videoPlay" href="#"><i class="icon-play"></i></a>
+                                </div>
+                                <div class="over-image">
+                                    <img width="1600" height="1067" src="{{ article.cover }}" class="attachment-full wp-post-image" alt="v2c2sscas" />
+                                </div>
+                                <div class="thumb-image"></div>
+                            </div>
+                            <div id="post-video">
+                                <div class="video-container">
+                                    <p><iframe style="width:704px;height:436px;" src="https://ssl.acfun.tv/block-player-homura.html#vid={{ article.acfun }};from=http://www.acfun.tv" id="ACFlashPlayer-re" frameborder="0"></iframe></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-single-resize in">
+                        <i class="icon-right"></i>
+                        <b class="icon-video"></b>
+                        <span>resize video</span>
+                        <i class="icon-left"></i>
+                    </div>
+                </div>
+            </div>
+            <section id="main">
+                <div class="container singular-container">
+                    <div id="primary" class="col-lg-12">
+                        <div id="content" role="main">
+                            <article class="post-169 video type-video status-publish has-post-thumbnail hentry tag-fox tag-here tag-some tag-tale tag-touchsize tag-video videos_categories-animation">
+                                <header class="post-header">
+                                    <div class="row">
+                                        <div class="ts-breadcrumbs breadcrumbs-single-video">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-lg-12">
+                                                        <div class="ts-breadcrumbs-content">
+                                                            <a href="{{ SITEURL }}">首页</a> /
+                                                            <a href="{{ SITEURL }}/videos_categories/animation/">{{ article.category }}</a> / {{ article.title }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-12">
+                                            <h1 class="post-title video-title">{{ article.title }}</h1>
+                                        </div>
+                                        
+                                        <div class="col-lg-12 col-md-12 post-author-block">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                                    <ul>
+                                                        <li class="author-name">by
+                                                            <a href="{{ SITEURL }}/author/admin/">{{ article.author }}</a>
+                                                        </li>
+                                                        <li class="author-published">Published
+                                                            <span>{{ article.date }}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </header>
+                                <div class="post-content ">
+                                    {{ article.content }}
+                                    <div>
+                                        <i class="icon-category"></i>
+                                        <ul class="single-video-categories">
+                                            <li>
+                                                <a href="{{ SITEURL }}/videos_categories/animation/" title="View all articles from: Animation">{{ article.category }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <i class="icon-tags"></i>
+                                        <ul class="single-video-tags">
+                                            {% for i in article.tag %}
+                                                <li>
+                                                    <a href="{{ SITEURL }}/tag/fox/" rel="tag">{{ i.name }}</a>
+                                                </li>       
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <div class="content-cortina"></div>
+                                </div>
+                                <div class="video-post-open">
+                                    <i class="icon-down"></i>
+                                    <span>details</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="ts-related-video-container row">
+                    <div class="container">
+                        <div class="ts-tab-container">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="active">
+                                    <a role="tab" data-toggle="tab" href="#related">Related posts</a>
+                                </li>
+                                <li>
+                                    <a role="tab" data-toggle="tab" href="#related-author">By the author</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="related">
+                                    <div class="row">
+                                        <section class="ts-thumbnail-view no-effect cols-by-4 ">
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-184 video type-video status-publish has-post-thumbnail hentry tag-moldova tag-more tag-music-video tag-touchsize tag-video videos_categories-music-videos">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/moldovenii-s-au-nascut/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/117H-450x370.jpg" alt="Moldovenii s-au născut" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-184" title="Like this"><span class="touchsize-likes-count icon-heart">481</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/moldovenii-s-au-nascut/"><h3 class="title">Moldovenii s-au născut<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-166 video type-video status-publish has-post-thumbnail hentry tag-animate tag-animation-2 tag-more tag-touchsize tag-video videos_categories-animation">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/partly-cloudy/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/d23d2dfd-450x370.jpg" alt="Partly cloudy" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-166" title="Like this"><span class="touchsize-likes-count icon-heart">459</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/partly-cloudy/"><h3 class="title">Partly cloudy<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-163 video type-video status-publish has-post-thumbnail hentry tag-animation-2 tag-more tag-touchsize tag-vampire tag-video videos_categories-animation">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/vampires-crown/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/fdsff2f2f2d2-450x370.jpg" alt="Vampire&#8217;s crown" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-163" title="Like this"><span class="touchsize-likes-count icon-heart">364</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/vampires-crown/"><h3 class="title">Vampire&#8217;s crown<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-160 video type-video status-publish has-post-thumbnail hentry tag-more tag-tolerantia tag-touchsize tag-video videos_categories-animation">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/tolerantia/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/ff3f2f2f23f2ffa-450x370.jpg" alt="Tolerantia" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-160" title="Like this"><span class="touchsize-likes-count icon-heart">250</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/tolerantia/"><h3 class="title">Tolerantia<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="related-author">
+                                    <div class="row">
+                                        <section class="ts-thumbnail-view no-effect cols-by-4 ">
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-184 video type-video status-publish has-post-thumbnail hentry tag-moldova tag-more tag-music-video tag-touchsize tag-video videos_categories-music-videos">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/moldovenii-s-au-nascut/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/117H-450x370.jpg" alt="Moldovenii s-au născut" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-184" title="Like this"><span class="touchsize-likes-count icon-heart">481</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/moldovenii-s-au-nascut/"><h3 class="title">Moldovenii s-au născut<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-169 video type-video status-publish has-post-thumbnail hentry tag-fox tag-here tag-some tag-tale tag-touchsize tag-video videos_categories-animation">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/fox-tale/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/v2c2sscas-450x370.jpg" alt="A fox tale" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-169" title="Like this"><span class="touchsize-likes-count icon-heart">632</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/fox-tale/"><h3 class="title">A fox tale<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-166 video type-video status-publish has-post-thumbnail hentry tag-animate tag-animation-2 tag-more tag-touchsize tag-video videos_categories-animation">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/partly-cloudy/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/d23d2dfd-450x370.jpg" alt="Partly cloudy" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-166" title="Like this"><span class="touchsize-likes-count icon-heart">459</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/partly-cloudy/"><h3 class="title">Partly cloudy<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                                <article class="post-163 video type-video status-publish has-post-thumbnail hentry tag-animation-2 tag-more tag-touchsize tag-vampire tag-video videos_categories-animation">
+                                                    <div class="image-holder">
+                                                        <a href="{{ SITEURL }}/video/vampires-crown/">
+                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/fdsff2f2f2d2-450x370.jpg" alt="Vampire&#8217;s crown" />
+                                                        </a>
+                                                        <div class="entry-meta-likes">
+                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-163" title="Like this"><span class="touchsize-likes-count icon-heart">364</span> <span class="touchsize-likes-postfix"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="entry-content">
+                                                        <div class="entry-title">
+                                                            <a href="{{ SITEURL }}/video/vampires-crown/"><h3 class="title">Vampire&#8217;s crown<i class="icon-right"></i></h3></a>
+                                                        </div>
+                                                        <div class="entry-meta-date">
+                                                            <span>added 1 year ago</span>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- Ad area 2 -->
+                <!-- // End of Ad Area 2 -->
+                <div class="container single-video-comments">
+                    <div class="row content-block">
+                        <div class="col-lg-12">
+                            <div id="comments">
+                                <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/videotouch/video/fox-tale/?pgid=1&amp;pgedit=1#respond" style="display:none;">Cancel reply</a></small></h3>
+                                    <form action="{{ SITEURL }}/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+                                        <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
+                                        <p class="comment-form-author"><label for="author">Name
+                                            <span class="required">*</span>
+                                            </label> <input id="author" name="author" type="text" value="" size="30" aria-required='true' required='required' /></p>
+                                            <p class="comment-form-email"><label for="email">Email
+                                                <span class="required">*</span>
+                                                </label> <input id="email" name="email" type="text" value="" size="30" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+                                                <p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" /></p>
+                                                <p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-describedby="form-allowed-tags" aria-required="true" required="required"></textarea></p>
+                                                <p class="form-allowed-tags" id="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </code></p>
+                                                <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='169' id='comment_post_ID' /><input type='hidden' name='comment_parent' id='comment_parent' value='0' /></p>
+                                            </form>
+                                        </div>
+                                        <!-- #respond -->
+                                    </div>
+                                    <!-- #comments -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    {% include "footer.html" %}
+                </div>
+                <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-includes/js/comment-reply.min.js?ver=4.2.5'></script>
+                <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/html5.js?ver=1447632503'></script>
+                <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/echo.js?ver=1447632503'></script>
+                <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/jquery.cookie.js?ver=1447632503'></script>
+                <script type='text/javascript'>
+                /* <![CDATA[ */
+                var VideoTouch = {"contact_form_token":"3b9900cc0b","contact_form_success":"Sent successfully","contact_form_error":"Error!","ajaxurl":"http:\/\/demo.touchsize.com\/videotouch\/wp-admin\/admin-ajax.php","main_color":"#e10d0d","ts_enable_imagesloaded":"N","ts_logo_content":"<a href=\"http:\/\/demo.touchsize.com\/videotouch\"><img src=\"http:\/\/demo.touchsize.com\/videotouch\/wp-content\/themes\/videotouch\/images\/logo.png\" style=\"width: 266px;height: auto;\" alt=\"Logo\" \/><\/a>","ts_onepage_layout":"no","video_nonce":"6879710585","jwicon-play fa fa-play-circle-oer":"n"};
+                    /* ]]> */
+                    </script>
+                    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/scripting.js?ver=1447632503'></script>
+                    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/bootstrap.js?ver=1447632503'></script>
+                    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/mCustomScrollbar.js?ver=1447632503'></script>
+                </body>
+            </html>

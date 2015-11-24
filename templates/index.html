@@ -1,14 +1,404 @@
-{% extends "base.html" %}
-{% block content_title %}{% endblock %}
-{% block content %}
-{% for article in articles_page.object_list %}
-{% include 'article_body.html' %}
-{%if loop.last %}
-{% if articles_page.has_previous() or loop.length > 1 %}
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+  {% include "head.html" %}
+  <body class="home page page-id-122 page-template-default  videotouch">
+    {% include "inline-css.html" %}
+    <div id="wrapper" class="">
+      {% include "header.html" %}
+      <section id="main" class="row">
+        <div id="primary" class="ts-page-with-layout-builder col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div id="content" role="main">
+            <div data-alignment="top" class="site-section " style=" background-color: transparent;  color: inherit;  margin-top: 0px;  margin-bottom: 0px;  padding-top: 0px;  padding-bottom: 0px; ">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-9 col-md-9">
+                    <div class="row content-block ">
+                      <div class="col-lg-12">
+                        <div class="block-title block-title-simpleleft">
+                          <div class="block-title-container">
+                            <h3 class="the-title" style="color: #3f4549"><i class="icon-noicon"></i>大脑游戏 Brain Games</h3>
+                            <span class="block-title-description" style="color: #b9c1c6">分类</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row content-block ">
+                      <div data-element="spacer" data-show-mobile="n" style="height: 20px;"></div>
+                    </div>
+                    <div class="row content-block ">
+                      <section class="ts-grid-view animated scaler cols-by-3 ">
+                        {% for category, articles in categories %}
+                          {% if category|lower == 'brain games' %}
+                            {% for i in articles[:3] %}
+                              <div class="col-lg-4 col-md-4 col-sm-12 item">
+                                <article class=" article-meta-shown title-above-excerpt post-169 video type-video status-publish has-post-thumbnail hentry">
+                                  <header>
+                                    <div class="image-holder default-effect" style="width: 305px; height: 237px;">
+                                      <a href="{{ i.url }}">
+                                        <img src="{{ i.cover }}" alt="{{ i.title }}" style="object-fit: cover; height: 237px"/>
+                                      </a>
+                                      <div class="overlay-effect">
+                                        <div class="entry-overlay">
+                                          <a class="view-more" href="{{ i.url }}"><i class="icon-icon-play fa fa-play-circle-o"></i><span>浏览</span></a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </header>
+                                  <section>
+                                    <div class="entry-title">
+                                      <a href="{{ i.url }}"><h3 class="title">{{ i.title }}</h3></a>
+                                    </div>
+                                    <div class="ts-view-entry-meta-date">
+                                      <ul>
+                                        <li>{{ i.date }}</li>
+                                      </ul>
+                                    </div>
+                                    <div class="entry-excerpt">
+                                      {{ i.content }}
+                                    </div>
+                                  </section>
+                                  <footer>
+                                    <div class="entry-footer">
+                                      <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-12 text-right">
+                                          <a href="{{ i.url }}" class="btn btn-grid-more">浏览<i class="icon-right fa fa-angle-right"></i></a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </footer>
+                                </article>
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        {% endfor %}
+                      </section>
+                    </div>
 
-	{% include 'nav.html' %}
-    {%endif%}
-{%endif%}
-
-{% endfor %}
-{% endblock %}
+                    <div data-element="spacer" data-show-mobile="n" style="height: 30px;"></div>
+                    <div class="row content-block ">
+                      <div class="col-lg-12">
+                        <div class="block-title block-title-simpleleft">
+                          <div class="block-title-container">
+                            <h3 class="the-title" style="color: #3f4549"><i class="icon-noicon"></i>大脑魔术 Brain Magics</h3>
+                            <span class="block-title-description" style="color: #b9c1c6">分类</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row content-block ">
+                      <div data-element="spacer" data-show-mobile="n" style="height: 20px;"></div>
+                    </div>
+                    <div class="row content-block ">
+                      <section class="ts-big-posts animated opacited ">
+                        {% for category, articles in categories %}
+                          {% if category|lower == 'brain magic' %}
+                            {% for i in articles[:2] %}
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <article class=" article-split-1-2 article-meta-shown title-above-excerpt post-184 video type-video status-publish has-post-thumbnail hentry">
+                                  <div class="row">
+                                    <header class="col-lg-6 col-md-6 col-sm-12">
+                                      <div class="image-holder default-effect">
+                                        <a href="{{ i.url }}">
+                                          <img src="{{ i.cover }}" alt="{{ i.title }}" />
+                                        </a>
+                                        <div class="overlay-effect">
+                                          <a href="{{ i.url }}" class="view-more"><i class="icon-icon-play fa fa-play-circle-o"></i><span>浏览</span></a>
+                                        </div>
+                                      </div>
+                                    </header>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                      <section>
+                                        <div class="entry-title">
+                                          <a href="{{ i.url }}" title="{{ i.title }}"><h3 class="title">{{ i.title }}</h3></a>
+                                        </div>
+                                        <div class="entry-author">
+                                          <ul>
+                                            <li class="author-name">
+                                              by
+                                              <a href="http://demo.touchsize.com/videotouch/author/admin/">{{ i.author }}</a>
+                                            </li>
+                                            <li class="author-published">added
+                                              <span>{{ i.date }}</span>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                        <div class="entry-excerpt excerpt">
+                                          {{ i.content }}
+                                        </div>
+                                        <a class="btn small" href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/" title="Moldovenii s-au născut">浏览 <i class="icon-right fa fa-angle-right"></i></a>
+                                      </section>
+                                    </div>
+                                  </div>
+                                </article>
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        {% endfor %}
+                      </section>
+                    </div>
+                    <div class="row content-block ">
+                      <div data-element="spacer" data-show-mobile="n" style="height: 30px;"></div>
+                    </div>
+                    <div class="row content-block ">
+                      <div class="col-lg-12">
+                        <div class="block-title block-title-simpleleft">
+                          <div class="block-title-container">
+                            <h3 class="the-title" style="color: #3f4549"><i class="icon-noicon"></i>其他</h3>
+                            <span class="block-title-description" style="color: #b9c1c6">分类</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row content-block ">
+                      <div data-element="spacer" data-show-mobile="n" style="height: 20px;"></div>
+                    </div>
+                    <div class="row content-block ">
+                      <section class="ts-thumbnail-view no-effect cols-by-4 ">
+                        {% for category, articles in categories %}
+                          {% if category|lower != 'brain games' and  category|lower != 'brain magic' %}
+                            {% for i in articles[:4] %}
+                              <div class="item col-lg-3 col-md-3 col-sm-12 ">
+                                <article class="post-154 video type-video status-publish has-post-thumbnail hentry">
+                                  <div class="image-holder" style="width: 219px; height: 180px">
+                                    <a href="{{ i.url }}">
+                                      <img src="{{ i.cover }}" alt="{{ i.title }}" style="object-fit: cover; height: auto"/>
+                                    </a>
+                                  </div>
+                                  <div class="entry-content">
+                                    <div class="entry-title">
+                                      <a href="{{ i.url }}"><h3 class="title">{{ i.title }}<i class="icon-right fa fa-angle-right"></i></h3></a>
+                                    </div>
+                                    <div class="entry-meta-date">
+                                      <span>{{ i.date }}</span>
+                                    </div>
+                                  </div>
+                                </article>
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        {% endfor %}
+                      </section>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-3">
+                    <div class="row content-block ">
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <aside id="search-2" class="widget ts_widget widget_search">
+                          <div class="widget-content">
+                            <form role="search" method="get" id="searchform" class="searchform" action="http://demo.touchsize.com/videotouch/">
+                              <div>
+                                <label class="screen-reader-text" for="s">Search for:</label>
+                                <input type="text" value="" name="s" id="s" />
+                                <input type="submit" id="searchsubmit" value="搜索" />
+                              </div>
+                            </form>
+                          </div>
+                        </aside>
+                        <aside id="widget_touchsize_most_liked-2" class="widget ts_widget widget_most_liked">
+                          <div class="widget-content">
+                            <h4 class="widget-title ts_sidebar_title">推荐视频</h4>
+                            <div class="widget-delimiter"></div>
+                            <ul class="widget-items">
+                              <li>
+                                <article class="row">
+                                  <div class="col-lg-4 col-sm-4">
+                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/fox-tale/">
+                                      <img width="150" height="92" src="" class="attachment-thumb" alt="v2c2sscas">
+                                    </a>
+                                  </div>
+                                  <div class="col-lg-8 col-sm-8">
+                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/fox-tale/">
+                                    只需要5分钟就能让你英语阅读速度提高一倍的方法</a> </h6>
+                                  </div>
+                                </article>
+                              </li>
+                              <li>
+                                <article class="row">
+                                  <div class="col-lg-4 col-sm-4">
+                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/">
+                                      <img width="150" height="92" src="" class="attachment-thumb" alt="117H">
+                                    </a>
+                                  </div>
+                                  <div class="col-lg-8 col-sm-8">
+                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/">
+                                    在古巴，没有互联网的网络生活</a> </h6>
+                                  </div>
+                                </article>
+                              </li>
+                              <li>
+                                <article class="row">
+                                  <div class="col-lg-4 col-sm-4">
+                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/partly-cloudy/">
+                                      <img width="150" height="92" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/d23d2dfd-180x110.jpg" class="attachment-thumb" alt="d23d2dfd">
+                                    </a>
+                                  </div>
+                                  <div class="col-lg-8 col-sm-8">
+                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/partly-cloudy/">
+                                    Partly cloudy                                   </a> </h6>
+                                  </div>
+                                </article>
+                              </li>
+                              <li>
+                                <article class="row">
+                                  <div class="col-lg-4 col-sm-4">
+                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/vampires-crown/">
+                                      <img width="150" height="92" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/fdsff2f2f2d2-180x110.jpg" class="attachment-thumb" alt="fdsff2f2f2d2">
+                                    </a>
+                                  </div>
+                                  <div class="col-lg-8 col-sm-8">
+                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/vampires-crown/">
+                                    Vampire's crown                                 </a> </h6>
+                                  </div>
+                                </article>
+                              </li>
+                            </ul>
+                          </div>
+                        </aside>
+                        <aside id="text-2" class="widget ts_widget widget_text">
+                          <div class="widget-content">
+                            <h4 class="widget-title ts_sidebar_title">广告招租</h4>
+                            <div class="widget-delimiter"></div>
+                            <div class="textwidget">
+                              <a href="#" target="_blank">
+                                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/logo.png" alt="VideoTouch Ads">
+                              </a>
+                            </div>
+                          </div>
+                        </aside>
+                        <aside id="widget_touchsize_most_viewed-2" class="widget ts_widget widget_most_viewed">
+                          <div class="widget-content">
+                            <h4 class="widget-title ts_sidebar_title">热门视频</h4>
+                            <div class="widget-delimiter"></div>
+                            <ul class="widget-items row  widget-columns-2">
+                              <li class="col-lg-6 col-md-6 col-sm-12">
+                                <article class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/">
+                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/117H-450x300.jpg" class="attachment-grid" alt="117H">
+                                    </a>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/">
+                                    Moldovenii s-au născut                                      </a> </h6>
+                                  </div>
+                                </article>
+                              </li>
+                              <li class="col-lg-6 col-md-6 col-sm-12">
+                                <article class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/fox-tale/">
+                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/v2c2sscas-450x300.jpg" class="attachment-grid" alt="v2c2sscas">
+                                    </a>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/fox-tale/">
+                                    A fox tale                                      </a> </h6>
+                                  </div>
+                                </article>
+                              </li>
+                              <li class="col-lg-6 col-md-6 col-sm-12">
+                                <article class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/bunny-eating-raspberries/">
+                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/Screen-Shot-2014-10-07-at-4.13.09-PM-450x300.png" class="attachment-grid" alt="Screen Shot 2014-10-07 at 4.13.09 PM">
+                                    </a>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/bunny-eating-raspberries/">
+                                    Bunny eating raspberries                                        </a> </h6>
+                                  </div>
+                                </article>
+                              </li>
+                              <li class="col-lg-6 col-md-6 col-sm-12">
+                                <article class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/paolo-nutini-iron-sky/">
+                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/Screen-Shot-2014-10-07-at-4.36.24-PM-450x300.png" class="attachment-grid" alt="Screen Shot 2014-10-07 at 4.36.24 PM">
+                                    </a>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/paolo-nutini-iron-sky/">
+                                    Paolo Nutini - Iron Sky                                     </a> </h6>
+                                  </div>
+                                </article>
+                              </li>
+                              <li class="col-lg-6 col-md-6 col-sm-12">
+                                <article class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/tolerantia/">
+                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/ff3f2f2f23f2ffa-450x300.jpg" class="attachment-grid" alt="ff3f2f2f23f2ffa">
+                                    </a>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/tolerantia/">
+                                    Tolerantia                                      </a> </h6>
+                                  </div>
+                                </article>
+                              </li>
+                              <li class="col-lg-6 col-md-6 col-sm-12">
+                                <article class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/partly-cloudy/">
+                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/d23d2dfd-450x300.jpg" class="attachment-grid" alt="d23d2dfd">
+                                    </a>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/partly-cloudy/">
+                                    Partly cloudy                                       </a> </h6>
+                                  </div>
+                                </article>
+                              </li>
+                              <li class="col-lg-6 col-md-6 col-sm-12">
+                                <article class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/air-safety-video/">
+                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/5058177635_952c74ccca_o-450x300.jpg" class="attachment-grid" alt="5058177635_952c74ccca_o">
+                                    </a>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/air-safety-video/">
+                                    Self hosted video                                       </a> </h6>
+                                  </div>
+                                </article>
+                              </li>
+                              <li class="col-lg-6 col-md-6 col-sm-12">
+                                <article class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/tania-cerga-inima/">
+                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/Screen-Shot-2014-10-10-at-1.22.26-PM-450x300.png" class="attachment-grid" alt="Screen Shot 2014-10-10 at 1.22.26 PM">
+                                    </a>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/tania-cerga-inima/">
+                                    Tania Cerga - Inima                                     </a> </h6>
+                                  </div>
+                                </article>
+                              </li>                              
+                            </ul>
+                          </div>
+                        </aside>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% include "footer.html" %}
+    </div>
+    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-includes/js/comment-reply.min.js?ver=4.2.5'></script>
+    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/html5.js?ver=1447632503'></script>
+    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/echo.js?ver=1447632503'></script>
+    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/jquery.cookie.js?ver=1447632503'></script>
+    <script type='text/javascript'>
+    /* <![CDATA[ */
+    var VideoTouch = {"contact_form_token":"3b9900cc0b","contact_form_success":"Sent successfully","contact_form_error":"Error!","ajaxurl":"http:\/\/demo.touchsize.com\/videotouch\/wp-admin\/admin-ajax.php","main_color":"#e10d0d","ts_enable_imagesloaded":"N","ts_logo_content":"<a href=\"http:\/\/demo.touchsize.com\/videotouch\"><img src=\"http:\/\/demo.touchsize.com\/videotouch\/wp-content\/themes\/videotouch\/images\/logo.png\" style=\"width: 266px;height: auto;\" alt=\"Logo\" \/><\/a>","ts_onepage_layout":"no","video_nonce":"6879710585","jwicon-play fa fa-play-circle-oer":"n"};
+      /* ]]> */
+      </script>
+      <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/scripting.js?ver=1447632503'></script>
+      <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/bootstrap.js?ver=1447632503'></script>
+      <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/mCustomScrollbar.js?ver=1447632503'></script>
+    </body>
+  </html>

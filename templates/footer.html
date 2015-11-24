@@ -1,0 +1,114 @@
+<footer class="" role="contentinfo" data-role="footer" data-fullscreen="true">
+    <div data-alignment="top" class="site-section " style=" background-color: #161616;  color: #ffffff;  background-image:url('http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/dark_mosaic.png') ;  background-position: left center;  background-attachment: scroll;  background-repeat: repeat;  margin-top: 50px;  margin-bottom: 0px;  padding-top: 60px;  padding-bottom: 60px; ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="row content-block ">
+                        <div class="col-lg-12 text-left">
+                            <a href="{{ SITEURL }}" class="logo">
+                                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/text-logo.png" alt="ProjectMercury" style="width: 266px; height: auto;" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row content-block ">
+                        <div data-element="spacer" data-show-mobile="n" style="height: 30px;"></div>
+                    </div>
+                    <div class="row content-block ">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <p>水星计划由一群爱好者自发成立的搬运&amp;翻译团队。成员来自于世界各地，有着各种不同的兴趣爱好。但我们同样的愿望就是希望能够将更多有意义的视频和大家一起分享</p>
+                            <p><b>水星计划是希望通过自身的努力，让更多的人跨过语言障碍看到更多有意义的视频。</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="row content-block ">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <aside id="widget_touchsize_custom_post-2" class="widget ts_widget  widget_custom_post">
+                                <div class="widget-content">
+                                    <h4 class="widget-title ts_sidebar_title">最新视频</h4>
+                                    <div class="widget-delimiter"></div>
+                                    <ul class="widget-items">
+                                        {% for i in articles[:3] %}
+                                            <li>
+                                                <article class="row">
+                                                    <div class="col-lg-4 col-sm-4" style="width: 95px; height: 63px">
+                                                        <a class="entry-img" href="{{ i.url }}">
+                                                            <img width="450" height="300" src="{{ i.cover }}" class="attachment-grid" alt="{{ i.title }}" style="object-fit: cover; height: 63px"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-lg-8 col-sm-8">
+                                                        <h6 class=""><a href="{{ i.url }}">{{ i.title }}</a></h6>
+                                                    </div>
+                                                </article>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="row content-block ">
+                    </div>
+                    <div class="row content-block ">
+                    </div>
+                    <div class="row content-block ">
+                        <div class="col-lg-12">
+                            <div class="block-title block-title-simpleleft">
+                                <div class="row content-block ">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <aside id="widget_touchsize_tags-2" class="widget ts_widget  widget_tabber">
+                                            <div class="widget-content">
+                                                <h4 class="widget-title ts_sidebar_title">视频标签</h4>
+                                                <div class="widget-delimiter"></div>
+                                                <div class="tab_menu_content tags-container">
+                                                    {% for tag, articles in tags[:15]|sort %}
+                                                        <a class="tag" href="{{tag.url}}"> {{tag.name}}</a>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </aside>
+                                    </div>
+                                </div>
+                                <div data-element="spacer" data-show-mobile="n" style="height: 20px;"></div>
+                                <div class="block-title-container">
+                                    <h6 class="the-title" style="color: #ffffff"><i class="icon-noicon"></i>关注我们</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row content-block ">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="social-icons">
+                                <ul class="text-left">
+                                    <li>
+                                        <a href="http://weibo.com/p/1005051436640375/" class="icon-weibo fa fa-weibo" target="_blank"></a>
+                                    </li>
+                                    <li class="">
+                                        <a href="{{ SITEURL }}/feed/" class="icon-rss fa fa-rss"> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-alignment="top" class="site-section " style=" background-color: #121212;  color: #e4e4e4;  margin-top: 0px;  margin-bottom: 0px;  padding-top: 40px;  padding-bottom: 40px; ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="row content-block ">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <p>All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
