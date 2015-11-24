@@ -102,7 +102,9 @@
                                           <img src="{{ i.cover }}" alt="{{ i.title }}" />
                                         </a>
                                         <div class="overlay-effect">
-                                          <a href="{{ i.url }}" class="view-more"><i class="icon-icon-play fa fa-play-circle-o"></i><span>浏览</span></a>
+                                          <a href="{{ i.url }}" class="view-more"><i class="icon-icon-play fa fa-play-circle-o" style="line-height: 60px;"></i>
+                                            <span>浏览</span>
+                                          </a>
                                         </div>
                                       </div>
                                     </header>
@@ -188,8 +190,15 @@
                             <form role="search" method="get" id="searchform" class="searchform" action="http://demo.touchsize.com/videotouch/">
                               <div>
                                 <label class="screen-reader-text" for="s">Search for:</label>
-                                <input type="text" value="" name="s" id="s" />
-                                <input type="submit" id="searchsubmit" value="搜索" />
+                                <input type="text" class="st-default-search-input form-control" placeholder="搜索">
+                                <script type="text/javascript">
+                                  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+                                  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+                                  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+                                  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+                                  _st('install','{{SWIFTYPE}}','2.0.0');
+                                </script>
                               </div>
                             </form>
                           </div>
