@@ -208,58 +208,21 @@
                             <h4 class="widget-title ts_sidebar_title">推荐视频</h4>
                             <div class="widget-delimiter"></div>
                             <ul class="widget-items">
+                              {% for article in articles_page.object_list[:4] %}                              
                               <li>
                                 <article class="row">
                                   <div class="col-lg-4 col-sm-4">
-                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/fox-tale/">
-                                      <img width="150" height="92" src="" class="attachment-thumb" alt="v2c2sscas">
+                                    <a class="entry-img" href="{{ article.url }}">
+                                      <img width="150" height="92" src="{{ article.cover }}" class="attachment-thumb" alt="article.title">
                                     </a>
                                   </div>
                                   <div class="col-lg-8 col-sm-8">
-                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/fox-tale/">
-                                    只需要5分钟就能让你英语阅读速度提高一倍的方法</a> </h6>
+                                    <h6> <a href="{{ article.url }}">
+                                    {{ article.title }}</a> </h6>
                                   </div>
                                 </article>
                               </li>
-                              <li>
-                                <article class="row">
-                                  <div class="col-lg-4 col-sm-4">
-                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/">
-                                      <img width="150" height="92" src="" class="attachment-thumb" alt="117H">
-                                    </a>
-                                  </div>
-                                  <div class="col-lg-8 col-sm-8">
-                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/">
-                                    在古巴，没有互联网的网络生活</a> </h6>
-                                  </div>
-                                </article>
-                              </li>
-                              <li>
-                                <article class="row">
-                                  <div class="col-lg-4 col-sm-4">
-                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/partly-cloudy/">
-                                      <img width="150" height="92" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/d23d2dfd-180x110.jpg" class="attachment-thumb" alt="d23d2dfd">
-                                    </a>
-                                  </div>
-                                  <div class="col-lg-8 col-sm-8">
-                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/partly-cloudy/">
-                                    Partly cloudy                                   </a> </h6>
-                                  </div>
-                                </article>
-                              </li>
-                              <li>
-                                <article class="row">
-                                  <div class="col-lg-4 col-sm-4">
-                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/vampires-crown/">
-                                      <img width="150" height="92" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/fdsff2f2f2d2-180x110.jpg" class="attachment-thumb" alt="fdsff2f2f2d2">
-                                    </a>
-                                  </div>
-                                  <div class="col-lg-8 col-sm-8">
-                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/vampires-crown/">
-                                    Vampire's crown                                 </a> </h6>
-                                  </div>
-                                </article>
-                              </li>
+                              {% endfor %}
                             </ul>
                           </div>
                         </aside>
@@ -269,7 +232,7 @@
                             <div class="widget-delimiter"></div>
                             <div class="textwidget">
                               <a href="#" target="_blank">
-                                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/logo.png" alt="VideoTouch Ads">
+                                <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/logo.png">
                               </a>
                             </div>
                           </div>
@@ -279,110 +242,21 @@
                             <h4 class="widget-title ts_sidebar_title">热门视频</h4>
                             <div class="widget-delimiter"></div>
                             <ul class="widget-items row  widget-columns-2">
-                              <li class="col-lg-6 col-md-6 col-sm-12">
-                                <article class="row">
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/">
-                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/117H-450x300.jpg" class="attachment-grid" alt="117H">
-                                    </a>
-                                  </div>
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/moldovenii-s-au-nascut/">
-                                    Moldovenii s-au născut                                      </a> </h6>
-                                  </div>
-                                </article>
-                              </li>
-                              <li class="col-lg-6 col-md-6 col-sm-12">
-                                <article class="row">
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/fox-tale/">
-                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/v2c2sscas-450x300.jpg" class="attachment-grid" alt="v2c2sscas">
-                                    </a>
-                                  </div>
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/fox-tale/">
-                                    A fox tale                                      </a> </h6>
-                                  </div>
-                                </article>
-                              </li>
-                              <li class="col-lg-6 col-md-6 col-sm-12">
-                                <article class="row">
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/bunny-eating-raspberries/">
-                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/Screen-Shot-2014-10-07-at-4.13.09-PM-450x300.png" class="attachment-grid" alt="Screen Shot 2014-10-07 at 4.13.09 PM">
-                                    </a>
-                                  </div>
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/bunny-eating-raspberries/">
-                                    Bunny eating raspberries                                        </a> </h6>
-                                  </div>
-                                </article>
-                              </li>
-                              <li class="col-lg-6 col-md-6 col-sm-12">
-                                <article class="row">
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/paolo-nutini-iron-sky/">
-                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/Screen-Shot-2014-10-07-at-4.36.24-PM-450x300.png" class="attachment-grid" alt="Screen Shot 2014-10-07 at 4.36.24 PM">
-                                    </a>
-                                  </div>
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/paolo-nutini-iron-sky/">
-                                    Paolo Nutini - Iron Sky                                     </a> </h6>
-                                  </div>
-                                </article>
-                              </li>
-                              <li class="col-lg-6 col-md-6 col-sm-12">
-                                <article class="row">
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/tolerantia/">
-                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/ff3f2f2f23f2ffa-450x300.jpg" class="attachment-grid" alt="ff3f2f2f23f2ffa">
-                                    </a>
-                                  </div>
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/tolerantia/">
-                                    Tolerantia                                      </a> </h6>
-                                  </div>
-                                </article>
-                              </li>
-                              <li class="col-lg-6 col-md-6 col-sm-12">
-                                <article class="row">
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/partly-cloudy/">
-                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/d23d2dfd-450x300.jpg" class="attachment-grid" alt="d23d2dfd">
-                                    </a>
-                                  </div>
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/partly-cloudy/">
-                                    Partly cloudy                                       </a> </h6>
-                                  </div>
-                                </article>
-                              </li>
-                              <li class="col-lg-6 col-md-6 col-sm-12">
-                                <article class="row">
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/air-safety-video/">
-                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/5058177635_952c74ccca_o-450x300.jpg" class="attachment-grid" alt="5058177635_952c74ccca_o">
-                                    </a>
-                                  </div>
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/air-safety-video/">
-                                    Self hosted video                                       </a> </h6>
-                                  </div>
-                                </article>
-                              </li>
-                              <li class="col-lg-6 col-md-6 col-sm-12">
-                                <article class="row">
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <a class="entry-img" href="http://demo.touchsize.com/videotouch/video/tania-cerga-inima/">
-                                      <img width="450" height="300" src="http://demo.touchsize.com/videotouch/wp-content/uploads/sites/16/2014/10/Screen-Shot-2014-10-10-at-1.22.26-PM-450x300.png" class="attachment-grid" alt="Screen Shot 2014-10-10 at 1.22.26 PM">
-                                    </a>
-                                  </div>
-                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <h6> <a href="http://demo.touchsize.com/videotouch/video/tania-cerga-inima/">
-                                    Tania Cerga - Inima                                     </a> </h6>
-                                  </div>
-                                </article>
-                              </li>                              
+                              {% for article in articles_page.object_list[:8] %}                              
+                                <li class="col-lg-6 col-md-6 col-sm-12">
+                                  <article class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                      <a class="entry-img" href="{{ article.url }}">
+                                        <img width="450" height="300" src="{{ article.cover }}" class="attachment-grid">
+                                      </a>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                      <h6> <a href="{{ article.url }}">
+                                      {{ article.title }}</a> </h6>
+                                    </div>
+                                  </article>
+                                </li>
+                              {% endfor %}
                             </ul>
                           </div>
                         </aside>
@@ -398,12 +272,12 @@
       {% include "footer.html" %}
     </div>
     <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-includes/js/comment-reply.min.js?ver=4.2.5'></script>
-    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/html5.js?ver=1447632503'></script>
-    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/echo.js?ver=1447632503'></script>
-    <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/jquery.cookie.js?ver=1447632503'></script>
+     <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/html5.js?ver=1447632503'></script>
+     <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/echo.js?ver=1447632503'></script>
+     <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/jquery.cookie.js?ver=1447632503'></script>
     <script type='text/javascript'>
     /* <![CDATA[ */
-    var VideoTouch = {"contact_form_token":"3b9900cc0b","contact_form_success":"Sent successfully","contact_form_error":"Error!","ajaxurl":"http:\/\/demo.touchsize.com\/videotouch\/wp-admin\/admin-ajax.php","main_color":"#e10d0d","ts_enable_imagesloaded":"N","ts_logo_content":"<a href=\"http:\/\/demo.touchsize.com\/videotouch\"><img src=\"http:\/\/demo.touchsize.com\/videotouch\/wp-content\/themes\/videotouch\/images\/logo.png\" style=\"width: 266px;height: auto;\" alt=\"Logo\" \/><\/a>","ts_onepage_layout":"no","video_nonce":"6879710585","jwicon-play fa fa-play-circle-oer":"n"};
+    // var VideoTouch = {"contact_form_token":"3b9900cc0b","contact_form_success":"Sent successfully","contact_form_error":"Error!","ajaxurl":"http:\/\/demo.touchsize.com\/videotouch\/wp-admin\/admin-ajax.php","main_color":"#e10d0d","ts_enable_imagesloaded":"N","ts_logo_content":"<a href=\"http:\/\/demo.touchsize.com\/videotouch\"><img src=\"http:\/\/demo.touchsize.com\/videotouch\/wp-content\/themes\/videotouch\/images\/logo.png\" style=\"width: 266px;height: auto;\" alt=\"Logo\" \/><\/a>","ts_onepage_layout":"no","video_nonce":"6879710585","jwicon-play fa fa-play-circle-oer":"n"};
       /* ]]> */
       </script>
       <script type='text/javascript' src='http://demo.touchsize.com/videotouch/wp-content/themes/videotouch/js/scripting.js?ver=1447632503'></script>
