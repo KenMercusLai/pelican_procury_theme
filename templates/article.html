@@ -15,9 +15,8 @@
                                     <a class="videoPlay" href="#"><i class="icon-play fa fa-play-circle-o"></i></a>
                                 </div>
                                 <div class="over-image">
-                                    <img width="1600" height="1067" src="{{ article.cover }}" class="attachment-full wp-post-image" alt="v2c2sscas" />
+                                    <img width="1600" height="1067" src="{{ article.cover }}" class="attachment-full" alt="{{ article.title }}" />
                                 </div>
-                                <div class="thumb-image"></div>
                             </div>
                             <div id="post-video">
                                 <div class="video-container">
@@ -88,7 +87,7 @@
                                         <ul class="single-video-tags">
                                             {% for i in article.tag %}
                                                 <li>
-                                                    <a href="{{ SITEURL }}/tag/fox/" rel="tag">{{ i.name }}</a>
+                                                    <a href="{{ SITEURL }}/tag/{{ i.name }}/" rel="tag">{{ i.name }}</a>
                                                 </li>       
                                             {% endfor %}
                                         </ul>
@@ -97,7 +96,7 @@
                                 </div>
                                 <div class="video-post-open">
                                     <i class="icon-down"></i>
-                                    <span>details</span>
+                                    <span>更多</span>
                                 </div>
                             </article>
                         </div>
@@ -300,23 +299,37 @@
                                 <div id="respond" class="comment-respond">
                                     <h3 id="reply-title" class="comment-reply-title">来说点什么</h3>
 
-                                    <div id="SOHUCS"></div>
-                                    <script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
-                                    <script type="text/javascript">
-                                        window.changyan.api.config({
-                                            appid: '{{ CHANGYAN_APPID }}',
-                                            conf: '{{ CHANGYAN_CONF }}'
-                                        });
-                                    </script>    
+                                    <div id="disqus_thread"></div>
+                                    <script>
+                                    /**
+                                    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                                    */
                                     
-                                        </div>
-                                        <!-- #respond -->
+                                    var disqus_config = function () {
+                                    this.page.url = {{ article.url }}; // Replace PAGE_URL with your page's canonical URL variable
+                                    // this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                    };
+                                    
+                                    (function() { // DON'T EDIT BELOW THIS LINE
+                                    var d = document, s = d.createElement('script');
+
+                                    s.src = '//shuixingtvcom.disqus.com/embed.js';
+
+                                    s.setAttribute('data-timestamp', +new Date());
+                                    (d.head || d.body).appendChild(s);
+                                    })();
+                                    </script>
+                                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>   
+                                    
                                     </div>
-                                    <!-- #comments -->
-                                </div>
+                                    
                             </div>
+                                    
                         </div>
-                    </section>
+                    </div>
+                </div>
+            </section>
                     
                     {% include "footer.html" %}
                 </div>

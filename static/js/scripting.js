@@ -1,15 +1,6 @@
 'use strict';
 // Get all localized variables
 
-var main_color = VideoTouch.main_color;
-var images_loaded_active = VideoTouch.ts_enable_imagesloaded;
-var ts_logo_content = VideoTouch.ts_logo_content;
-var ts_onepage_layout = VideoTouch.ts_onepage_layout;
-
-if (typeof ts_logo_content !== 'undefined') {
-    addLogoToMenu(ts_logo_content);
-}
-
 function ExpireCookie(minutes, content) {
     var date = new Date();
     var m = minutes;
@@ -614,94 +605,11 @@ function getFrameSize(content){
     return frameOptions
 }
 function autoPlayVideo(){
-    var content = jQuery('#post-video').find('iframe');
-    if(content.length != 0 && content.length > 0){
-        var option = getFrameSize(content);
-    }
-
-    if( typeof(option) == 'undefined' ){
-        return;
-    }
-   
-    if( option.iframe.attr('src').indexOf('?autoplay=1') > 0 ) return;
-
-    if( typeof(option) !== 'undefined' ){
-        if ( option.videourl.indexOf('youtube') >= 0 ){
-            var videoid = option.videourl.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)\/embed\/([^\s&]+)/);
-            if(videoid == null) {
-               alert('Video [id] not available!');
-            }
-        }else if( option.videourl.indexOf('vimeo') >= 0 ){
-            var videoid = option.videourl.match(/(?:https?:\/{2})?(?:w{3}\.)?player\.vimeo\.com\/video\/([0-9]*)/);
-            if(videoid == null) {
-               alert('Video [id] not available!');
-            }
-        }else{
-            // alert('No valid video url!');
-        };
-        
-        jQuery('#post-video .video-container').css("display","block");
-        jQuery('.overimg').css("display","none");
-        option.iframe.css('display','block').attr("src",option.videourl+'?autoplay=1');
-    }
+    jQuery('#post-video .video-container').css("display","block");
+    jQuery('#post-video .video-container p iframe').css("display","block");
+    jQuery('.overimg').css("display","none");
 }
 
-
-function getVideoThumb(){
-    if( !jQuery('body').hasClass('single-video') ){
-        return false;
-    }
-    var content = jQuery('#post-video').find('iframe');
-    if(content.length != 0 && content.length > 0 && jQuery('#videoframe').attr('data-featured-image') == 'false'){
-        var iframe = jQuery('#post-video iframe'),
-            new_iframe_url = iframe.attr('src').split('?feature=oembed'),
-            videoLink = new_iframe_url[0];
-
-        if ( videoLink.indexOf('youtube') >= 0 ){
-            var videoid = videoLink.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)\/embed\/([^\s&]+)/);
-
-            jQuery('.thumb-image').append('<img src="http://i.ytimg.com/vi/'+videoid[1]+'/maxresdefault.jpg"/>');
-
-            if ( jQuery('.thumb-image img').width() <= 480 ) {
-                jQuery('.thumb-image').css({
-                    'display' : 'none',
-                })
-                jQuery('.over-image').append('<img src="http://i.ytimg.com/vi/'+videoid[1]+'/0.jpg"/>');
-            }else {
-                jQuery('.thumb-image').css({
-                    'display' : 'none',
-                })
-                jQuery('.over-image').append('<img src="http://i.ytimg.com/vi/'+videoid[1]+'/maxresdefault.jpg"/>');
-            }
-
-        }else if( videoLink.indexOf('vimeo') >= 0 ){
-            var videoid = videoLink.match(/(?:https?:\/{2})?(?:w{3}\.)?player\.vimeo\.com\/video\/([0-9]*)/);
-
-            jQuery.getJSON('http://vimeo.com/api/v2/video/'+videoid[1]+'.json?callback=?',{format:"json"},function(data,status){
-                var videourl=data[0].url,
-                largeThumb=data[0].thumbnail_large,
-                raw=largeThumb.split('_'),
-                urlsnip=raw[0],
-                hdThumb=urlsnip+'_1280.jpg';
-                jQuery('.over-image').append('<img src="'+hdThumb+'"/>');
-            });
-
-        }else if( videoLink.indexOf('dailymotion') >= 0 ){
-            var videoid = videoLink.match(/(?:https?:\/{2})?(?:w{3}\.)?dailymotion?\.(?:com)\/embed\/video\/([^\s&]+)/);
-
-            jQuery('.over-image').append('<img src="http://www.dailymotion.com/thumbnail/video/'+videoid[1]+'" />');
-
-        }else if( videoLink.indexOf('rutube') >= 0 ){
-            var videoid = videoLink.match(/(?:https?:\/{2})?(?:w{3}\.)?rutube?\.(?:ru)\/play\/embed\/([^\s&]+)/);
-
-            jQuery.getJSON('http://rutube.ru/api/oembed/?url=http://rutube.ru/tracks/'+videoid[1]+'.html/&format=json', function(data){
-                var videoThumbURL = data[0].thumbnail_url;
-
-                jQuery('.over-image').append('<img src="'+videoThumbURL+'" />');
-            })
-        }  
-    }
-}
 
 function videoPostShow(){
 
@@ -1604,7 +1512,6 @@ jQuery(window).load(function() {
     alignMegaMenu();
     videoPostShow();
     singleVideoResize();
-    getVideoThumb();
 
     // If onepage layout - run the onepage menu
     if ( ts_onepage_layout == 'yes' ) {
