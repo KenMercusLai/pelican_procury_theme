@@ -28,8 +28,8 @@
                     <div class="row content-block ">
                       <section class="ts-grid-view cols-by-3">
                         {% for category, articles in categories %}
-                          {% if category|lower == 'brain games' %}
-                            {% for i in articles[:3] %}
+                          {% if category|lower == '大脑游戏' %}
+                            {% for i in articles[:3]|sort(reverse=True) %}
                               <div class="col-lg-4 col-md-4 col-sm-12 item">
                                 <article class=" article-meta-shown title-above-excerpt post-169 video type-video status-publish has-post-thumbnail hentry">
                                   <header>
@@ -91,8 +91,8 @@
                     <div class="row content-block ">
                       <section class="ts-big-posts">
                         {% for category, articles in categories %}
-                          {% if category|lower == 'brain magic' %}
-                            {% for i in articles[:2] %}
+                          {% if category|lower == '大脑魔术' %}
+                            {% for i in articles[:2]|sort(reverse=True) %}
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <article class=" article-split-1-2 article-meta-shown title-above-excerpt post-184 video type-video status-publish has-post-thumbnail hentry">
                                   <div class="row">
@@ -157,7 +157,7 @@
                     <div class="row content-block ">
                       <section class="ts-thumbnail-view no-effect cols-by-4 ">
                         {% for category, articles in categories %}
-                          {% if category|lower != 'brain games' and  category|lower != 'brain magic' %}
+                          {% if category|lower != '大脑游戏' and  category|lower != '大脑魔术' %}
                             {% for i in articles[:4] %}
                               <div class="item col-lg-3 col-md-3 col-sm-12 ">
                                 <article class="post-154 video type-video status-publish has-post-thumbnail hentry">
