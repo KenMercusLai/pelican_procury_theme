@@ -31,7 +31,7 @@
                           {% if category|lower == '大脑游戏' %}
                             {% for i in articles[:3] %}
                               <div class="col-lg-4 col-md-4 col-sm-12 item">
-                                <article class=" article-meta-shown title-above-excerpt post-169 video type-video status-publish has-post-thumbnail hentry">
+                                <article class=" article-meta-shown title-above-excerpt post-169 video type-video  has-post-thumbnail hentry">
                                   <header>
                                     <div class="image-holder default-effect">
                                       <a href="{{ i.url }}">
@@ -94,7 +94,7 @@
                           {% if category|lower == '大脑魔术' %}
                             {% for i in articles[:2] %}
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <article class=" article-split-1-2 article-meta-shown title-above-excerpt video type-video status-publish has-post-thumbnail hentry">
+                                <article class=" article-split-1-2 article-meta-shown title-above-excerpt video type-video  has-post-thumbnail hentry">
                                   <div class="row">
                                     <header class="col-lg-6 col-md-6 col-sm-12">
                                       <div class="image-holder default-effect">
@@ -159,8 +159,8 @@
                         {% for category, articles in categories %}
                           {% if category|lower != '大脑游戏' and  category|lower != '大脑魔术' %}
                             {% for i in articles[:4] %}
-                              <div class="item col-lg-3 col-md-3 col-sm-12 ">
-                                <article class="post-154 video type-video status-publish has-post-thumbnail hentry">
+                              <div class="item col-lg-3 col-md-6 col-sm-12 ">
+                                <article class="video type-video  has-post-thumbnail hentry">
                                   <div class="image-holder">
                                     <a href="{{ i.url }}">
                                       <img src="{{ i.cover }}" alt="{{ i.title }}" style="object-fit: cover; height: 180px"/>
