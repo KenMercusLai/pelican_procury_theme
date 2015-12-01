@@ -1,13 +1,58 @@
-{% extends "base.html" %}
-{% block title %}{{SITENAME}}: You are now browsing through `{{tag}}` tag{% endblock %}
-{% block content %}
-{% for article in articles_page.object_list %}
-{% include 'article_body.html' %}
-{%if loop.last %}
-{% if articles_page.has_previous() or loop.length > 1 %}
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+    {% include "head.html" %}
+    <body class="single single-video   videotouch">
+        {% include "inline-css.html" %}
+        <div id="wrapper" class="">
+            {% include "header.html" %}
+            <section id="main">
+                <div class="container singular-container">
+                    <div id="primary" class="col-lg-12">
+                        <div id="content" role="main">
 
-	{% include 'nav.html' %}
-    {%endif%}
-{%endif%}
-{%endfor%}
-{% endblock %}
+                            <div class="row content-block ">
+                              <div class="col-lg-12">
+                                <div class="block-title block-title-simpleleft">
+                                  <div class="block-title-container">
+                                    <h3 class="the-title" style="color: #3f4549"><i class="icon-noicon"></i>{{ tag }}</h3>
+                                    <span class="block-title-description" style="color: #b9c1c6">共{{ articles|length }}部视频</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row content-block ">
+                              <div data-element="spacer" data-show-mobile="n" style="height: 20px;"></div>
+                            </div>
+
+                            <div class="row content-block ">
+                              <section class="ts-thumbnail-view no-effect cols-by-4 ">
+                                {% for i in articles %}
+                                    <div class="item col-lg-3 col-md-6 col-sm-12 ">
+                                      <article class="video type-video  has-post-thumbnail hentry">
+                                        <div class="image-holder">
+                                          <a href="{{ i.url }}">
+                                            <img src="{{ i.cover }}" alt="{{ i.title }}" style="object-fit: cover; height: 180px"/>
+                                          </a>
+                                        </div>
+                                        <div class="entry-content">
+                                          <div class="entry-title">
+                                            <a href="{{ i.url }}"><h3 class="title">{{ i.title }}<i class="icon-right fa fa-angle-right"></i></h3></a>
+                                          </div>
+                                          <div class="entry-meta-date">
+                                            <span>{{ i.locale_date }}</span>
+                                          </div>
+                                        </div>
+                                      </article>
+                                    </div>
+                                {% endfor %}
+                              </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+                    
+        {% include "footer.html" %}
+        </div>
+    </body>
+</html>
