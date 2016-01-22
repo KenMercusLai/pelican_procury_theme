@@ -7,30 +7,19 @@
       <div class="row">
         <div class="carousel-inner">
           <div class="item active">
-            <div style="height: 204px;" class="col-sm-4 col-xs-6  post type-post  format-standard has-post-thumbnail">
-              <a title="Decorative Pumpkins: Which one?" href="http://videotube.marstheme.com/decorative-pumpkins-which-one/"><img src="http://videotube.marstheme.com/wp-content/uploads/2015/02/picjumbo.com_HNCK2326-230x150.jpg" class="img-responsive wp-post-image" alt="picjumbo.com_HNCK2326" width="230" height="150"></a>
+            {% for article in (articles|selectattr('blog')|sort(attribute='date', reverse=True))[:3] %}
+            <div style="height: 204px;" class="col-sm-4 col-xs-6 post type-post format-standard has-post-thumbnail">
+              <a title="{{article.title}}" href="{{article.url}}">
+                <img src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="230" height="150">
+              </a>
               <div class="post-header">
-                <h3><a title="Decorative Pumpkins: Which one?" href="http://videotube.marstheme.com/decorative-pumpkins-which-one/">Decorative Pumpkins: Which one?</a></h3>
+                <h3><a title="{{article.title}}" href="{{article.url}}">{{article.title}}</a></h3>
                 <span class="post-meta">
-                                                        <i class="fa fa-clock-o"></i> February 12 ,2015                                                 </span>
+                  <i class="fa fa-clock-o"></i> {{article.date|relative_time}}
+                </span>
               </div>
             </div>
-            <div style="height: 204px;" class="col-sm-4 col-xs-6  post type-post  format-standard has-post-thumbnail hentry category-food tag-little-kid tag-lake tag-usa">
-              <a title="Little Kid in Lake in the USA" href="http://videotube.marstheme.com/little-kid-lake-usa/"><img src="http://videotube.marstheme.com/wp-content/uploads/2015/02/picjumbo-230x150.png" class="img-responsive wp-post-image" alt="picjumbo" width="230" height="150"></a>
-              <div class="post-header">
-                <h3><a title="Little Kid in Lake in the USA" href="http://videotube.marstheme.com/little-kid-lake-usa/">Little Kid in Lake in the USA</a></h3>
-                <span class="post-meta">
-                                                        <i class="fa fa-clock-o"></i> February 12 ,2015                                                 </span>
-              </div>
-            </div>
-            <div style="height: 204px;" class="col-sm-4 col-xs-6 post type-post format-standard has-post-thumbnail hentry category-food tag-party tag-dancing tag-cranberries">
-              <a title="Party At Home Dancing Cranberries" href="http://videotube.marstheme.com/party-at-home-dancing-cranberries/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/08/picjumbo.com_HNCK2125-230x150.jpg" class="img-responsive wp-post-image" alt="picjumbo.com_HNCK2125" width="230" height="150"></a>
-              <div class="post-header">
-                <h3><a title="Party At Home Dancing Cranberries" href="http://videotube.marstheme.com/party-at-home-dancing-cranberries/">Party At Home Dancing Cranberries</a></h3>
-                <span class="post-meta">
-                                                        <i class="fa fa-clock-o"></i> August 21 ,2014                                                   </span>
-              </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -50,7 +39,7 @@
       <div class="row">
         <div class="carousel-inner">
           <div class="item active">
-            {% for article in (articles|rejectattr('Blog')|sort(attribute='date', reverse=True))[0:9] %}
+            {% for article in (articles|rejectattr('blog')|sort(attribute='date', reverse=True))[0:9] %}
             <div style="height: 201px;" class="col-sm-4 col-xs-6 item responsive-height">
               <div class="item-img">
                 <a title="{{article.title}}" href="{{article.url}}">
@@ -67,16 +56,10 @@
                 {% endif %}
               </a></h3>
               <div class="meta">
-                <span class="date">{{article.date|relative_time}}</span>
-                {% if article.views %}
-                <span class="views"><i class="fa fa-eye"></i>{{article.views}}</span>
-                {% endif %}
-                {% if article.views %}
-                <span class="heart"><i class="fa fa-heart"></i>{{article.likes}}</span>
-                {% endif %}
-                {% if article.views %}
-                <span class="fcomments"><i class="fa fa-comments"></i>{{article.comments}}</span>
-                {% endif %}
+                <span class="date">{{article.date|relative_time}}</span> {% if article.views %}
+                <span class="views"><i class="fa fa-eye"></i>{{article.views}}</span> {% endif %} {% if article.views %}
+                <span class="heart"><i class="fa fa-heart"></i>{{article.likes}}</span> {% endif %} {% if article.views %}
+                <span class="fcomments"><i class="fa fa-comments"></i>{{article.comments}}</span> {% endif %}
               </div>
             </div>
             {% endfor %}
@@ -99,16 +82,10 @@
                 {% endif %}
               </a></h3>
               <div class="meta">
-                <span class="date">{{article.date|relative_time}}</span>
-                {% if article.views %}
-                <span class="views"><i class="fa fa-eye"></i>{{article.views}}</span>
-                {% endif %}
-                {% if article.views %}
-                <span class="heart"><i class="fa fa-heart"></i>{{article.likes}}</span>
-                {% endif %}
-                {% if article.views %}
-                <span class="fcomments"><i class="fa fa-comments"></i>{{article.comments}}</span>
-                {% endif %}
+                <span class="date">{{article.date|relative_time}}</span> {% if article.views %}
+                <span class="views"><i class="fa fa-eye"></i>{{article.views}}</span> {% endif %} {% if article.views %}
+                <span class="heart"><i class="fa fa-heart"></i>{{article.likes}}</span> {% endif %} {% if article.views %}
+                <span class="fcomments"><i class="fa fa-comments"></i>{{article.comments}}</span> {% endif %}
               </div>
             </div>
             {% endfor %}
