@@ -26,6 +26,7 @@
   </div>
   <div class="widget mars-subscribox-widget">
     <h4 class="widget-title">Social Subscribox</h4>
+    {% if ACFUN %}
     <div class="social-counter-item">
       <a target="_blank" href="#">
         <i class="fa fa-facebook"></i>
@@ -33,6 +34,8 @@
         <span class="counter-text">Fans</span>
       </a>
     </div>
+    {% endif %}
+    {% if BILIBILI %}
     <div class="social-counter-item">
       <a target="_blank" href="#">
         <i class="fa fa-twitter"></i>
@@ -40,20 +43,25 @@
         <span class="counter-text">Followers</span>
       </a>
     </div>
+    {% endif %}
+    {% if WEIBO %}
     <div class="social-counter-item">
-      <a target="_blank" href="#">
-        <i class="fa fa-google-plus"></i>
+      <a target="{{WEIBO}}" href="#">
+        <i class="fa fa-weibo"></i>
         <span class="counter">241</span>
         <span class="counter-text">Fans</span>
       </a>
     </div>
+    {% endif %}
+    {% if FEED_ALL_ATOM %}
     <div class="social-counter-item last subscribe">
-      <a href="#" data-toggle="modal" data-target="#subscrib-modal">
+      <a href="{{SITEURL}}/{{FEED_ALL_ATOM}}" data-toggle="modal" data-target="#subscrib-modal">
         <i class="fa fa-rss"></i>
         <span class="counter">2</span>
         <span class="counter-text">Subscribers</span>
       </a>
     </div>
+    {% endif %}
     <!-- Modal -->
     <div class="modal fade" id="subscrib-modal" tabindex="-1" role="dialog" aria-labelledby="subscrib-modal-label" aria-hidden="true">
       <div class="modal-dialog">
@@ -99,7 +107,7 @@
   <div class="widget mars-posts-sidebar-widget">
     <h4 class="widget-title">Lastest Posts</h4>
     <div class="row">
-      <div style="height: 188px;" id="post-right-mars-posts-sidebar-widget-2-2751" class="col-xs-6 item responsive-height post-2751 post type-post status-publish format-standard has-post-thumbnail hentry category-food tag-pumpkins tag-decorative">
+      <div style="height: 188px;" id="post-right-mars-posts-sidebar-widget-2-2751" class="col-xs-6 item responsive-height  post type-post  format-standard has-post-thumbnail hentry category-food tag-pumpkins tag-decorative">
         <a title="Decorative Pumpkins: Which one?" href="http://videotube.marstheme.com/decorative-pumpkins-which-one/"><img src="http://videotube.marstheme.com/wp-content/uploads/2015/02/picjumbo.com_HNCK2326-165x108.jpg" class="img-responsive wp-post-image" alt="picjumbo.com_HNCK2326" width="165" height="108"></a>
         <div class="post-header">
           <h3><a title="Decorative Pumpkins: Which one?" href="http://videotube.marstheme.com/decorative-pumpkins-which-one/">Decorative Pumpkins: Which one?</a></h3>
@@ -107,7 +115,7 @@
                             <i class="fa fa-clock-o"></i> February 12 ,2015                     </span>
         </div>
       </div>
-      <div style="height: 188px;" id="post-right-mars-posts-sidebar-widget-2-2748" class="col-xs-6 item responsive-height post-2748 post type-post status-publish format-standard has-post-thumbnail hentry category-food tag-little-kid tag-lake tag-usa">
+      <div style="height: 188px;" id="post-right-mars-posts-sidebar-widget-2-2748" class="col-xs-6 item responsive-height  post type-post  format-standard has-post-thumbnail hentry category-food tag-little-kid tag-lake tag-usa">
         <a title="Little Kid in Lake in the USA" href="http://videotube.marstheme.com/little-kid-lake-usa/"><img src="http://videotube.marstheme.com/wp-content/uploads/2015/02/picjumbo-165x108.png" class="img-responsive wp-post-image" alt="picjumbo" width="165" height="108"></a>
         <div class="post-header">
           <h3><a title="Little Kid in Lake in the USA" href="http://videotube.marstheme.com/little-kid-lake-usa/">Little Kid in Lake in the USA</a></h3>
@@ -115,7 +123,7 @@
                             <i class="fa fa-clock-o"></i> February 12 ,2015                     </span>
         </div>
       </div>
-      <div style="height: 188px;" id="post-right-mars-posts-sidebar-widget-2-2370" class="col-xs-6 item responsive-height post-2370 post type-post status-publish format-standard has-post-thumbnail hentry category-food tag-party tag-dancing tag-cranberries">
+      <div style="height: 188px;" id="post-right-mars-posts-sidebar-widget-2-2370" class="col-xs-6 item responsive-height post-2370 post type-post  format-standard has-post-thumbnail hentry category-food tag-party tag-dancing tag-cranberries">
         <a title="Party At Home Dancing Cranberries" href="http://videotube.marstheme.com/party-at-home-dancing-cranberries/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/08/picjumbo.com_HNCK2125-165x108.jpg" class="img-responsive wp-post-image" alt="picjumbo.com_HNCK2125" width="165" height="108"></a>
         <div class="post-header">
           <h3><a title="Party At Home Dancing Cranberries" href="http://videotube.marstheme.com/party-at-home-dancing-cranberries/">Party At Home Dancing Cranberries</a></h3>
@@ -123,7 +131,7 @@
                             <i class="fa fa-clock-o"></i> August 21 ,2014                       </span>
         </div>
       </div>
-      <div style="height: 188px;" id="post-right-mars-posts-sidebar-widget-2-2369" class="col-xs-6 item responsive-height post-2369 post type-post status-publish format-standard has-post-thumbnail hentry category-music tag-band tag-live tag-music-3 tag-perfomance">
+      <div style="height: 188px;" id="post-right-mars-posts-sidebar-widget-2-2369" class="col-xs-6 item responsive-height post-2369 post type-post  format-standard has-post-thumbnail hentry category-music tag-band tag-live tag-music-3 tag-perfomance">
         <a title="Watch This Awesome Music Perfomance" href="http://videotube.marstheme.com/watch-this-awesome-music-perfomance-2/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/03/DeathtoStock_Band10-165x108.jpg" class="img-responsive wp-post-image" alt="DeathtoStock_Band10" width="165" height="108"></a>
         <div class="post-header">
           <h3><a title="Watch This Awesome Music Perfomance" href="http://videotube.marstheme.com/watch-this-awesome-music-perfomance-2/">Watch This Awesome Music Perfomance</a></h3>

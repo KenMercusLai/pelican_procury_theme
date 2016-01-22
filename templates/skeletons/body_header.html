@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm-3" id="logo">
         <a title="Just another WordPress site" href="http://videotube.marstheme.com">
-          <img src="http://videotube.marstheme.com/wp-content/themes/videotube/img/logo.png" alt="Just another WordPress site">
+          <img src="{{SITEURL}}/theme/img/text-logo.png" alt="水星计划">
         </a>
       </div>
       <form method="get" action="http://videotube.marstheme.com">
@@ -13,7 +13,18 @@
         </div>
       </form>
       <div class="col-sm-3" id="header-social">
-        <a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-google-plus"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-tumblr"></i></a> <a href="http://videotube.marstheme.com/feed/rss/"><i class="fa fa-rss"></i></a>
+        {% if ACFUN %}
+          <a href="{{ACFUN}}"><i class="fa fa-rss"></i></a>
+        {% endif %}
+        {% if BILIBILI %}
+          <a href="{{BILIBILI}}"><i class="fa fa-rss"></i></a>
+        {% endif %}
+        {% if WEIBO %}
+          <a href="{{WEIBO}}"><i class="fa fa-weibo"></i></a>
+        {% endif %}
+        {% if FEED_ALL_ATOM %}
+          <a href="{{SITEURL}}/{{FEED_ALL_ATOM}}"><i class="fa fa-rss"></i></a>
+        {% endif %}
       </div>
     </div>
   </div>
