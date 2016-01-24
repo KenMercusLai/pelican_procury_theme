@@ -96,7 +96,7 @@
   <div class="widget">
     <h4 class="widget-title">最多参与</h4>
     <div class="row">
-      {% for article in (articles|rejectattr('blog')|sort(attribute='engaged', reverse=True))[:8] %}
+      {% for article in (articles|rejectattr('blog')|sort(attribute='engagedstring', reverse=True))[:8] %}
       <div style="height: 188px;" class="col-xs-6 item responsive-height post type-post">
         <a title="{{article.title}}" href="{{article.url}}">
         <img src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="165" height="108"></a>
