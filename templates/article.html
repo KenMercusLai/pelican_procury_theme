@@ -67,7 +67,7 @@
   <div class="post-entry">
     {{article.content}}
   </div>
-  <span class="meta"><span class="meta-info">分类</span> <a href="{{ SITEURL }}/categories/{{article.category}}/" rel="tag">{{article.category}}</a></span>
+  <span class="meta"><span class="meta-info">分类</span> <a href="{{ SITEURL }}/category/{{article.category.slug}}.html" rel="tag">{{article.category}}</a></span>
   <span class="meta">
     <span class="meta-info">标签</span> 
     {% for i in article.tags %}
