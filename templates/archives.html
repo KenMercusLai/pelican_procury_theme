@@ -1,5 +1,7 @@
 {% extends "skeletons/style_index.html" %} 
 
+{% block title%}所有视频 - 水星计划{% endblock %}
+
 {% block maincontent %}
 <div id="carousel-latest-mars-mainpost-widgets-2" class="carousel carousel-mars-mainpost-widgets-2 slide video-section" data-ride="carousel">
   {% for year, date_year in dates|rejectattr('blog')|groupby('date.year')|sort(reverse=True) %}

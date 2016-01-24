@@ -1,5 +1,7 @@
 {% extends "skeletons/style_blog.html" %} 
 
+{% block title%}博客 - 水星计划{% endblock %}
+
 {% block maincontent %}
   {% for article in (articles|selectattr('blog')|sort(attribute='date', reverse=True)) %}
     <div class="post type-post">
