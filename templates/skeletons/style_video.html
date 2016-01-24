@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en-US">
+{% include "skeletons/head.html" %}
+
+<body class="wpb-js-composer vc_responsive">
+  {% include "skeletons/body_header.html" %}
+  {% block videoarea %} {% endblock %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 main-content">
+        {% block maincontent %} {% endblock %}
+      </div>
+      {% include "skeletons/body_content_sidebar.html" %}
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+  {% include "skeletons/body_footer.html" %}
+</body>
+
+</html>

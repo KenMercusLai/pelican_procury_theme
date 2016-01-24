@@ -1,0 +1,26 @@
+{% extends "skeletons/style_blog.html" %} 
+
+{% block maincontent %}
+  {% for article in (articles|selectattr('blog')|sort(attribute='date', reverse=True)) %}
+    <div class="post type-post">
+      <a href="{{article.url}}">
+        <img width="750" height="500" src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" srcset="{{article.cover}} 300w, {{article.cover}} 1024w, {{article.cover}} 360w, {{article.cover}} 295w, {{article.cover}} 750w" sizes="(max-width: 750px) 100vw, 750px" />
+      </a>
+      <div class="post-header">
+        <h2>
+          <a href="{{article.url}}">{{article.title}}</a>
+        </h2>
+        <span class="post-meta">
+          {% if article.author %}
+            <i class="fa fa-user"></i> <a href="">{{article.author}}</a>
+          {% endif %}
+          <span class="sep">/</span><i class="fa fa-clock-o"></i> {{article.date|relative_time}} 
+          <span class="sep">/</span><i class="fa fa-folder-open"></i> <a href="{{ SITEURL }}/categories/{{article.category}}/" rel="category tag">{{article.category}}</a></span>
+      </div>
+      <div class="post-entry">
+        <p>Lorem ipsum dolor sit amet, ex vim nostrud phaedrum, docendi facilisi te sed. An molestie inimicus temporibus per, vel debet aeque consequat et. Usu insolens deserunt suscipiantur et, ne enim laudem iudicabit his. Dicam luptatum interpretaris te his, quo te nisl nostrum, id lobortis senserit contentiones cum. Dicant corpora platonem usu ad, his sint officiis [&hellip;]</p>
+        <a href="{{article.url}}" class="readmore">继续阅读</a>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock maincontent%}

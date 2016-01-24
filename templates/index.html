@@ -1,7 +1,7 @@
 {% extends "skeletons/style_index.html" %} 
 
 {% block maincontent %}
-<div id="carousel-latest-mars-mainpost-widgets-2" class="carousel carousel-mars-mainpost-widgets-2 slide video-section" data-ride="carousel">
+<div class="carousel carousel-mars-mainpost-widgets-2 slide video-section" data-ride="carousel">
   <div class="section-header">
     <h3><i class="fa fa-pencil"></i> 最新文章</h3>
   </div>
@@ -84,10 +84,16 @@
                 {% endif %}
               </a></h3>
             <div class="meta">
-              <span class="date">{{article.date|relative_time}}</span> {% if article.views %}
-              <span class="views"><i class="fa fa-eye"></i>{{article.views}}</span> {% endif %} {% if article.views %}
-              <span class="heart"><i class="fa fa-heart"></i>{{article.likes}}</span> {% endif %} {% if article.views %}
-              <span class="fcomments"><i class="fa fa-comments"></i>{{article.comments}}</span> {% endif %}
+              <span class="date">{{article.date|relative_time}}</span> 
+              {% if article.views %}
+                <span class="views"><i class="fa fa-eye"></i>{{article.views}}</span> 
+              {% endif %} 
+              {% if article.likes %}
+                <span class="heart"><i class="fa fa-heart"></i>{{article.likes}}</span> 
+              {% endif %} 
+              {% if article.comments %}
+                <span class="fcomments"><i class="fa fa-comments"></i>{{article.comments}}</span> 
+              {% endif %}
             </div>
           </div>
           {% endfor %}
@@ -111,226 +117,79 @@
     <div class="row">
       <div class="carousel-inner">
         <div class="item active">
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-2360" class="col-sm-4 col-xs-6 item responsive-height video-2360">
+          {% for article in (articles|rejectattr('blog')|sort(attribute='comments', reverse=True))[0:6] %}
+          <div style="height: 201px;" class="col-sm-4 col-xs-6 item responsive-height">
             <div class="item-img">
-              <a title="Best TRANCE music 2014" href="http://videotube.marstheme.com/video/best-trance-music-2014/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/08/Future-Music-Festival-2015-230x150.jpg" class="img-responsive wp-post-image" alt="Future Music Festival 2015" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/best-trance-music-2014/">
+              <a title="{{article.title}}" href="{{article.url}}"><img src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="230" height="150"></a>
+              <a href="{{article.url}}">
                 <div class="img-hover"></div>
               </a>
             </div>
-            <h3><a title="Best TRANCE music 2014" href="http://videotube.marstheme.com/video/best-trance-music-2014/">Best TRANCE music 2014</a></h3>
-            <div class="meta"><span class="date">1 year ago</span><span class="views"><i class="fa fa-eye"></i>9320</span><span class="heart"><i class="fa fa-heart"></i>1073</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>6</span>
+            <h3><a title="{{article.title}}" href="{{article.url}}">{{article.title}}</a></h3>
+            <div class="meta">
+            <span class="date">{{article.date|relative_time}}</span>
+            {% if article.views %}
+              <span class="views"><i class="fa fa-eye"></i>{{article.views}}</span>
+            {% endif %}
+            {% if article.likes %}
+              <span class="heart"><i class="fa fa-heart"></i>{{article.likes}}</span>
+            {% endif %}
+            {% if article.comments %}
+              <span class="fcomments"><i class="fa fa-comments"></i>{{article.comments}}</span>
+            {% endif %}
             </div>
           </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-1719" class="col-sm-4 col-xs-6 item responsive-height video-1719">
-            <div class="item-img">
-              <a title="#SELFIE – The Chainsmokers" href="http://videotube.marstheme.com/video/selfie-the-chainsmokers/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/03/music2-230x150.jpg" class="img-responsive wp-post-image" alt="music2" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/selfie-the-chainsmokers/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="#SELFIE – The Chainsmokers" href="http://videotube.marstheme.com/video/selfie-the-chainsmokers/">#SELFIE – The Chainsmokers</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>8200</span><span class="heart"><i class="fa fa-heart"></i>1051</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-1903" class="col-sm-4 col-xs-6 item responsive-height video-1903">
-            <div class="item-img">
-              <a title="Wonderfull Chill Out Music Love" href="http://videotube.marstheme.com/video/wonderfull-chill-out-music-love/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/04/wonderfull-chill-out-music-love-230x150.jpg" class="img-responsive wp-post-image" alt="Wonderfull Chill Out Music Love" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/wonderfull-chill-out-music-love/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="Wonderfull Chill Out Music Love" href="http://videotube.marstheme.com/video/wonderfull-chill-out-music-love/">Wonderfull Chill Out Music Love</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>8163</span><span class="heart"><i class="fa fa-heart"></i>519</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>2</span>
-            </div>
-          </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-2132" class="col-sm-4 col-xs-6 item responsive-height video-2132">
-            <div class="item-img">
-              <a title="HD Music Nexus Playlist" href="http://videotube.marstheme.com/video/hd-music-nexus-playlist/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/07/Bassist-Steven-McDonald-230x150.jpg" class="img-responsive wp-post-image" alt="Bassist Steven McDonald" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/hd-music-nexus-playlist/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="HD Music Nexus Playlist" href="http://videotube.marstheme.com/video/hd-music-nexus-playlist/">HD Music Nexus Playlist</a></h3>
-            <div class="meta"><span class="date">1 year ago</span><span class="views"><i class="fa fa-eye"></i>6700</span><span class="heart"><i class="fa fa-heart"></i>1589</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-1721" class="col-sm-4 col-xs-6 item responsive-height video-1721">
-            <div class="item-img">
-              <a title="Titanfall Launch Trailer" href="http://videotube.marstheme.com/video/titanfall-launch-trailer/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/03/game6-230x150.jpg" class="img-responsive wp-post-image" alt="game6" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/titanfall-launch-trailer/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="Titanfall Launch Trailer" href="http://videotube.marstheme.com/video/titanfall-launch-trailer/">Titanfall Launch Trailer</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>5814</span><span class="heart"><i class="fa fa-heart"></i>674</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-34" class="col-sm-4 col-xs-6 item responsive-height video-34">
-            <div class="item-img">
-              <a title="New Destiny Trailer" href="http://videotube.marstheme.com/video/destiny/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/03/game1-230x150.jpg" class="img-responsive wp-post-image" alt="game1" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/destiny/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="New Destiny Trailer" href="http://videotube.marstheme.com/video/destiny/">New Destiny Trailer</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>5592</span><span class="heart"><i class="fa fa-heart"></i>182</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
+          {% endfor %}
         </div>
         <div class="item">
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-2508" class="col-sm-4 col-xs-6 item responsive-height ">
+          {% for article in (articles|rejectattr('blog')|sort(attribute='comments', reverse=True))[6:12] %}
+          <div style="height: 201px;" class="col-sm-4 col-xs-6 item responsive-height">
             <div class="item-img">
-              <a title="Awesome Film Perfomance" href="http://videotube.marstheme.com/video/awesome-film-perfomance/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/09/ZLSw0SXxThSrkXRIiCdT_DSC_0345-230x150.jpg" class="img-responsive wp-post-image" alt="ZLSw0SXxThSrkXRIiCdT_DSC_0345" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/awesome-film-perfomance/">
+              <a title="{{article.title}}" href="{{article.url}}"><img src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="230" height="150"></a>
+              <a href="{{article.url}}">
                 <div class="img-hover"></div>
               </a>
             </div>
-            <h3><a title="Awesome Film Perfomance" href="http://videotube.marstheme.com/video/awesome-film-perfomance/">Awesome Film Perfomance</a></h3>
-            <div class="meta"><span class="date">1 year ago</span><span class="views"><i class="fa fa-eye"></i>5264</span><span class="heart"><i class="fa fa-heart"></i>1313</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>8</span>
+            <h3><a title="{{article.title}}" href="{{article.url}}">{{article.title}}</a></h3>
+            <div class="meta">
+            <span class="date">{{article.date|relative_time}}</span>
+            {% if article.views %}
+              <span class="views"><i class="fa fa-eye"></i>{{article.views}}</span>
+            {% endif %}
+            {% if article.likes %}
+              <span class="heart"><i class="fa fa-heart"></i>{{article.likes}}</span>
+            {% endif %}
+            {% if article.comments %}
+              <span class="fcomments"><i class="fa fa-comments"></i>{{article.comments}}</span>
+            {% endif %}
             </div>
           </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-1717" class="col-sm-4 col-xs-6 item responsive-height video-1717">
-            <div class="item-img">
-              <a title="Godzilla Official Main Trailer" href="http://videotube.marstheme.com/video/godzilla-official-main-trailer/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/03/I’m-Light-Painting-Again-230x150.jpg" class="img-responsive wp-post-image" alt="I’m Light Painting Again" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/godzilla-official-main-trailer/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="Godzilla Official Main Trailer" href="http://videotube.marstheme.com/video/godzilla-official-main-trailer/">Godzilla Official Main Trailer</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>4730</span><span class="heart"><i class="fa fa-heart"></i>259</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-40" class="col-sm-4 col-xs-6 item responsive-height video-40">
-            <div class="item-img">
-              <a title="Best Jogging Playlist" href="http://videotube.marstheme.com/video/best-jogging-playlist/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/07/best-jogging-playlist-230x150.jpg" class="img-responsive wp-post-image" alt="Best Jogging Playlist" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/best-jogging-playlist/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="Best Jogging Playlist" href="http://videotube.marstheme.com/video/best-jogging-playlist/">Best Jogging Playlist</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>4115</span><span class="heart"><i class="fa fa-heart"></i>31</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-275" class="col-sm-4 col-xs-6 item responsive-height video-275">
-            <div class="item-img">
-              <a title="Monday Vlog (Mlog)" href="http://videotube.marstheme.com/video/monday-vlog-mlog/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/03/vlog3-230x150.jpg" class="img-responsive wp-post-image" alt="vlog3" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/monday-vlog-mlog/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="Monday Vlog (Mlog)" href="http://videotube.marstheme.com/video/monday-vlog-mlog/">Monday Vlog (Mlog)</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>4094</span><span class="heart"><i class="fa fa-heart"></i>565</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-273" class="col-sm-4 col-xs-6 item responsive-height video-273">
-            <div class="item-img">
-              <a title="Jenna Marbles" href="http://videotube.marstheme.com/video/jenna-marbles/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/03/vlog2-230x150.jpg" class="img-responsive wp-post-image" alt="vlog2" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/jenna-marbles/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="Jenna Marbles" href="http://videotube.marstheme.com/video/jenna-marbles/">Jenna Marbles</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>3825</span><span class="heart"><i class="fa fa-heart"></i>286</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-201" class="col-sm-4 col-xs-6 item responsive-height video-201">
-            <div class="item-img">
-              <a title="Earth to Echo Trailer" href="http://videotube.marstheme.com/video/earth-to-echo-trailer/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/03/game8-230x150.jpg" class="img-responsive wp-post-image" alt="game8" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/earth-to-echo-trailer/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="Earth to Echo Trailer" href="http://videotube.marstheme.com/video/earth-to-echo-trailer/">Earth to Echo Trailer</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>3479</span><span class="heart"><i class="fa fa-heart"></i>92</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
+          {% endfor %}
         </div>
         <div class="item">
-          <div style="height: 227px;" id="video-main-mars-mainvideo-widgets-3-214" class="col-sm-4 col-xs-6 item responsive-height video-214">
+          {% for article in (articles|rejectattr('blog')|sort(attribute='comments', reverse=True))[12:18] %}
+          <div style="height: 201px;" class="col-sm-4 col-xs-6 item responsive-height">
             <div class="item-img">
-              <a title="Dawn of the Planet of the Apes Trailer" href="http://videotube.marstheme.com/video/dawn-of-the-planet-of-the-apes-trailer/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/03/movie1-230x150.jpg" class="img-responsive wp-post-image" alt="movie1" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/dawn-of-the-planet-of-the-apes-trailer/">
+              <a title="{{article.title}}" href="{{article.url}}"><img src="{{article.cover}}" class="img-responsive" alt="{{article.title}}" width="230" height="150"></a>
+              <a href="{{article.url}}">
                 <div class="img-hover"></div>
               </a>
             </div>
-            <h3><a title="Dawn of the Planet of the Apes Trailer" href="http://videotube.marstheme.com/video/dawn-of-the-planet-of-the-apes-trailer/">Dawn of the Planet of the Apes Trailer</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>3376</span><span class="heart"><i class="fa fa-heart"></i>138</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
+            <h3><a title="{{article.title}}" href="{{article.url}}">{{article.title}}</a></h3>
+            <div class="meta">
+            <span class="date">{{article.date|relative_time}}</span>
+            {% if article.views %}
+              <span class="views"><i class="fa fa-eye"></i>{{article.views}}</span>
+            {% endif %}
+            {% if article.likes %}
+              <span class="heart"><i class="fa fa-heart"></i>{{article.likes}}</span>
+            {% endif %}
+            {% if article.comments %}
+              <span class="fcomments"><i class="fa fa-comments"></i>{{article.comments}}</span>
+            {% endif %}
             </div>
           </div>
-          <div style="height: 227px;" id="video-main-mars-mainvideo-widgets-3-271" class="col-sm-4 col-xs-6 item responsive-height video-271">
-            <div class="item-img">
-              <a title="Minions Banana – Minions helium balloon funny cartoon" href="http://videotube.marstheme.com/video/minions-banana-minions-helium-balloon-funny-cartoon/"><img src="http://videotube.marstheme.com/wp-content/uploads/2015/11/minions-banana-minions-helium-ba-230x150.jpg" class="img-responsive wp-post-image" alt="Minions Banana – Minions helium balloon funny cartoon" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/minions-banana-minions-helium-balloon-funny-cartoon/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="Minions Banana – Minions helium balloon funny cartoon" href="http://videotube.marstheme.com/video/minions-banana-minions-helium-balloon-funny-cartoon/">Minions Banana – Minions helium balloon funny cartoon</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>3017</span><span class="heart"><i class="fa fa-heart"></i>138</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
-          <div style="height: 227px;" id="video-main-mars-mainvideo-widgets-3-97" class="col-sm-4 col-xs-6 item responsive-height video-97">
-            <div class="item-img">
-              <a title="Humans Are Amazing" href="http://videotube.marstheme.com/video/humans-are-amazing/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/07/humans-are-amazing-230x150.jpg" class="img-responsive wp-post-image" alt="Humans Are Amazing" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/humans-are-amazing/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="Humans Are Amazing" href="http://videotube.marstheme.com/video/humans-are-amazing/">Humans Are Amazing</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>3015</span><span class="heart"><i class="fa fa-heart"></i>145</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-265" class="col-sm-4 col-xs-6 item responsive-height video-265">
-            <div class="item-img">
-              <a title="Winter Olympics 2014" href="http://videotube.marstheme.com/video/winter-olympics-2014/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/03/sport2-230x150.jpg" class="img-responsive wp-post-image" alt="sport2" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/winter-olympics-2014/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="Winter Olympics 2014" href="http://videotube.marstheme.com/video/winter-olympics-2014/">Winter Olympics 2014</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>2975</span><span class="heart"><i class="fa fa-heart"></i>144</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-249" class="col-sm-4 col-xs-6 item responsive-height video-249">
-            <div class="item-img">
-              <a title="Purity Ring – “Ungirthed”" href="http://videotube.marstheme.com/video/purity-ring-ungirthed/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/03/music5-230x150.jpg" class="img-responsive wp-post-image" alt="music5" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/purity-ring-ungirthed/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="Purity Ring – “Ungirthed”" href="http://videotube.marstheme.com/video/purity-ring-ungirthed/">Purity Ring – “Ungirthed”</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>2605</span><span class="heart"><i class="fa fa-heart"></i>42</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
-          <div style="height: 201px;" id="video-main-mars-mainvideo-widgets-3-199" class="col-sm-4 col-xs-6 item responsive-height video-199">
-            <div class="item-img">
-              <a title="Trials Frontier Motorcycle Game" href="http://videotube.marstheme.com/video/trials-frontier/"><img src="http://videotube.marstheme.com/wp-content/uploads/2014/03/game3-230x150.jpg" class="img-responsive wp-post-image" alt="game3" width="230" height="150"></a>
-              <a href="http://videotube.marstheme.com/video/trials-frontier/">
-                <div class="img-hover"></div>
-              </a>
-            </div>
-            <h3><a title="Trials Frontier Motorcycle Game" href="http://videotube.marstheme.com/video/trials-frontier/">Trials Frontier Motorcycle Game</a></h3>
-            <div class="meta"><span class="date">2 years ago</span><span class="views"><i class="fa fa-eye"></i>2539</span><span class="heart"><i class="fa fa-heart"></i>61</span>
-              <span class="fcomments"><i class="fa fa-comments"></i>0</span>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
