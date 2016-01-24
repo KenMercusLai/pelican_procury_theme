@@ -7,8 +7,9 @@
   <div class="container">
     <div class="video-info large">
       <h1>{{article.title}}</h1>
-      <span class="views"><i class="fa fa-eye"></i>4850</span>
-      <a href="javascript:void(0)" class="likes-dislikes" action="like" id="1717"><span class="likes"><i class="fa fa-thumbs-up"></i><label class="likevideo1717">267</label></span></a>
+      <span class="views"><i class="fa fa-eye"></i>{{article.views}}</span>
+      <a href="javascript:void(0)" class="likes-dislikes" action="like" id="1717">
+      <span class="likes"><i class="fa fa-thumbs-up"></i><label>{{article.likes}}</label></span></a>
     </div>
     <div class="player player-large embed-responsive embed-responsive-16by9">
       <iframe width="200" height="113" src="https://ssl.acfun.tv/block-player-homura.html#vid={{ article.acfun }};from=http://www.acfun.tv" id="ACFlashPlayer-re" frameborder="0"></iframe>
@@ -104,8 +105,8 @@
               <h3><a title="{{related_post.title}}" href="{{SITEURL}}/{{related_post.url}}">{{related_post.title}}</a></h3>
               <div class="meta">
                 <span class="date">{{article.date|relative_time}}</span>
-                <span class="views"><i class="fa fa-eye"></i>5499</span>
-                <span class="heart"><i class="fa fa-heart"></i>1364</span>
+                <span class="views"><i class="fa fa-eye"></i>{{related_post.views}}</span>
+                <span class="heart"><i class="fa fa-heart"></i>{{related_post.likes}}</span>
                 <span class="fcomments"><i class="fa fa-comments"></i>11</span>
               </div>
             </div>
@@ -125,8 +126,8 @@
               <h3><a title="{{related_post.title}}" href="{{SITEURL}}/{{related_post.url}}">{{related_post.title}}</a></h3>
               <div class="meta">
                 <span class="date">{{article.date|relative_time}}</span>
-                <span class="views"><i class="fa fa-eye"></i>5499</span>
-                <span class="heart"><i class="fa fa-heart"></i>1364</span>
+                <span class="views"><i class="fa fa-eye"></i>{{related_post.views}}</span>
+                <span class="heart"><i class="fa fa-heart"></i>{{related_post.likes}}</span>
                 <span class="fcomments"><i class="fa fa-comments"></i>11</span>
               </div>
             </div>
@@ -146,8 +147,8 @@
               <h3><a title="{{related_post.title}}" href="{{SITEURL}}/{{related_post.url}}">{{related_post.title}}</a></h3>
               <div class="meta">
                 <span class="date">{{article.date|relative_time}}</span>
-                <span class="views"><i class="fa fa-eye"></i>5499</span>
-                <span class="heart"><i class="fa fa-heart"></i>1364</span>
+                <span class="views"><i class="fa fa-eye"></i>{{related_post.views}}</span>
+                <span class="heart"><i class="fa fa-heart"></i>{{related_post.likes}}</span>
                 <span class="fcomments"><i class="fa fa-comments"></i>11</span>
               </div>
             </div>
