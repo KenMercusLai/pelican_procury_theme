@@ -4,7 +4,7 @@
       <div class="col-sm-7 widget mars-keycloud-widgets">
         <h4 class="footer-widget-title">热门标签</h4>
         {% for tag, articles in (tags|sort_by_article_count)[:40] %}
-          <a href="{{tag.url}}" title="{{articles|length}}个内容" >{{tag}}</a> 
+          <a href="{{SITEURL}}/tag/{{tag.slug}}.html" title="{{articles|length}}个内容" >{{tag}}</a> 
         {% endfor %}
       </div>
 
