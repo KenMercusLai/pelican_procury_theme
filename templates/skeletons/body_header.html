@@ -6,10 +6,18 @@
           <img src="{{SITEURL}}/theme/img/text-logo.png" alt="水星计划">
         </a>
       </div>
-      <form method="get" action="http://videotube.marstheme.com">
+      <form>
         <div class="col-sm-6" id="header-search">
           <span class="glyphicon glyphicon-search search-icon"></span>
-          <input value="" name="s" placeholder="搜搜看有什么新东西..." id="search" type="text">
+          <input value="" name="s" placeholder="搜搜看有什么新东西..." class="st-default-search-input" type="text">
+          <script type="text/javascript">
+            (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+            (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+            })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+            
+            _st('install','{{SWIFTYPE}}','2.0.0');
+          </script>
         </div>
       </form>
       <div class="col-sm-3" id="header-social">
