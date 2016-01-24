@@ -117,7 +117,7 @@
     <div class="row">
       <div class="carousel-inner">
         <div class="item active">
-          {% for article in (articles|rejectattr('blog')|sort(attribute='comments', reverse=True))[0:6] %}
+          {% for article in (articles|rejectattr('blog')|sort(attribute='viewsstring', reverse=True))[0:6] %}
           <div style="height: 201px;" class="col-sm-4 col-xs-6 item responsive-height">
             <div class="item-img">
               <a title="{{article.title}}" href="{{article.url}}"><img src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="230" height="150"></a>
@@ -142,7 +142,7 @@
           {% endfor %}
         </div>
         <div class="item">
-          {% for article in (articles|rejectattr('blog')|sort(attribute='comments', reverse=True))[6:12] %}
+          {% for article in (articles|rejectattr('blog')|sort(attribute='viewsstring', reverse=True))[6:12] %}
           <div style="height: 201px;" class="col-sm-4 col-xs-6 item responsive-height">
             <div class="item-img">
               <a title="{{article.title}}" href="{{article.url}}"><img src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="230" height="150"></a>
@@ -167,7 +167,7 @@
           {% endfor %}
         </div>
         <div class="item">
-          {% for article in (articles|rejectattr('blog')|sort(attribute='comments', reverse=True))[12:18] %}
+          {% for article in (articles|rejectattr('blog')|sort(attribute='viewsstring', reverse=True))[12:18] %}
           <div style="height: 201px;" class="col-sm-4 col-xs-6 item responsive-height">
             <div class="item-img">
               <a title="{{article.title}}" href="{{article.url}}"><img src="{{article.cover}}" class="img-responsive" alt="{{article.title}}" width="230" height="150"></a>
