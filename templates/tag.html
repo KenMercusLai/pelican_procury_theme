@@ -1,58 +1,59 @@
-<!DOCTYPE html>
-<html lang="en-US" prefix="og: http://ogp.me/ns#">
-    {% include "head.html" %}
-    <body class="single single-video   videotouch">
-        {% include "inline-css.html" %}
-        <div id="wrapper" class="">
-            {% include "header.html" %}
-            <section id="main">
-                <div class="container singular-container">
-                    <div id="primary" class="col-lg-12">
-                        <div id="content" role="main">
+{% extends "skeletons/style_index.html" %} 
 
-                            <div class="row content-block ">
-                              <div class="col-lg-12">
-                                <div class="block-title block-title-simpleleft">
-                                  <div class="block-title-container">
-                                    <h3 class="the-title" style="color: #3f4549"><i class="icon-noicon"></i>{{ tag }}</h3>
-                                    <span class="block-title-description" style="color: #b9c1c6">共{{ articles|length }}部视频</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row content-block ">
-                              <div data-element="spacer" data-show-mobile="n" style="height: 20px;"></div>
-                            </div>
-
-                            <div class="row content-block ">
-                              <section class="ts-thumbnail-view no-effect cols-by-4 ">
-                                {% for i in articles %}
-                                    <div class="item col-lg-3 col-md-6 col-sm-12 ">
-                                      <article class="video type-video  has-post-thumbnail hentry">
-                                        <div class="image-holder">
-                                          <a href="{{ i.url }}">
-                                            <img src="{{ i.cover }}" alt="{{ i.title }}" style="object-fit: cover; height: 180px"/>
-                                          </a>
-                                        </div>
-                                        <div class="entry-content">
-                                          <div class="entry-title">
-                                            <a href="{{ i.url }}"><h3 class="title">{{ i.title }}<i class="icon-right fa fa-angle-right"></i></h3></a>
-                                          </div>
-                                          <div class="entry-meta-date">
-                                            <span>{{ i.locale_date }}</span>
-                                          </div>
-                                        </div>
-                                      </article>
-                                    </div>
-                                {% endfor %}
-                              </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-                    
-        {% include "footer.html" %}
+{% block maincontent %}
+<div class="carousel carousel-mars-mainpost-widgets-2 slide video-section" data-ride="carousel">
+  <div class="section-header">
+    <h3><i class="fa fa-tag"></i> {{tag}}</h3>
+  </div>
+  
+  {% if articles|selectattr('blog')|sort(attribute='date', reverse=True) %}
+  <h4>文章</h4>  
+  <div class="latest-wrapper">
+    <div class="row">
+      <div class="carousel-inner">
+        <div class="item active">  
+          {% for article in (articles|selectattr('blog')|sort(attribute='date', reverse=True)) %}
+          <div style="height: 204px;" class="col-sm-4 col-xs-6 post type-post format-standard has-post-thumbnail">
+            <a title="{{article.title}}" href="{{SITEURL}}/{{article.slug}}.html">
+              <img src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="230" height="150">
+            </a>
+            <div class="post-header">
+              <h3><a title="{{article.title}}" href="{{SITEURL}}/{{article.slug}}.html">{{article.title}}</a></h3>
+              <span class="post-meta">
+                  <i class="fa fa-clock-o"></i> {{article.date|relative_time}}
+                </span>
+            </div>
+          </div>
+          {% endfor %}
         </div>
-    </body>
-</html>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if articles|rejectattr('blog')|sort(attribute='date', reverse=True) %}
+  <h4>视频</h4>  
+  <div class="latest-wrapper">
+    <div class="row">
+      <div class="carousel-inner">
+        <div class="item active">  
+          {% for article in (articles|rejectattr('blog')|sort(attribute='date', reverse=True)) %}
+          <div style="height: 204px;" class="col-sm-4 col-xs-6 post type-post format-standard has-post-thumbnail">
+            <a title="{{article.title}}" href="{{SITEURL}}/{{article.slug}}.html">
+              <img src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="230" height="150">
+            </a>
+            <div class="post-header">
+              <h3><a title="{{article.title}}" href="{{SITEURL}}/{{article.slug}}.html">{{article.title}}</a></h3>
+              <span class="post-meta">
+                  <i class="fa fa-clock-o"></i> {{article.date|relative_time}}
+                </span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock maincontent%}

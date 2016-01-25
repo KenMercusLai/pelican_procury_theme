@@ -1,337 +1,346 @@
-<!DOCTYPE html>
-<html lang="en-US" prefix="og: http://ogp.me/ns#">
-    {% include "head.html" %}
-    <body class="single single-video postid-169  videotouch">
-        {% include "inline-css.html" %}
-        <div id="wrapper" class="">
-            {% include "header.html" %}
-            
-            <div class="featured-image video-featured-image without-sidebar">
-                <div class="container ">
-                    <div class="embedded_videos ">
-                        <div id="videoframe" class="video-frame" data-display-button="true">
-                            <div class="overimg">
-                                <div class="play-btn">
-                                    <a class="videoPlay" href="#"><i class="icon-play fa fa-play-circle-o"></i></a>
-                                </div>
-                                <div class="over-image">
-                                    <img width="1600" height="1067" src="{{ article.cover }}" class="attachment-full" alt="{{ article.title }}" />
-                                </div>
-                            </div>
-                            <div id="post-video">
-                                <div class="video-container">
-                                    <p><iframe style="width:704px;height:436px;" src="https://ssl.acfun.tv/block-player-homura.html#vid={{ article.acfun }};from=http://www.acfun.tv" id="ACFlashPlayer-re" frameborder="0"></iframe></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-single-resize in">
-                        <i class="icon-right fa fa-angle-right"></i>
-                        <b class="icon-video fa fa-arrows-alt"></b>
-                        <span>改变大小</span>
-                        <i class="icon-left fa fa-angle-left"></i>
-                    </div>
-                </div>
-            </div>
-            <section id="main">
-                <div class="container singular-container">
-                    <div id="primary" class="col-lg-12">
-                        <div id="content" role="main">
-                            <article class="post-169 video type-video status-publish has-post-thumbnail hentry tag-fox tag-here tag-some tag-tale tag-touchsize tag-video videos_categories-animation">
-                                <header class="post-header">
-                                    <div class="row">
-                                        <div class="ts-breadcrumbs breadcrumbs-single-video">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-md-12 col-lg-12">
-                                                        <div class="ts-breadcrumbs-content">
-                                                            <a href="{{ SITEURL }}">首页</a> /
-                                                            <a href="{{ SITEURL }}/categories/{{ article.category }}/">{{ article.category }}</a> / {{ article.title }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-12">
-                                            <h1 class="post-title video-title">{{ article.title }}</h1>
-                                        </div>
-                                        
-                                        <div class="col-lg-12 col-md-12 post-author-block">
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                                    <ul>
-                                                        <li class="author-name">by
-                                                            <a href="{{ SITEURL }}/authors/{{ article.author }}/">{{ article.author }}</a>
-                                                        </li>
-                                                        <li class="author-published">Published
-                                                            <span>{{ article.locale_date }}</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </header>
-                                <div class="post-content ">
-                                    {{ article.content }}
-                                    <div>
-                                        <i class="icon-category fa fa-folder-open"></i>
-                                        <ul class="single-video-categories">
-                                            <li>
-                                                <a href="{{ SITEURL }}/categories/{{ article.category }}/" title="{{ article.category }}">{{ article.category }}</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <i class="fa fa-tags icon-tags"></i>
-                                        <ul class="single-video-tags">
-                                          {% for i in article.tags %}
-                                            <li>
-                                              <a href="{{ SITEURL }}/tag/{{ i.name }}/" rel="tag">{{ i.name }} </a>
-                                            </li>       
-                                          {% endfor %}
-                                        </ul>
-                                    </div>
-                                    <div class="content-cortina"></div>
-                                </div>
-                                <div class="video-post-open">
-                                    <i class="icon-down"></i>
-                                    <span>更多</span>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="ts-related-video-container row">
-                    <div class="container">
-                        <div class="ts-tab-container">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li class="active">
-                                    <a role="tab" data-toggle="tab" href="#related">Related posts</a>
-                                </li>
-                                <li>
-                                    <a role="tab" data-toggle="tab" href="#related-author">By the author</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="related">
-                                    <div class="row">
-                                        <section class="ts-thumbnail-view no-effect cols-by-4 ">
-                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
-                                                <article class=" video type-video status-publish has-post-thumbnail hentry tag-moldova tag-more tag-music-video tag-touchsize tag-video videos_categories-music-videos">
-                                                    <div class="image-holder">
-                                                        <a href="{{ SITEURL }}/video/moldovenii-s-au-nascut/">
-                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/117H-450x370.jpg" alt="Moldovenii s-au născut" />
-                                                        </a>
-                                                        <div class="entry-meta-likes">
-                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-184" title="Like this"><span class="touchsize-likes-count icon-heart">481</span> <span class="touchsize-likes-postfix"></span></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="entry-content">
-                                                        <div class="entry-title">
-                                                            <a href="{{ SITEURL }}/video/moldovenii-s-au-nascut/"><h3 class="title">Moldovenii s-au născut<i class="icon-right"></i></h3></a>
-                                                        </div>
-                                                        <div class="entry-meta-date">
-                                                            <span>added 1 year ago</span>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                            </div>
-                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
-                                                <article class="post-166 video type-video status-publish has-post-thumbnail hentry tag-animate tag-animation-2 tag-more tag-touchsize tag-video videos_categories-animation">
-                                                    <div class="image-holder">
-                                                        <a href="{{ SITEURL }}/video/partly-cloudy/">
-                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/d23d2dfd-450x370.jpg" alt="Partly cloudy" />
-                                                        </a>
-                                                        <div class="entry-meta-likes">
-                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-166" title="Like this"><span class="touchsize-likes-count icon-heart">459</span> <span class="touchsize-likes-postfix"></span></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="entry-content">
-                                                        <div class="entry-title">
-                                                            <a href="{{ SITEURL }}/video/partly-cloudy/"><h3 class="title">Partly cloudy<i class="icon-right"></i></h3></a>
-                                                        </div>
-                                                        <div class="entry-meta-date">
-                                                            <span>added 1 year ago</span>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                            </div>
-                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
-                                                <article class="post-163 video type-video status-publish has-post-thumbnail hentry tag-animation-2 tag-more tag-touchsize tag-vampire tag-video videos_categories-animation">
-                                                    <div class="image-holder">
-                                                        <a href="{{ SITEURL }}/video/vampires-crown/">
-                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/fdsff2f2f2d2-450x370.jpg" alt="Vampire&#8217;s crown" />
-                                                        </a>
-                                                        <div class="entry-meta-likes">
-                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-163" title="Like this"><span class="touchsize-likes-count icon-heart">364</span> <span class="touchsize-likes-postfix"></span></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="entry-content">
-                                                        <div class="entry-title">
-                                                            <a href="{{ SITEURL }}/video/vampires-crown/"><h3 class="title">Vampire&#8217;s crown<i class="icon-right"></i></h3></a>
-                                                        </div>
-                                                        <div class="entry-meta-date">
-                                                            <span>added 1 year ago</span>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                            </div>
-                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
-                                                <article class="post-160 video type-video status-publish has-post-thumbnail hentry tag-more tag-tolerantia tag-touchsize tag-video videos_categories-animation">
-                                                    <div class="image-holder">
-                                                        <a href="{{ SITEURL }}/video/tolerantia/">
-                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/ff3f2f2f23f2ffa-450x370.jpg" alt="Tolerantia" />
-                                                        </a>
-                                                        <div class="entry-meta-likes">
-                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-160" title="Like this"><span class="touchsize-likes-count icon-heart">250</span> <span class="touchsize-likes-postfix"></span></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="entry-content">
-                                                        <div class="entry-title">
-                                                            <a href="{{ SITEURL }}/video/tolerantia/"><h3 class="title">Tolerantia<i class="icon-right"></i></h3></a>
-                                                        </div>
-                                                        <div class="entry-meta-date">
-                                                            <span>added 1 year ago</span>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                            </div>
-                                        </section>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="related-author">
-                                    <div class="row">
-                                        <section class="ts-thumbnail-view no-effect cols-by-4 ">
-                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
-                                                <article class=" video type-video status-publish has-post-thumbnail hentry tag-moldova tag-more tag-music-video tag-touchsize tag-video videos_categories-music-videos">
-                                                    <div class="image-holder">
-                                                        <a href="{{ SITEURL }}/video/moldovenii-s-au-nascut/">
-                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/117H-450x370.jpg" alt="Moldovenii s-au născut" />
-                                                        </a>
-                                                        <div class="entry-meta-likes">
-                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-184" title="Like this"><span class="touchsize-likes-count icon-heart">481</span> <span class="touchsize-likes-postfix"></span></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="entry-content">
-                                                        <div class="entry-title">
-                                                            <a href="{{ SITEURL }}/video/moldovenii-s-au-nascut/"><h3 class="title">Moldovenii s-au născut<i class="icon-right"></i></h3></a>
-                                                        </div>
-                                                        <div class="entry-meta-date">
-                                                            <span>added 1 year ago</span>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                            </div>
-                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
-                                                <article class="post-169 video type-video status-publish has-post-thumbnail hentry tag-fox tag-here tag-some tag-tale tag-touchsize tag-video videos_categories-animation">
-                                                    <div class="image-holder">
-                                                        <a href="{{ SITEURL }}/video/fox-tale/">
-                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/v2c2sscas-450x370.jpg" alt="A fox tale" />
-                                                        </a>
-                                                        <div class="entry-meta-likes">
-                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-169" title="Like this"><span class="touchsize-likes-count icon-heart">632</span> <span class="touchsize-likes-postfix"></span></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="entry-content">
-                                                        <div class="entry-title">
-                                                            <a href="{{ SITEURL }}/video/fox-tale/"><h3 class="title">A fox tale<i class="icon-right"></i></h3></a>
-                                                        </div>
-                                                        <div class="entry-meta-date">
-                                                            <span>added 1 year ago</span>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                            </div>
-                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
-                                                <article class="post-166 video type-video status-publish has-post-thumbnail hentry tag-animate tag-animation-2 tag-more tag-touchsize tag-video videos_categories-animation">
-                                                    <div class="image-holder">
-                                                        <a href="{{ SITEURL }}/video/partly-cloudy/">
-                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/d23d2dfd-450x370.jpg" alt="Partly cloudy" />
-                                                        </a>
-                                                        <div class="entry-meta-likes">
-                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-166" title="Like this"><span class="touchsize-likes-count icon-heart">459</span> <span class="touchsize-likes-postfix"></span></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="entry-content">
-                                                        <div class="entry-title">
-                                                            <a href="{{ SITEURL }}/video/partly-cloudy/"><h3 class="title">Partly cloudy<i class="icon-right"></i></h3></a>
-                                                        </div>
-                                                        <div class="entry-meta-date">
-                                                            <span>added 1 year ago</span>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                            </div>
-                                            <div class="item col-lg-3 col-md-3 col-sm-12 ">
-                                                <article class="post-163 video type-video status-publish has-post-thumbnail hentry tag-animation-2 tag-more tag-touchsize tag-vampire tag-video videos_categories-animation">
-                                                    <div class="image-holder">
-                                                        <a href="{{ SITEURL }}/video/vampires-crown/">
-                                                            <img src="{{ SITEURL }}/wp-content/uploads/sites/16/2014/10/fdsff2f2f2d2-450x370.jpg" alt="Vampire&#8217;s crown" />
-                                                        </a>
-                                                        <div class="entry-meta-likes">
-                                                            <a href="#" class="touchsize-likes" data-id="touchsize-likes-163" title="Like this"><span class="touchsize-likes-count icon-heart">364</span> <span class="touchsize-likes-postfix"></span></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="entry-content">
-                                                        <div class="entry-title">
-                                                            <a href="{{ SITEURL }}/video/vampires-crown/"><h3 class="title">Vampire&#8217;s crown<i class="icon-right"></i></h3></a>
-                                                        </div>
-                                                        <div class="entry-meta-date">
-                                                            <span>added 1 year ago</span>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                            </div>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- Ad area 2 -->
-                <!-- // End of Ad Area 2 -->
-                <div class="container single-video-comments">
-                    <div class="row content-block">
-                        <div class="col-lg-12">
-                            <div id="comments">
-                                <div id="respond" class="comment-respond">
-                                    <h3 id="reply-title" class="comment-reply-title">来说点什么</h3>
+{% if article.blog %}
+  {% extends "skeletons/style_blog.html" %} 
+  {% block title%}{{article.title}} - 水星计划{% endblock %}
+  {% block main_blogcontent %}
+  <div class="post type-post">
+    {% if article.cover %}
+    <img width="750" height="500" src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" sizes="(max-width: 750px) 100vw, 750px" />
+    {% endif %}
+    <div class="post-header">
+      <h2>{{article.title}}</h2>
+      <span class="post-meta">
+        {% if article.author %}
+          <i class="fa fa-user"></i> <a href="#">{{article.author}}</a>
+        {% endif %}
+        <span class="sep">/</span>
+        <i class="fa fa-clock-o"></i> {{article.date|relative_time}}  
+        <span class="sep">/</span>
+        <i class="fa fa-folder-open"></i> <a href="{{ SITEURL }}/category/{{article.category.slug}}.html" rel="category tag">{{article.category}}</a>
+      </span>
+    </div>
+    <div class="post-entry">
+      {{article.content}}
+    </div>
 
-                                    <div id="disqus_thread"></div>
-                                    <script>
-                                    /**
-                                    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                                    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-                                    */
-                                    
-                                    var disqus_config = function () {
-                                    this.page.url = '{{ SITEURL }}/{{ article.url }}'; // Replace PAGE_URL with your page's canonical URL variable
-                                    // this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                                    };
-                                    
-                                    (function() { // DON'T EDIT BELOW THIS LINE
-                                    var d = document, s = d.createElement('script');
+    <div class="post-info">
+      <span class="meta"><span class="meta-info">分类</span> <a href="{{ SITEURL }}/category/{{article.category.slug}}.html" rel="tag">{{article.category}}</a></span>
+      <span class="meta">
+        <span class="meta-info">标签</span> 
+        {% for i in article.tags %}
+          <a href="{{i.url}}" rel="tag">{{ i.name }}</a> 
+        {% endfor %}
+      </span>
+    </div>
+  </div>
 
-                                    s.src = '//shuixingtvcom.disqus.com/embed.js';
+  {% if article.related_posts %}
+  <div id="carousel-latest-mars-relatedvideo-widgets-2" class="carousel carousel-mars-relatedvideo-widgets-2 slide video-section" data-ride="carousel">
+    <div class="section-header">
+      <h3>相关内容</h3>
+      <ol class="carousel-indicators section-nav">
+        <li data-target="#carousel-latest-mars-relatedvideo-widgets-2" data-slide-to="0" class="bullet active"></li>
+        <li data-target="#carousel-latest-mars-relatedvideo-widgets-2" data-slide-to="1" class="bullet"></li>
+        <li data-target="#carousel-latest-mars-relatedvideo-widgets-2" data-slide-to="2" class="bullet"></li>
+      </ol>
+    </div>
+    <!-- end section header -->
+    <div class="latest-wrapper">
+      <div class="row">
+        <div class="carousel-inner">
+          <div class="item active">
+            {% for related_post in article.related_posts[:3] %}
+              <div class="col-sm-4 col-xs-6 item responsive-height">
+                <div class="item-img">
+                  <a href="{{ SITEURL }}/{{ related_post.url }}">
+                    <img width="230" height="150" src="{{related_post.cover}}" class="img-responsive wp-post-image" alt="{{related_post.title}}" />
+                  </a>
+                  <a href="{{SITEURL}}/{{related_post.url}}">
+                    <div class="img-hover"></div>
+                  </a>
+                </div>
+                <h3><a title="{{related_post.title}}" href="{{SITEURL}}/{{related_post.url}}">{{related_post.title}}</a></h3>
+                <div class="meta">
+                  <span class="date">{{article.date|relative_time}}</span>
+                  <span class="views"><i class="fa fa-eye"></i>{{related_post.views}}</span>
+                  <span class="heart"><i class="fa fa-heart"></i>{{related_post.likes}}</span>
+                  <span class="fcomments"><i class="fa fa-comments"></i>11</span>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="item">
+            {% for related_post in article.related_posts[3:6] %}
+              <div class="col-sm-4 col-xs-6 item responsive-height">
+                <div class="item-img">
+                  <a href="{{ SITEURL }}/{{ related_post.url }}">
+                    <img width="230" height="150" src="{{related_post.cover}}" class="img-responsive wp-post-image" alt="{{related_post.title}}" />
+                  </a>
+                  <a href="{{SITEURL}}/{{related_post.url}}">
+                    <div class="img-hover"></div>
+                  </a>
+                </div>
+                <h3><a title="{{related_post.title}}" href="{{SITEURL}}/{{related_post.url}}">{{related_post.title}}</a></h3>
+                <div class="meta">
+                  <span class="date">{{article.date|relative_time}}</span>
+                  <span class="views"><i class="fa fa-eye"></i>{{related_post.views}}</span>
+                  <span class="heart"><i class="fa fa-heart"></i>{{related_post.likes}}</span>
+                  <span class="fcomments"><i class="fa fa-comments"></i>11</span>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="item">
+            {% for related_post in article.related_posts[6:9] %}
+              <div class="col-sm-4 col-xs-6 item responsive-height">
+                <div class="item-img">
+                  <a href="{{ SITEURL }}/{{ related_post.url }}">
+                    <img width="230" height="150" src="{{related_post.cover}}" class="img-responsive wp-post-image" alt="{{related_post.title}}" />
+                  </a>
+                  <a href="{{SITEURL}}/{{related_post.url}}">
+                    <div class="img-hover"></div>
+                  </a>
+                </div>
+                <h3><a title="{{related_post.title}}" href="{{SITEURL}}/{{related_post.url}}">{{related_post.title}}</a></h3>
+                <div class="meta">
+                  <span class="date">{{article.date|relative_time}}</span>
+                  <span class="views"><i class="fa fa-eye"></i>{{related_post.views}}</span>
+                  <span class="heart"><i class="fa fa-heart"></i>{{related_post.likes}}</span>
+                  <span class="fcomments"><i class="fa fa-comments"></i>11</span>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+  {% endif %}
 
-                                    s.setAttribute('data-timestamp', +new Date());
-                                    (d.head || d.body).appendChild(s);
-                                    })();
-                                    </script>
-                                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>   
-                                    
-                                    </div>
-                                    
-                            </div>
-                                    
-                        </div>
-                    </div>
+  <!-- /#carousel-->
+  <div class="widget widget_text">
+    <div class="textwidget"><img src="http://placehold.it/750x100"></div>
+  </div>
+  <div id="comments">
+    <div id="respond" class="comment-respond">
+      <div id="disqus_thread"></div>
+      <script>
+      /**
+       * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+       */
+
+      var disqus_config = function() {
+        this.page.url = '{{ SITEURL }}/{{ article.url }}'; // Replace PAGE_URL with your page's canonical URL variable
+        // this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+
+      (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+          s = d.createElement('script');
+
+        s.src = '//shuixingtvcom.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+  <!-- /#carousel-->
+  {% endblock main_blogcontent%}
+{% else %}
+  {% extends "skeletons/style_video.html" %} 
+
+  {% block videoarea %}
+  <div class="video-wrapper">
+    <div class="container">
+      <div class="video-info large">
+        <h1>{{article.title}}</h1>
+        <span class="views"><i class="fa fa-eye"></i>{{article.views}}</span>
+        <a href="javascript:void(0)" class="likes-dislikes" action="like" id="1717">
+        <span class="likes"><i class="fa fa-thumbs-up"></i><label>{{article.likes}}</label></span></a>
+      </div>
+      <div class="player player-large embed-responsive embed-responsive-16by9">
+        <iframe width="200" height="113" src="https://ssl.acfun.tv/block-player-homura.html#vid={{ article.acfun }};from=http://www.acfun.tv" id="ACFlashPlayer-re" frameborder="0"></iframe>
+      </div>
+      <div id="lightoff"></div>
+    </div>
+  </div>
+  {% endblock videoarea%} 
+
+  {% block maincontent %}
+  <div class="row video-options">
+    <div class="col-sm-3 col-xs-6 box-comment">
+      <a href="javascript:void(0)" class="option comments-scrolling">
+        <i class="fa fa-comments"></i>
+        <span class="option-text">评论</span>
+      </a>
+    </div>
+    <div class="col-sm-3 col-xs-6 box-share">
+      <a href="javascript:void(0)" class="option share-button" id="off">
+        <i class="fa fa-share"></i>
+        <span class="option-text">分享</span>
+      </a>
+    </div>
+    <div class="col-sm-3 col-xs-6 box-like">
+      <a class="option likes-dislikes" href="javascript:void(0)" action="like" id="1717" id="buttonlike" video="1717">
+        <i class="fa fa-thumbs-up"></i>
+        <span class="option-text likes-dislikes">
+          <label class="likevideo1717">267</label>
+        </span>
+      </a>
+    </div>
+    <div class="col-sm-3 col-xs-6 box-turn-off-light">
+      <!-- LIGHT SWITCH -->
+      <a href="javascript:void(0)" class="option switch-button">
+        <i class="fa fa-lightbulb-o"></i>
+        <span class="option-text">Turn off Light</span>
+      </a>
+    </div>
+  </div>
+  <!-- IF SHARE BUTTON IS CLICKED SHOW THIS -->
+  <div class="row social-share-buttons">
+    <div class="col-xs-12">
+      <!-- <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://videotube.marstheme.com/video/godzilla-official-main-trailer/"><img src="http://videotube.marstheme.com/wp-content/themes/videotube/img/facebook.png" alt="" /></a> -->
+      <!-- <a target="_blank" href="https://twitter.com/home?status=http://videotube.marstheme.com/video/godzilla-official-main-trailer/"><img src="http://videotube.marstheme.com/wp-content/themes/videotube/img/twitter.png" alt="" /></a> -->
+      <!-- <a target="_blank" href="https://plus.google.com/share?url=http://videotube.marstheme.com/video/godzilla-official-main-trailer/"><img src="http://videotube.marstheme.com/wp-content/themes/videotube/img/googleplus.png" alt="" /></a> -->
+      <!-- <a target="_blank" href="https://pinterest.com/pin/create/button/?url=http://videotube.marstheme.com/video/godzilla-official-main-trailer/&media=http://videotube.marstheme.com/wp-content/uploads/2014/03/I’m-Light-Painting-Again.jpg&description=Lorem ipsum dolor sit amet, erant complectitur ea nec, no sea vide nullam, ne appareat quaerendum vel. Cu meliore accusata vis, nam facer evertitur cu, id facilisi abhorreant per. Putant animal eu sea, ne quot nihil mediocritatem cum, cu ius torquatos dissentiet contentiones. Eos ex propriae invidunt accusamus, in vidit deterruisset eum, everti ponderum suavitate nec ad. Et dico melius insolens vis, nullam corrumpit adipiscing mel id.Utroque singulis consectetuer eam ei. Ne vel tritani definiebas, viris quaeque invenire sit ea. No consul mollis est. Iuvaret tractatos voluptatum per te."><img src="http://videotube.marstheme.com/wp-content/themes/videotube/img/pinterest.png" alt="" /></a> -->
+      <!-- <a target="_blank" href="http://www.reddit.com/submit?url"><img src="http://videotube.marstheme.com/wp-content/themes/videotube/img/reddit.png" alt="" /></a> -->
+      <!-- <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://videotube.marstheme.com/video/godzilla-official-main-trailer/&title=Godzilla Official Main Trailer&summary=Lorem ipsum dolor sit amet, erant complectitur ea nec, no sea vide nullam, ne appareat quaerendum vel. Cu meliore accusata vis, nam facer evertitur cu, id facilisi abhorreant per. Putant animal eu sea, ne quot nihil mediocritatem cum, cu ius torquatos dissentiet contentiones. Eos ex propriae invidunt accusamus, in vidit deterruisset eum, everti ponderum suavitate nec ad. Et dico melius insolens vis, nullam corrumpit adipiscing mel id.Utroque singulis consectetuer eam ei. Ne vel tritani definiebas, viris quaeque invenire sit ea. No consul mollis est. Iuvaret tractatos voluptatum per te.&source=http://videotube.marstheme.com"><img src="http://videotube.marstheme.com/wp-content/themes/videotube/img/linkedin.png" alt="" /></a> -->
+      <!-- <a target="_blank" href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&st._surl=http://videotube.marstheme.com/video/godzilla-official-main-trailer/&title=Godzilla Official Main Trailer"><img src="http://videotube.marstheme.com/wp-content/themes/videotube/img/odnok.png" alt="" /></a> -->
+      <!-- <a target="_blank" href="http://vkontakte.ru/share.php?url=http://videotube.marstheme.com/video/godzilla-official-main-trailer/"><img src="http://videotube.marstheme.com/wp-content/themes/videotube/img/vkontakte.png" alt="" /></a> -->
+      <a href="mailto:?Subject=Godzilla Official Main Trailer&Body=I saw this and thought of you! http://videotube.marstheme.com/video/godzilla-official-main-trailer/"><img src="http://videotube.marstheme.com/wp-content/themes/videotube/img/email.png" alt="" /></a>
+    </div>
+  </div>
+  <div class="video-details">
+    <span class="date">{{article.date|relative_time}}发布</span>
+    <div class="post-entry">
+      {{article.content}}
+    </div>
+    <span class="meta"><span class="meta-info">分类</span> <a href="{{ SITEURL }}/category/{{article.category.slug}}.html" rel="tag">{{article.category}}</a></span>
+    <span class="meta">
+      <span class="meta-info">标签</span> 
+      {% for i in article.tags %}
+        <a href="{{i.url}}" rel="tag">{{ i.name }}</a> 
+      {% endfor %}
+    </span>
+  </div>
+
+  {% if article.related_posts %}
+  <div id="carousel-latest-mars-relatedvideo-widgets-2" class="carousel carousel-mars-relatedvideo-widgets-2 slide video-section" data-ride="carousel">
+    <div class="section-header">
+      <h3>相关视频</h3>
+      <ol class="carousel-indicators section-nav">
+        <li data-target="#carousel-latest-mars-relatedvideo-widgets-2" data-slide-to="0" class="bullet active"></li>
+        <li data-target="#carousel-latest-mars-relatedvideo-widgets-2" data-slide-to="1" class="bullet"></li>
+        <li data-target="#carousel-latest-mars-relatedvideo-widgets-2" data-slide-to="2" class="bullet"></li>
+      </ol>
+    </div>
+    <!-- end section header -->
+    <div class="latest-wrapper">
+      <div class="row">
+        <div class="carousel-inner">
+          <div class="item active">
+            {% for related_post in article.related_posts[:3] %}
+              <div class="col-sm-4 col-xs-6 item responsive-height">
+                <div class="item-img">
+                  <a href="{{ SITEURL }}/{{ related_post.url }}">
+                    <img width="230" height="150" src="{{related_post.cover}}" class="img-responsive wp-post-image" alt="{{related_post.title}}" />
+                  </a>
+                  <a href="{{SITEURL}}/{{related_post.url}}">
+                    <div class="img-hover"></div>
+                  </a>
                 </div>
-            </section>
-                    
-                    {% include "footer.html" %}
+                <h3><a title="{{related_post.title}}" href="{{SITEURL}}/{{related_post.url}}">{{related_post.title}}</a></h3>
+                <div class="meta">
+                  <span class="date">{{article.date|relative_time}}</span>
+                  <span class="views"><i class="fa fa-eye"></i>{{related_post.views}}</span>
+                  <span class="heart"><i class="fa fa-heart"></i>{{related_post.likes}}</span>
+                  <span class="fcomments"><i class="fa fa-comments"></i>11</span>
                 </div>
-                </body>
-            </html>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="item">
+            {% for related_post in article.related_posts[3:6] %}
+              <div class="col-sm-4 col-xs-6 item responsive-height">
+                <div class="item-img">
+                  <a href="{{ SITEURL }}/{{ related_post.url }}">
+                    <img width="230" height="150" src="{{related_post.cover}}" class="img-responsive wp-post-image" alt="{{related_post.title}}" />
+                  </a>
+                  <a href="{{SITEURL}}/{{related_post.url}}">
+                    <div class="img-hover"></div>
+                  </a>
+                </div>
+                <h3><a title="{{related_post.title}}" href="{{SITEURL}}/{{related_post.url}}">{{related_post.title}}</a></h3>
+                <div class="meta">
+                  <span class="date">{{article.date|relative_time}}</span>
+                  <span class="views"><i class="fa fa-eye"></i>{{related_post.views}}</span>
+                  <span class="heart"><i class="fa fa-heart"></i>{{related_post.likes}}</span>
+                  <span class="fcomments"><i class="fa fa-comments"></i>11</span>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="item">
+            {% for related_post in article.related_posts[6:9] %}
+              <div class="col-sm-4 col-xs-6 item responsive-height">
+                <div class="item-img">
+                  <a href="{{ SITEURL }}/{{ related_post.url }}">
+                    <img width="230" height="150" src="{{related_post.cover}}" class="img-responsive wp-post-image" alt="{{related_post.title}}" />
+                  </a>
+                  <a href="{{SITEURL}}/{{related_post.url}}">
+                    <div class="img-hover"></div>
+                  </a>
+                </div>
+                <h3><a title="{{related_post.title}}" href="{{SITEURL}}/{{related_post.url}}">{{related_post.title}}</a></h3>
+                <div class="meta">
+                  <span class="date">{{article.date|relative_time}}</span>
+                  <span class="views"><i class="fa fa-eye"></i>{{related_post.views}}</span>
+                  <span class="heart"><i class="fa fa-heart"></i>{{related_post.likes}}</span>
+                  <span class="fcomments"><i class="fa fa-comments"></i>11</span>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+  {% endif %}
+
+  <!-- /#carousel-->
+  <div class="widget widget_text">
+    <div class="textwidget"><img src="http://placehold.it/750x100"></div>
+  </div>
+  <div id="comments">
+    <div id="respond" class="comment-respond">
+      <div id="disqus_thread"></div>
+      <script>
+      /**
+       * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+       */
+
+      var disqus_config = function() {
+        this.page.url = '{{ SITEURL }}/{{ article.url }}'; // Replace PAGE_URL with your page's canonical URL variable
+        // this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+
+      (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+          s = d.createElement('script');
+
+        s.src = '//shuixingtvcom.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+  <!-- /#carousel-->
+  {% endblock maincontent%}
+{% endif %}

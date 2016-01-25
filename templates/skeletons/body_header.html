@@ -1,0 +1,72 @@
+<div id="header">
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', '{{GOOGLE_ANALYTIC}}', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3" id="logo">
+        <a title="水星计划" href="{{SITEURL}}">
+          <img src="{{SITEURL}}/theme/img/text-logo.png" alt="水星计划">
+        </a>
+      </div>
+      <form>
+        <div class="col-sm-6" id="header-search">
+          <span class="glyphicon glyphicon-search search-icon"></span>
+          <input value="" name="s" placeholder="搜搜看有什么新东西..." class="st-default-search-input" type="text">
+          <script type="text/javascript">
+            (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+            (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+            })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+            
+            _st('install','{{SWIFTYPE}}','2.0.0');
+          </script>
+        </div>
+      </form>
+      <div class="col-sm-3" id="header-social">
+        {% if ACFUN %}
+          <a href="{{ACFUN}}"><i class="fa fa-rss"></i></a>
+        {% endif %}
+        {% if BILIBILI %}
+          <a href="{{BILIBILI}}"><i class="fa fa-rss"></i></a>
+        {% endif %}
+        {% if WEIBO %}
+          <a href="{{WEIBO}}"><i class="fa fa-weibo"></i></a>
+        {% endif %}
+        {% if FEED_ALL_ATOM %}
+          <a href="{{SITEURL}}/{{FEED_ALL_ATOM}}"><i class="fa fa-rss"></i></a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /#header -->
+<div id="navigation-wrapper">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <!-- menu -->
+      <ul id="menu-header-menu" class="nav navbar-nav list-inline menu">
+        <li class="menu-item current-menu-item menu-item-has-children"><a href="{{SITEURL}}">首页</a></li>
+        <li class="menu-item menu-item-has-children"><a href="{{SITEURL}}/archives.html">视频</a></li>
+        <li class="menu-item menu-item-type-taxonomy"><a href="{{SITEURL}}/blog.html">博客</a></li>
+        <li class="menu-item menu-item-type-taxonomy"><a href="{{SITEURL}}/members.html">成员介绍</a></li>
+        <li class="menu-item menu-item-type-taxonomy"><a href="{{SITEURL}}/comments.html">留言板</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<!-- /#navigation-wrapper -->

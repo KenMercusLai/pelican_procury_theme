@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--[if lt IE 9]>
+      <script src="{{SITEURL}}/theme/js/html5shiv.js"></script>
+      <script src="{{SITEURL}}/theme/js/respond.min.js"></script>
+    <![endif]-->
+  <title>{% block title %}水星计划{% endblock %}</title>
+
+  <link rel="alternate" type="application/rss+xml" title="水星计划 FEED" href="{{SITEURL}}/{{FEED_ALL_ATOM}}">
+
+  <link rel="stylesheet" id="bootstrap-fa-icon-css" href="{{SITEURL}}/theme/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="bootstrap.min.css-css" href="{{SITEURL}}/theme/css/bootstrap.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="mars-font-awesome.css-css" href="{{SITEURL}}/theme/css/font-awesome.min.css" type="text/css" media="all">
+  <!-- <link rel="stylesheet" id="mars-googlefont-lato-css" href="//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900&amp;ver=4.4" type="text/css" media="all"> -->
+  <link rel="stylesheet" id="style-css" href="{{SITEURL}}/theme/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" id="bootstrap-multiselect.css-css" href="{{SITEURL}}/theme/css/bootstrap-multiselect.css" type="text/css" media="all">
+  <link rel="stylesheet" id="video-js-css" href="{{SITEURL}}/theme/css/video-js.css" type="text/css" media="all">
+  <link rel="stylesheet" id="video-js-kg-skin-css" href="{{SITEURL}}/theme/css/kg-video-js-skin.css" type="text/css" media="all">
+  <link rel="stylesheet" id="kgvid_video_styles-css" href="{{SITEURL}}/theme/css/kgvid_styles.css" type="text/css" media="all">
+  <link rel="stylesheet" id="wppb_stylesheet-css" href="{{SITEURL}}/theme/css/style-front-end.css" type="text/css" media="all">
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/jquery.js"></script>
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/jquery-migrate.min.js"></script>
+  
+  
+  <link rel="shortlink" href="{{SITEURL}}">
+
+  <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://videotube.marstheme.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
+  <!--[if IE  8]><link rel="stylesheet" type="text/css" href="http://videotube.marstheme.com/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
+  <link rel="icon" href="{{SITEURL}}/theme/img/favicon.ico" sizes="32x32">
+  <link rel="icon" href="{{SITEURL}}/theme/img/logo-192.png" sizes="192x192">
+  <link rel="apple-touch-icon-precomposed" href="{{SITEURL}}/theme/img/logo-192.png">
+  <meta name="msapplication-TileImage" content="{{SITEURL}}/theme/img/logo-270.png">
+</head>
+
+
+<body class="wpb-js-composer vc_responsive">
+  {% include "skeletons/body_header.html" %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 main-content">
+        {% block main_blogcontent %} {% endblock %}
+      </div>
+      {% include "skeletons/body_content_sidebar.html" %}
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+  {% include "skeletons/body_footer.html" %}
+</body>
+
+</html>

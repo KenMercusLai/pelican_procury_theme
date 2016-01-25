@@ -1,0 +1,113 @@
+<div class="col-sm-4 sidebar">
+  <div class="widget">
+    <h4 class="widget-title">广告</h4>
+    
+  </div>
+  <div class="widget">
+    <h4 class="widget-title">关注我们</h4>
+    {% if ACFUN %}
+    <div class="social-counter-item">
+      <a target="_blank" href="{{ACFUN}}">
+        <i class="fa fa-facebook"></i>
+        <span class="counter">129</span>
+        <span class="counter-text">粉丝</span>
+      </a>
+    </div>
+    {% endif %}
+    {% if BILIBILI %}
+    <div class="social-counter-item">
+      <a target="_blank" href="{{BILIBILI}}">
+        <i class="fa fa-twitter"></i>
+        <span class="counter">145</span>
+        <span class="counter-text">粉丝</span>
+      </a>
+    </div>
+    {% endif %}
+    {% if WEIBO %}
+    <div class="social-counter-item">
+      <a target="_blank" href="{{WEIBO}}">
+        <i class="fa fa-weibo"></i>
+        <span class="counter">241</span>
+        <span class="counter-text">粉丝</span>
+      </a>
+    </div>
+    {% endif %}
+    {% if FEED_ALL_ATOM %}
+    <div class="social-counter-item last subscribe">
+      <a href="{{SITEURL}}/{{FEED_ALL_ATOM}}" data-toggle="modal" data-target="#subscrib-modal">
+        <i class="fa fa-rss"></i>
+        <span class="counter">2</span>
+        <span class="counter-text">订阅</span>
+      </a>
+    </div>
+    {% endif %}
+    <!-- Modal -->
+    <div class="modal fade" id="subscrib-modal" tabindex="-1" role="dialog" aria-labelledby="subscrib-modal-label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title" id="subscrib-modal-label">Subscribe</h4>
+          </div>
+          <div class="modal-body">
+            <form method="post" role="form" action="" name="mars-subscribe-form" id="mars-subscribe-form">
+              <div class="form-group name">
+                <label for="name">Your Name</label>
+                <input class="form-control" id="name" type="text">
+              </div>
+              <div class="form-group email">
+                <label for="email">Your Email Address</label>
+                <input class="form-control" id="email" type="email">
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input name="agree" id="agree" type="checkbox"> <a href="http://videotube.marstheme.com/">User Agreement &amp; Privacy Policy</a>
+                </label>
+              </div>
+              <input id="mars_subscrib" name="mars_subscrib" value="ebbd4a9cb7" type="hidden">
+              <input name="_wp_http_referer" value="/" type="hidden">
+              <button type="submit" class="btn btn-primary">Register</button>
+              <input name="submit-label" value="Register" type="hidden">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <input name="referer" id="referer" value="28" type="hidden">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="widget">
+    <h4 class="widget-title">热门分类</h4>
+    <div class="textwidget">
+      <div id="fb-root"></div>
+      
+      
+    </div>
+  </div>
+
+  <div class="widget">
+    <h4 class="widget-title">关于水星计划</h4>
+    <div class="textwidget">
+      <p>水星计划由一群爱好者自发成立的搬运&翻译团队。成员来自于世界各地，有着各种不同的兴趣爱好。但我们同样的愿望就是希望能够将更多有意义的视频和大家一起分享。</p>
+      <p>水星计划是希望通过自身的努力，让更多的人跨过语言障碍看到更多有意义的视频。</p>
+    </div>
+  </div>
+  <div class="widget">
+    <h4 class="widget-title">最多参与</h4>
+    <div class="row">
+      {% for article in (articles|rejectattr('blog')|sort(attribute='engagedstring', reverse=True))[:8] %}
+      <div style="height: 188px;" class="col-xs-6 item responsive-height post type-post">
+        <a title="{{article.title}}" href="{{article.url}}">
+        <img src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="165" height="108"></a>
+        <div class="post-header">
+          <h3><a title="{{article.title}}" href="{{article.url}}">{{article.title}}</a></h3>
+          <span class="post-meta">
+            <i class="fa fa-clock-o"></i> {{article.date|relative_time}}
+          </span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
