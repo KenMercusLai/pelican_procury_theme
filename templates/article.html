@@ -15,21 +15,21 @@
         <span class="sep">/</span>
         <i class="fa fa-clock-o"></i> {{article.date|relative_time}}  
         <span class="sep">/</span>
-        <i class="fa fa-folder-open"></i> <a href="{{ SITEURL }}/category/{{article.category.slug}}.html" rel="category tag">{{article.category}}</a></span>
+        <i class="fa fa-folder-open"></i> <a href="{{ SITEURL }}/category/{{article.category.slug}}.html" rel="category tag">{{article.category}}</a>
+      </span>
+    </div>
+    <div class="post-entry">
+      {{article.content}}
+    </div>
 
-        <div class="post-entry">
-          {{article.content}}
-        </div>
-
-        <div class="post-info">
-          <span class="meta"><span class="meta-info">分类</span> <a href="{{ SITEURL }}/category/{{article.category.slug}}.html" rel="tag">{{article.category}}</a></span>
-          <span class="meta">
-            <span class="meta-info">标签</span> 
-            {% for i in article.tags %}
-              <a href="{{i.url}}" rel="tag">{{ i.name }}</a> 
-            {% endfor %}
-          </span>
-        </div>
+    <div class="post-info">
+      <span class="meta"><span class="meta-info">分类</span> <a href="{{ SITEURL }}/category/{{article.category.slug}}.html" rel="tag">{{article.category}}</a></span>
+      <span class="meta">
+        <span class="meta-info">标签</span> 
+        {% for i in article.tags %}
+          <a href="{{i.url}}" rel="tag">{{ i.name }}</a> 
+        {% endfor %}
+      </span>
     </div>
   </div>
 
