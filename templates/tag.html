@@ -15,7 +15,7 @@
           {% for article in (articles|selectattr('blog')|sort(attribute='date', reverse=True)) %}
           <div style="height: 204px;" class="col-sm-4 col-xs-6 post type-post format-standard has-post-thumbnail">
             <a title="{{article.title}}" href="{{SITEURL}}/{{article.slug}}.html">
-              <img src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="230" height="150">
+              <img src="{{SITEURL}}/{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="230" height="150">
             </a>
             <div class="post-header">
               <h3><a title="{{article.title}}" href="{{SITEURL}}/{{article.slug}}.html">{{article.title}}</a></h3>
@@ -40,7 +40,7 @@
           {% for article in (articles|rejectattr('blog')|sort(attribute='date', reverse=True)) %}
           <div style="height: 204px;" class="col-sm-4 col-xs-6 post type-post format-standard has-post-thumbnail">
             <a title="{{article.title}}" href="{{SITEURL}}/{{article.slug}}.html">
-              <img src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="230" height="150">
+              <img src="{{SITEURL}}/{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" width="230" height="150">
             </a>
             <div class="post-header">
               <h3><a title="{{article.title}}" href="{{SITEURL}}/{{article.slug}}.html">{{article.title}}</a></h3>

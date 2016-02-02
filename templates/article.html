@@ -4,7 +4,7 @@
   {% block main_blogcontent %}
   <div class="post type-post">
     {% if article.cover %}
-    <img width="750" height="500" src="{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" sizes="(max-width: 750px) 100vw, 750px" />
+    <img width="750" height="500" src="{{SITEURL}}/{{article.cover}}" class="img-responsive wp-post-image" alt="{{article.title}}" sizes="(max-width: 750px) 100vw, 750px" />
     {% endif %}
     <div class="post-header">
       <h2>{{article.title}}</h2>
