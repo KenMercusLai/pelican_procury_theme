@@ -32,46 +32,45 @@
       </a>
     </div>
     {% endif %}
-    {% if FEED_ALL_ATOM %}
     <div class="social-counter-item last subscribe">
-      <a href="{{SITEURL}}/{{FEED_ALL_ATOM}}" data-toggle="modal" data-target="#subscrib-modal">
-        <i class="fa fa-rss"></i>
-        <span class="counter">2</span>
+      <a href="#" data-toggle="modal" data-target="#subscrib-modal">
+        <i class="fa fa-envelope"></i>
+        <span class="counter">{{SUBSCRIPTIONS}}</span>
         <span class="counter-text">订阅</span>
       </a>
     </div>
-    {% endif %}
     <!-- Modal -->
     <div class="modal fade" id="subscrib-modal" tabindex="-1" role="dialog" aria-labelledby="subscrib-modal-label" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title" id="subscrib-modal-label">Subscribe</h4>
+          <!-- Begin MailChimp Signup Form -->
+          <div id="mc_embed_signup">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title" id="subscrib-modal-label">马上订阅我们的内容吧</h4>
+            </div>
+            <div class="modal-body">
+              <form action="//kenmlai.us11.list-manage.com/subscribe/post?u=5a388501bf697929b1cd3d70c&amp;id=371378ff73" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+                  <div class="indicates-required"><span class="asterisk">*</span> 必填</div>
+                  <div class="mc-field-group">
+                    <label for="mce-EMAIL">邮件地址  <span class="asterisk">*</span>
+                  </label>
+                    <input type="email" value="" name="EMAIL" class="required email form-control" id="mce-EMAIL">
+                  </div>
+                  <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                  </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5a388501bf697929b1cd3d70c_371378ff73" tabindex="-1" value=""></div>
+                  <div class="clear">
+                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-primary">
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="modal-body">
-            <form method="post" role="form" action="" name="mars-subscribe-form" id="mars-subscribe-form">
-              <div class="form-group name">
-                <label for="name">Your Name</label>
-                <input class="form-control" id="name" type="text">
-              </div>
-              <div class="form-group email">
-                <label for="email">Your Email Address</label>
-                <input class="form-control" id="email" type="email">
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input name="agree" id="agree" type="checkbox"> <a href="http://videotube.marstheme.com/">User Agreement &amp; Privacy Policy</a>
-                </label>
-              </div>
-              <input id="mars_subscrib" name="mars_subscrib" value="ebbd4a9cb7" type="hidden">
-              <input name="_wp_http_referer" value="/" type="hidden">
-              <button type="submit" class="btn btn-primary">Register</button>
-              <input name="submit-label" value="Register" type="hidden">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <input name="referer" id="referer" value="28" type="hidden">
-            </form>
-          </div>
+          <!--End mc_embed_signup-->
         </div>
       </div>
     </div>

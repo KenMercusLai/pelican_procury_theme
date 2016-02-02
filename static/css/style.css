@@ -588,6 +588,9 @@ a.viewmore i {
 		.social-counter-item i.fa-rss:hover {
 			background:#FF6600;
 		}
+		.social-counter-item i.fa-envelope:hover {
+			background:#FF6600;
+		}
 		.social-counter-item i.fa-instagram:hover {
 			background:#517fa4;
 		}
