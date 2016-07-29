@@ -310,7 +310,7 @@
                           </span>
                         </span>
                       </div>
-                      <a href="http://vimeo.com/47505825?color=ffffff" rel="prettyPhoto[portfolio]" class="media-hover-link" data-title="{{article.title}}"></a>
+                      <a href="http://vimeo.com/47505825?color=ffffff" rel="prettyPhoto[portfolio]" class="media-hover-link" ></a>
                     </div>
                   </div>
                 </div>
@@ -322,13 +322,13 @@
             <!-- Post Text wrap - Below Media -->
             <div class="post-text-wrap">
               <div class="time-and-author clearfix ">
-                <span class="post-date">October 24, 2014</span>
+                <span class="post-date">{{article.date}}</span>
                 <span class="meta-sep">/</span>
                 <span class="posted-by">
                   <span>Posted by: </span>admin
                 </span>
               </div>
-              <div class="post-description ">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam...</div>
+              <div class="post-description ">{{article.content}}</div>
               <!-- <div class="read-more-wrap more-info-wrap ">
                 <a href="#" class="read-more more-info rf-button">
                   <span>More Details </span>
@@ -387,6 +387,9 @@
   </div>
   <!-- end #page-wrap -->
   {% include "footer_script.html" %}
+
+  {% include "overlay.html" %}
+
 </body>
 
 </html>
