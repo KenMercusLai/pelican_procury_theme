@@ -107,105 +107,19 @@
             </li>
           </ul>
         </nav>
-        <!-- Blog Filters -->
-        <section class="sid-block blog-filters">
-          <h3 class="filters-title">
-            <span>Filters</span>
-          </h3>
-          <ul class="filters">
-            <li>
-              <a class="rf-button active-filter-item active-state" data-filter="*">
-                <i class="fa fa-none"></i>
-                <span>All</span>
-                <i class="fa fa-none"></i>
-                <sup>
-                  <sup>12</sup>
-                </sup>
-              </a>
-            </li>
-            <li>
-              <a class="rf-button" data-filter=".post-format-audio">
-                <i class="fa fa-none"></i>Audio
-                <i class="fa fa-none"></i>
-                <sup> 2</sup>
-              </a>
-            </li>
-            <li>
-              <a class="rf-button" data-filter=".post-format-gallery">
-                <i class="fa fa-none"></i>Gallery
-                <i class="fa fa-none"></i>
-                <sup> 5</sup>
-              </a>
-            </li>
-            <li>
-              <a class="rf-button" data-filter=".post-format-link">
-                <i class="fa fa-none"></i>Link
-                <i class="fa fa-none"></i>
-                <sup> 1</sup>
-              </a>
-            </li>
-            <li>
-              <a class="rf-button" data-filter=".post-format-quote">
-                <i class="fa fa-none"></i>Quote
-                <i class="fa fa-none"></i>
-                <sup> 2</sup>
-              </a>
-            </li>
-            <li>
-              <a class="rf-button" data-filter=".post-format-video">
-                <i class="fa fa-none"></i>Video
-                <i class="fa fa-none"></i>
-                <sup> 2</sup>
-              </a>
-            </li>
-          </ul>
-        </section>
-        <!-- end .blog-filters -->
         <!-- Portfolio Filters -->
         <section class="sid-block portfolio-filters">
-          <h3 class="filters-title">
-            <span>Filters</span>
-          </h3>
-          <ul class="filters" data-sort="">
+          <h3 class="categories-title">视频分类</h3>
+          <ul class="categories">
             <li>
-              <a class="rf-button active-filter-item active-state" data-filter="*">
+              <a class="rf-button active-filter-item active-state">
                 <i class="fa fa-none"></i>
-                <span>All</span>
+                <span>最新视频</span>
                 <i class="fa fa-none"></i>
-                <sup>15</sup>
+                <sup>12</sup>
               </a>
             </li>
-            <li>
-              <a class="rf-button" data-filter=".post-format-audio">
-                <i class="fa fa-none"></i>Audio
-                <i class="fa fa-none"></i>
-                <sup> 3</sup>
-              </a>
-            </li>
-            <li>
-              <a class="rf-button" data-filter=".post-format-gallery">
-                <i class="fa fa-none"></i>Gallery
-                <i class="fa fa-none"></i>
-                <sup> 5</sup>
-              </a>
-            </li>
-            <li>
-              <a class="rf-button" data-filter=".standard">
-                <i class="fa fa-none"></i>Standard
-                <i class="fa fa-none"></i>
-                <sup> 3</sup>
-              </a>
-            </li>
-            <li>
-              <a class="rf-button" data-filter=".post-format-video">
-                <i class="fa fa-none"></i>Video
-                <i class="fa fa-none"></i>
-                <sup> 4</sup>
-              </a>
-            </li>
-          </ul>
-          <ul>
-          {% for category, articles in categories %}
+            {% for category, articles in categories %}
             <li>
               <a class="rf-button">
                 <i class="fa fa-none"></i>
@@ -252,7 +166,6 @@
                   <div class="post-format-icon">
                     <i class="fa fa-film"></i>
                   </div>
-                  <img width="500" height="500" src="images/{{article.cover}}" class="attachment-royal-portfolio-post wp-post-image" alt="{{article.title}}" />
                   <img width="500" height="500" src="images/{{article.cover}}" class="attachment-royal-portfolio-post" alt="{{article.title}}" />
                 </div>
                 <!-- end .post-media -->
@@ -272,7 +185,7 @@
                       </span>
                       <div class="likes-and-comments ">
                         <span class="rf-likes">
-                          <a href="index.html#" class="royal-post-like" data-post_id="180" title="Like">
+                          <a href="index.html#" class="royal-post-like" title="Like">
                             <i class="fa fa-heart-o"></i>&nbsp;
                             <span class="rf-likes-count">5</span>
                           </a>
