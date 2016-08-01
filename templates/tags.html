@@ -47,10 +47,10 @@
       </nav>
       <!-- Mobile Logo & Tagline -->
       <section class="mobile-logo">
-        <a href="{{SITEURL}}" title="水星计划" class="logo-wrap">
-          <h1 class="logo-text clearfix"> 水星计划 </h1>
+        <a href="index.html" title="HP-X" class="logo-wrap">
+          <h1 class="logo-text clearfix"> HP-X </h1>
         </a>
-        <p class="site-tagline">Improve Everyday</p>
+        <p class="site-tagline">Customize Everything</p>
       </section>
     </div>
     <!-- .m-nav-and-logo -->
@@ -62,7 +62,7 @@
     <div id="sidebar">
       <!-- Logo & Tagline Wrapper -->
       <section class="logo-and-tagline clearfix">
-        <a href="{{SITEURL}}" title="水星计划" class="logo-wrap" data-portfolio="">
+        <a href="index.html" title="HP-X" class="logo-wrap" data-portfolio="" data-blog="http://wp-royal.com/hyper-x/hephaestus/blog/">
           <h1 class="logo-text clearfix"> 水星计划 </h1>
         </a>
         <p class="site-tagline">Improve Everyday</p>
@@ -204,18 +204,6 @@
               </a>
             </li>
           </ul>
-          <ul>
-          {% for category, articles in categories %}
-            <li>
-              <a class="rf-button">
-                <i class="fa fa-none"></i>
-                <span>{{category}}</span>
-                <i class="fa fa-none"></i>
-                <sup>{{articles|length}}</sup>
-              </a>
-            </li>
-            {% endfor %}
-          </ul>
         </section>
         <!-- end .portfolio-filters -->
       </div>
@@ -230,7 +218,7 @@
         {% for article in (articles|sort(attribute='date', reverse=True)) [:12]%}
         <!-- Begin Post -->
         <article class="post-format-video portfolio-post royal_portfolio type-royal_portfolio status-publish format-video has-post-thumbnail hentry royal_portfolio_cats-post-format-video royal_portfolio_skills-css royal_portfolio_skills-cubase royal_portfolio_skills-wordpress" id=" ">
-          <div class="portfolio-post-inner" Acfun="{{article.acfun}}" Bilibili="{{article.bilibili}}">
+          <div class="portfolio-post-inner">
             <!-- Post Text Block - Above Media -->
             <div class="post-text-wrap"></div>
             <!-- End .post-text-wrap -->
@@ -260,9 +248,8 @@
                 <div class="media-hovers media-hover-fade">
                   <div class="media-hovers-outer">
                     <div class="media-hovers-inner">
-                      <h3 class="post-title">
-                        <a href="">{{article.title}}</a>
-                        <!-- {{article.video}} -->
+                      <h3 class="post-title ">
+                        <a href="#">{{article.title}}</a>
                       </h3>
                       <span class="post-categories clear-inline clearfix ">
                         <span class="post-cats-in">
@@ -311,7 +298,7 @@
                           </span>
                         </span>
                       </div>
-                      <a href="#" class="media-hover-link"></a>
+                      <a href="http://vimeo.com/47505825?color=ffffff" rel="prettyPhoto[portfolio]" class="media-hover-link" data-title="{{article.title}}"></a>
                     </div>
                   </div>
                 </div>
@@ -329,7 +316,7 @@
                   <span>Posted by: </span>admin
                 </span>
               </div>
-              <div class="post-description">{{article.content}}</div>
+              <div class="post-description ">{{article.content}}</div>
               <!-- <div class="read-more-wrap more-info-wrap ">
                 <a href="#" class="read-more more-info rf-button">
                   <span>More Details </span>
@@ -370,7 +357,7 @@
         <!-- Copyright -->
         <div class="copyright-wrap">
           <p>
-            Project Mercury 2015-2016 © </p>
+            水星计划 2015-2016 © </p>
         </div>
         <!-- Fixed Fold Button -->
         <div class="footer-fold-btn">
@@ -388,39 +375,6 @@
   </div>
   <!-- end #page-wrap -->
   {% include "footer_script.html" %}
-
-  {% include "overlay.html" %}
-  <script>
-  jQuery("div.pp_default").hide();
-  jQuery("div.pp_overlay").hide();
-  jQuery(document).ready(function(){
-    var animation_time = 300;
-    jQuery("div.pp_default").click(function(){
-      jQuery("div.pp_default").fadeOut(animation_time);
-      jQuery("div.pp_overlay").fadeOut(animation_time);
-      jQuery("div#pp_full_res iframe").remove();
-    });
-    jQuery("div.pp_overlay").click(function(){
-      jQuery("div.pp_default").fadeOut(animation_time);
-      jQuery("div.pp_overlay").fadeOut(animation_time);
-      jQuery("div#pp_full_res iframe").remove();
-    });
-    jQuery("div.portfolio-post-inner").click(function(){
-      var video_title = jQuery(this).find('.post-title').text();
-      var video_content = jQuery(this).find('.post-description').text();
-      if (jQuery(this).attr('Bilibili') !== '') {
-        jQuery("div#pp_full_res").append('<iframe src="http://www.bilibili.com/html/html5player.html?aid='+jQuery(this).attr('Bilibili')+'&amp;page=1" width="850" height="480" frameborder="0" allowfullscreen="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
-        jQuery("p.currentTextHolder").text(video_title); 
-        jQuery("p.currentTextHolder").text(video_content);        
-      } else {
-        jQuery("div#pp_full_res").append(jQuery(this).attr('Acfun'));
-      }
-
-      jQuery("div.pp_default").fadeIn(animation_time);
-      jQuery("div.pp_overlay").fadeIn(animation_time);
-    });
-  });
-  </script>
 </body>
 
 </html>
