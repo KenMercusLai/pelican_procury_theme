@@ -27,7 +27,7 @@
       <h6>类别</h6>
       <p class="small">{{article.category}}</p>
       <h6>发布时间</h6>
-      <p class="small">{{article.date}}</p>
+      <p class="small">{{article.date|strftime('%Y-%m-%d %H:%M')}}</p>
       <p class="social-share">
         <a href="#" class="social-link">
           <i class="fa fa-facebook"></i>
