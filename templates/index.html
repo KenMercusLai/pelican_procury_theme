@@ -1,339 +1,47 @@
-<!doctype html>
-<html lang="en-US">
-{% include "head.html" %}
+{% extends "base.html" %}
+{% block nav_area %}
+<li class="current-menu-item"><a href="{{SITEURL}}/index.html">最新视频</a></li>
+<li class="menu-item-has-children">
+  <a href="#">分类</a>
+  <ul>
+    {% for category, articles in categories %}
+    <li><a href="{{SITEURL}}/category/{{category.slug}}.html">{{category}} <sup>{{articles|length}}</sup></a></li>
+    {% endfor %}
+  </ul>
+</li>
+<li><a href="{{SITEURL}}/about.html">关于我们</a></li>  
+{% endblock %}
 
-<body class="home page page-id-6 page-template page-template-portfolio page-template-portfolio-php smoothscroll sidebar-fixed deeplinking single-header-below-b single-header-below-p header-nxt-prev-b side-nxt-prev-p project-info-below-right project-info-equal infinitescroll-twitter copy-fixed wpb-js-composer js-comp-ver-4.8.1 vc_responsive">
-  <!-- Preloader -->
-  <!-- Whole Page Wrapper -->
-  <div id="page-wrap" class="clearfix" data-fx="" data-fx-speed="">
-    <!-- Mobile Navigation & Logo -->
-    <div class="m-nav-and-logo">
-      <div class="m-nav-fold rf-button">
-        <i class="fa fa-navicon"></i>
-      </div>
-      <!-- Mobile Navigation -->
-      <nav>
-        <ul id="menu-defm" class="mobile-nav">
-          <li class="menu-item current-menu-item page_item page-item-6 current_page_item">
-            <a href="index.html">Portfolio</a>
-          </li>
-          <li class="menu-item">
-            <a href="blog.html">Blog</a>
-          </li>
-          <li class="menu-item">
-            <a href="contact.html">Contact</a>
-          </li>
-          <li class="menu-item menu-item-has-children">
-            <a href="index.html#">Pages</a>
-            <ul class="sub-menu">
-              <li class="menu-item">
-                <a href="about-me.html">About Me</a>
-              </li>
-              <li class="menu-item">
-                <a href="about-us.html">About Us</a>
-              </li>
-              <li class="menu-item">
-                <a href="services.html">Services</a>
-              </li>
-              <li class="menu-item">
-                <a href="comingsoon.html">Coming Soon</a>
-              </li>
-              <li class="menu-item">
-                <a href="../ares/elements.html">Elements*</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <!-- Mobile Logo & Tagline -->
-      <section class="mobile-logo">
-        <a href="{{SITEURL}}" title="水星计划" class="logo-wrap">
-          <h1 class="logo-text clearfix"> 水星计划 </h1>
-        </a>
-        <p class="site-tagline">Improve Everyday</p>
-      </section>
-    </div>
-    <!-- .m-nav-and-logo -->
-    <!-- Sidebar Folding Button-->
-    <div class="sidebar-fold-btn">
-      <i class="fa fa-angle-left rf-button"></i>
-    </div>
-    <!-- Sidebar -->
-    <div id="sidebar">
-      <!-- Logo & Tagline Wrapper -->
-      <section class="logo-and-tagline clearfix">
-        <a href="{{SITEURL}}" title="水星计划" class="logo-wrap" data-portfolio="">
-          <h1 class="logo-text clearfix"> 水星计划 </h1>
-        </a>
-        <p class="site-tagline">Improve Everyday</p>
-      </section>
-      <!-- .logo-and-tagline -->
-      <!-- Wrap Sidebar Inner Content -->
-      <div class="inner-sidebar clear">
-        <!-- Main Navigation -->
-        <nav class="sid-block" data-open="click">
-          <h3 class="menu-title">
-            <span>Sidebar Menu</span>
-          </h3>
-          <ul id="menu-defm-1" class="main-nav">
-            <li class="menu-item current-menu-item">
-              <a href="index.html">Portfolio</a>
-            </li>
-            <li class="menu-item">
-              <a href="blog.html">Blog</a>
-            </li>
-            <li class="menu-item">
-              <a href="contact.html">Contact</a>
-            </li>
-            <li class="menu-item menu-item-has-children">
-              <a href="index.html#">Pages</a>
-              <ul class="sub-menu">
-                <li class="menu-item">
-                  <a href="about-me.html">About Me</a>
-                </li>
-                <li class="menu-item">
-                  <a href="about-us.html">About Us</a>
-                </li>
-                <li class="menu-item">
-                  <a href="services.html">Services</a>
-                </li>
-                <li class="menu-item">
-                  <a href="comingsoon.html">Coming Soon</a>
-                </li>
-                <li class="menu-item">
-                  <a href="../ares/elements.html">Elements*</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <!-- Portfolio Filters -->
-        <section class="sid-block portfolio-filters">
-          <h3 class="categories-title">视频分类</h3>
-          <ul class="categories">
-            <li>
-              <a class="rf-button active-filter-item active-state">
-                <i class="fa fa-none"></i>
-                <span>最新视频</span>
-                <i class="fa fa-none"></i>
-                <sup>12</sup>
-              </a>
-            </li>
-            {% for category, articles in categories %}
-            <li>
-              <a class="rf-button">
-                <i class="fa fa-none"></i>
-                <span>{{category}}</span>
-                <i class="fa fa-none"></i>
-                <sup>{{articles|length}}</sup>
-              </a>
-            </li>
-            {% endfor %}
-          </ul>
-        </section>
-        <!-- end .portfolio-filters -->
-      </div>
-      <!-- end .inner-sidebar -->
-    </div>
-    <!-- end #sidebar -->
-    <!-- Top Sidebar -->
-    <!-- Main Content Wrapper -->
-    <div id="main-wrap">
-      <!-- Portfolio Filters -->
-      <section id="portfolio-container" class="body-section" data-layout="fitRows" data-columns-rate="1" data-gutter-horz="30" data-gutter-vert="30">
-        {% for article in (articles|sort(attribute='date', reverse=True)) [:12]%}
-        <!-- Begin Post -->
-        <article class="post-format-video portfolio-post royal_portfolio type-royal_portfolio status-publish format-video has-post-thumbnail hentry royal_portfolio_cats-post-format-video royal_portfolio_skills-css royal_portfolio_skills-cubase royal_portfolio_skills-wordpress" id=" ">
-          <div class="portfolio-post-inner" Acfun="{{article.acfun}}" Bilibili="{{article.bilibili}}">
-            <!-- Post Text Block - Above Media -->
-            <div class="post-text-wrap"></div>
-            <!-- End .post-text-wrap -->
-            <!-- Post Media Block -->
-            <div class="post-media-wrap">
-              <div class="post-media-in-wrap">
-                <!-- Post Media -->
-                <div class="post-media" data-grayscale="" data-grayscale-trans="1">
-                  <!-- Decorational Triangle -->
-                  <div class="triangle-wrap"></div>
-                  <!-- get post format media content -->
-                  <!-- Post Image Overlay -->
-                  <div class="image-overlay">
-                    <a href="images/{{article.cover}}" rel="prettyPhoto[all]" data-title="{{article.title}}">
-                      <i class="fa fa-none"></i>
-                    </a>
-                  </div>
-                  <!-- Post Type Icon -->
-                  <div class="post-format-icon">
-                    <i class="fa fa-film"></i>
-                  </div>
-                  <img width="500" height="500" src="images/{{article.cover}}" class="attachment-royal-portfolio-post" alt="{{article.title}}" />
-                </div>
-                <!-- end .post-media -->
-                <!-- Post Info Hovers -->
-                <div class="media-hovers media-hover-fade">
-                  <div class="media-hovers-outer">
-                    <div class="media-hovers-inner">
-                      <h3 class="post-title">
-                        <a href="">{{article.title}}</a>
-                        <!-- {{article.video}} -->
-                      </h3>
-                      <span class="post-categories clear-inline clearfix ">
-                        <span class="post-cats-in">
-                          <span class="before-cats"></span>
-                          <a href="#" rel="tag">Video</a>
-                        </span>
-                      </span>
-                      <div class="likes-and-comments ">
-                        <span class="rf-likes">
-                          <a href="index.html#" class="royal-post-like" title="Like">
-                            <i class="fa fa-heart-o"></i>&nbsp;
-                            <span class="rf-likes-count">5</span>
-                          </a>
-                          <span class="meta-sep"></span>
-                        </span>
-                        <span class="post-comments-wrap">
-                          <a href="#" class="post-comments">
-                            <i class="fa fa-comments-o"></i> 4
-                          </a>
-                          <span class="meta-sep"></span>
-                        </span>
-                        <span class="social-share-wrap" data-open="click">
-                          <i class="fa fa-share-alt"></i>
-                          <span class="social-share">
-                            <a href="#" target="_blank">
-                              <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="#" target="_blank">
-                              <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#" target="_blank">
-                              <i class="fa fa-google-plus"></i>
-                            </a>
-                            <a href="#" target="_blank">
-                              <i class="fa fa-linkedin"></i>
-                            </a>
-                            <a href="#" target="_blank">
-                              <i class="fa fa-pinterest"></i>
-                            </a>
-                            <a href="#" target="_blank">
-                              <i class="fa fa-tumblr"></i>
-                            </a>
-                            <a href="#" target="_blank">
-                              <i class="fa fa-reddit"></i>
-                            </a>
-                          </span>
-                        </span>
-                      </div>
-                      <a href="#" class="media-hover-link"></a>
-                    </div>
-                  </div>
-                </div>
-                <!-- end .media-hovers -->
-              </div>
-              <!-- end .post-media-in-wrap -->
-            </div>
-            <!-- end .post-media-wrap -->
-            <!-- Post Text wrap - Below Media -->
-            <div class="post-text-wrap">
-              <div class="time-and-author clearfix ">
-                <span class="post-date">{{article.date}}</span>
-                <span class="meta-sep">/</span>
-                <span class="posted-by">
-                  <span>Posted by: </span>admin
-                </span>
-              </div>
-              <div class="post-description">{{article.content}}</div>
-              <!-- <div class="read-more-wrap more-info-wrap ">
-                <a href="#" class="read-more more-info rf-button">
-                  <span>More Details </span>
-                  <i class="fa fa-external-link"></i>
-                </a>
-              </div> -->
-              <div class="clear"></div>
-              <div class="testimonial-wrap ">
-                <h5 class="testimonial-author">
-                  <strong>Client: Jane Doe - Envato CEO</strong>
-                </h5>
-                <p>Fantastic product, my sites all run super fast and the support is excellent! Great to work with, good communications skills.</p>
-              </div>
-            </div>
-            <!-- end .post-text-wrap -->
+{% block main_area %}
+<div class="container container-masonry">
+  <div class="inner">
+    <div class="row">
+      {% for article in (articles|sort(attribute='date', reverse=True)) [:1]%}
+      <div class="box col-sm-4 col-md-6">
+        <div class="thumb featured">
+          <div class="photo">
+            <a href="{{SITEURL}}/{{article.url}}">
+              <img src="{{SITEURL}}/images/{{article.cover}}" alt="" width="715" height="715">
+              <span class="info"><strong class="big-title">{{article.title}}</strong><span class="excerpt">{{article.content}}</span><em class="arrow-right"></em></span>
+            </a>
           </div>
-          <!-- end .portfolio-post-inner -->
-        </article>
-        <!-- End Post -->
-        {% endfor %}
-      </section>
-      <!-- End #portfolio-container -->
-      <!-- if have no posts -->
-      <!-- get footer.php -->
-    </div>
-    <!-- end #main-wrap -->
-    <!-- Copyright & Socials -->
-    <footer class="copy-and-soc">
-      <!-- Inner Block -->
-      <div>
-        <div class="socials-wrap">
-          {% for name, link in SOCIAL_LINKS %}
-          <a href="{{link}}" target="_blank">
-            <i class="fa fa-{{name}} rf-button"></i>
-          </a>
-          {% endfor %}
         </div>
-        <!-- Copyright -->
-        <div class="copyright-wrap">
-          <p>
-            Project Mercury 2015-2016 © </p>
-        </div>
-        <!-- Fixed Fold Button -->
-        <div class="footer-fold-btn">
-          <i class="fa fa-angle-up"></i>
-        </div>
-        <!-- clear floats -->
-        <div class="clear"></div>
       </div>
-      <!-- End Inner Block -->
-    </footer>
-    <!-- Back to Top button -->
-    <div class="back-to-top" data-duration="600" data-scroll-top="1000">
-      <i class="rf-button fa fa-angle-up"></i>
+      {% endfor %}
+      {% for article in (articles|sort(attribute='date', reverse=True)) [1:13]%}
+      <div class="box col-xs-6 col-sm-4 col-md-3">
+        <div class="thumb">
+          <div class="photo">
+            <a href="{{SITEURL}}/{{article.url}}">
+              <img src="{{SITEURL}}/images/{{article.cover}}" alt="" width="434" height="434">
+              <span class="info"><strong class="title">{{article.title}}</strong><span class="excerpt">{{article.content}}</span><em class="arrow-right"></em></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
   </div>
-  <!-- end #page-wrap -->
-  {% include "footer_script.html" %}
-
-  {% include "overlay.html" %}
-  <script>
-  jQuery("div.pp_default").hide();
-  jQuery("div.pp_overlay").hide();
-  jQuery(document).ready(function(){
-    var animation_time = 300;
-    jQuery("div.pp_default").click(function(){
-      jQuery("div.pp_default").fadeOut(animation_time);
-      jQuery("div.pp_overlay").fadeOut(animation_time);
-      jQuery("div#pp_full_res iframe").remove();
-    });
-    jQuery("div.pp_overlay").click(function(){
-      jQuery("div.pp_default").fadeOut(animation_time);
-      jQuery("div.pp_overlay").fadeOut(animation_time);
-      jQuery("div#pp_full_res iframe").remove();
-    });
-    jQuery("div.portfolio-post-inner").click(function(){
-      var video_title = jQuery(this).find('.post-title').text();
-      var video_content = jQuery(this).find('.post-description').text();
-      if (jQuery(this).attr('Bilibili') !== '') {
-        jQuery("div#pp_full_res").append('<iframe src="http://www.bilibili.com/html/html5player.html?aid='+jQuery(this).attr('Bilibili')+'&amp;page=1" width="850" height="480" frameborder="0" allowfullscreen="true" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
-        jQuery("p.currentTextHolder").text(video_title); 
-        jQuery("p.currentTextHolder").text(video_content);        
-      } else {
-        jQuery("div#pp_full_res").append(jQuery(this).attr('Acfun'));
-      }
-
-      jQuery("div.pp_default").fadeIn(animation_time);
-      jQuery("div.pp_overlay").fadeIn(animation_time);
-    });
-  });
-  </script>
-</body>
-
-</html>
+  <div class="clear"></div>
+</div>
+{% endblock %}
