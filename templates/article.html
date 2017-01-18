@@ -10,14 +10,13 @@
     {% endfor %}
   </ul>
 </li>
-<li><a href="{{SITEURL}}/about.html">关于我们</a></li>  
+<li><a href="{{SITEURL}}/about.html">关于我们</a></li>
 {% endblock %}
 
 {% block main_area %}
 <div class="container">
   <h2 class="single-title">{{article.title}}</h2>
-  <video width="100%" webkit-playsinline="" preload="auto" style="display:inline-block;" controls="">
-    {{article.video}}
+  <video width="100%" webkit-playsinline="" preload="auto" style="display:inline-block;" controls="" src="{{article.video}}" poster="{{article.videocover}}">
   </video>
   <div class="margin-3"></div>
   <div class="row">
