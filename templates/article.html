@@ -2,6 +2,20 @@
 
 {% block custom_head %}
   <link rel="amphtml" href="https://mercury.postlight.com/amp?url={{SITEURL}}/{{output_file}}">
+
+  <!-- Facebook Open Graph tag -->
+  <meta property="og:url"           content="{{SITEURL}}/{{output_file}}" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="{{article.title}}" />
+  <meta property="og:description"   content="{{article.content}}" />
+  <meta property="og:image"         content="{{SITEURL}}/images/{{article.cover}}" />
+  <meta property="og:site_name"     content="水星计划 ProjectMercury" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{article.title}}">
+  <meta name="twitter:description" content="{{article.content}}">
+  <meta name="twitter:image" content="{{SITEURL}}/images/{{article.cover}}">
 {% endblock %}
 
 {% block nav_area %}
@@ -34,10 +48,10 @@
       <h6>发布时间</h6>
       <p class="small">{{article.date|strftime('%Y-%m-%d %H:%M')}}</p>
       <p class="social-share">
-        <a href="#" class="social-link">
+        <a href="http://www.facebook.com/sharer.php?u={{SITEURL}}/{{article.url}}" class="social-link" target="_blank">
           <i class="fa fa-facebook"></i>
         </a>
-        <a href="#" class="social-link">
+        <a href="http://twitter.com/share?text={{article.title}}&url={{SITEURL}}/{{article.url}}" class="social-link" target="_blank">
           <i class="fa fa-twitter"></i>
         </a>
         <a href="#" class="social-link">
