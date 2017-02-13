@@ -16,7 +16,9 @@
 {% block main_area %}
 <div class="container">
   <h2 class="single-title">{{article.title}}</h2>
-  <video width="100%" webkit-playsinline="" preload="auto" style="display:inline-block;" controls="" src="{{article.video}}" poster="{{article.videocover}}">
+  <video width="100%" class="video-js vjs-16-9" data-setup="{}" preload="auto" controls preload="auto" poster="{{article.videocover}}">
+    <source src="{{article.video}}" type='video/x-flv'>
+    <!-- <source src="{{article.video}}" type='video/mp4'> -->
   </video>
   <div class="margin-3"></div>
   <div class="row">
@@ -54,7 +56,9 @@
       <p class="tags">
         <strong>标签</strong>
         {% for i in article.tags %}
-        <a href="#">{{i}}</a>
+          {% if i != '水星计划' %}
+            <a href="#">{{i}}</a>
+          {% endif %}
         {% endfor %}
       </p>
     </div>
