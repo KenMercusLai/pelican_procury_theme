@@ -7,9 +7,13 @@
   <meta name="keywords" content="Exa, HTML5, Template, Design, Development">
 
   <link rel="shortcut icon" href="{{SITEURL}}/theme/img/favicon.ico">
+  <link href="http://vjs.zencdn.net/5.8.8/video-js.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic%7CRoboto:400,700%7CDroid+Serif" rel="stylesheet" type="text/css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" type="text/css">
   <link href="{{SITEURL}}/theme/css/style.css" rel="stylesheet" type="text/css">
+  {% block custom_head %}
+
+  {% endblock %}
 <style type="text/css">
 :root #content > #right > .dose > .dosesingle,
 :root #content > #center > .dose > .dosesingle
@@ -33,7 +37,7 @@
           <nav>
             <ul>
               {% block nav_area %}
-    
+
               {% endblock %}
               <!-- <li class="menu-item-has-children">
                 <a href="blog.html">Blog</a>
@@ -76,7 +80,7 @@
 
   <main id="content" class="white-background" role="main">
     {% block main_area %}
-    
+
     {% endblock %}
   </main>
 
@@ -96,6 +100,7 @@
   </footer>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="http://vjs.zencdn.net/5.8.8/video.js"></script>
   <script type="text/javascript" src="{{SITEURL}}/theme/js/site.js"></script>
   {% block scripts %}
   {% endblock %}

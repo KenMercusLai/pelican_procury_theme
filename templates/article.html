@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block custom_head %}
+  <link rel="amphtml" href="https://mercury.postlight.com/amp?url={{SITEURL}}/{{output_file}}">
+{% endblock %}
+
 {% block nav_area %}
 <li><a href="{{SITEURL}}/index.html">最新视频</a></li>
 <li class="menu-item-has-children">
