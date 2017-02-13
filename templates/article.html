@@ -69,79 +69,28 @@
   </div>
   <div class="margin-3"></div>
   <h5>相关视频</h5>
- <!--  <div class="owl-carousel owl-thumbs owl-theme owl-loaded">
-    <div class="owl-stage-outer">
-      <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 1950px;">
-        <div class="owl-item active" style="width: 360px; margin-right: 30px;">
-          <div class="thumb dark-overlay">
-            <div class="photo">
-              <a href="project.html">
-                <img src="../img/sample-thumb7.jpg" alt="" width="434" height="434">
-                <span class="info">
-                  <span class="big-excerpt">Din Kook</span>
-                </span>
-              </a>
+  {% if article.related_posts %}
+    <div class="owl-carousel owl-thumbs owl-theme owl-loaded">
+      <div class="owl-stage-outer">
+        <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 1950px;">
+          {% for related_post in article.related_posts %}
+            <div class="owl-item" style="width: 360px; margin-right: 30px;">
+              <div class="thumb dark-overlay">
+                <div class="photo">
+                  <a href="{{SITEURL}}/{{related_post.url}}">
+                    <img src="{{SITEURL}}/images/{{related_post.cover}}" alt="" width="434" height="434">
+                    <span class="info">
+                      <span class="big-excerpt">{{related_post.title}}</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="owl-item active" style="width: 360px; margin-right: 30px;">
-          <div class="thumb dark-overlay">
-            <div class="photo">
-              <a href="project.html">
-                <img src="../img/sample-thumb4.jpg" alt="" width="434" height="434">
-                <span class="info">
-                  <span class="big-excerpt">Suprette</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="owl-item active" style="width: 360px; margin-right: 30px;">
-          <div class="thumb dark-overlay">
-            <div class="photo">
-              <a href="project.html">
-                <img src="../img/sample-thumb2.jpg" alt="" width="434" height="434">
-                <span class="info">
-                  <span class="big-excerpt">Frock</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="owl-item" style="width: 360px; margin-right: 30px;">
-          <div class="thumb dark-overlay">
-            <div class="photo">
-              <a href="project.html">
-                <img src="../img/sample-thumb8.jpg" alt="" width="434" height="434">
-                <span class="info">
-                  <span class="big-excerpt">Maon</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="owl-item" style="width: 360px; margin-right: 30px;">
-          <div class="thumb dark-overlay">
-            <div class="photo">
-              <a href="project.html">
-                <img src="../img/sample-thumb9.jpg" alt="" width="715" height="715">
-                <span class="info">
-                  <span class="big-excerpt">Northbound</span>
-                </span>
-              </a>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
-    <div class="owl-controls">
-      <div class="owl-nav">
-        <div class="owl-prev" style=""></div>
-        <div class="owl-next" style=""></div>
-      </div>
-      <div class="owl-dots" style="display: none;"></div>
-    </div>
-  </div> -->
+  {% endif %}
   <div class="margin-6"></div>
 </div>
 {% endblock %}
