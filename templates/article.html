@@ -34,10 +34,7 @@
 {% block main_area %}
 <div class="container">
   <h2 class="single-title font-hei">{{article.title}}</h2>
-  <video width="100%" class="video-js vjs-16-9" data-setup="{}" preload="auto" controls preload="auto" poster="{{article.videocover}}">
-    <source src="{{article.video}}" type='video/x-flv'>
-    <!-- <source src="{{article.video}}" type='video/mp4'> -->
-  </video>
+  {{article.video}}
   <div class="margin-3"></div>
   <div class="row">
     <div class="col-sm-4 col-md-3 project-properties">
