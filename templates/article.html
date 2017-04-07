@@ -129,7 +129,7 @@
     })();
   </script>
   {%if page.comments %}
-    {% set sorted_comments = (page.comments | sort: 'date') %}
+    {% set sorted_comments = page.comments | sort(attribute='date') %}
     {% for c in sorted_comments %}
       <div class="media">
         <div class="media-left">
