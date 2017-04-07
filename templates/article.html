@@ -117,7 +117,7 @@
     /** CONFIGURATION VARIABLES **/
     var commentitUsername = 'KenMercusLai';
     var commentitRepo = 'KenMercusLai/pm';
-    var commentitPath = '{{ page.path }}';
+    var commentitPath = '{{ article.slug }}';
 
     /** DON'T EDIT FOLLOWING LINES **/
     (function() {
@@ -128,8 +128,8 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(commentit);
     })();
   </script>
-  {%if page.comments %}
-    {% set sorted_comments = page.comments | sort(attribute='date') %}
+  {%if article.comments %}
+    {% set sorted_comments = article.comments | sort(attribute='date') %}
     {% for c in sorted_comments %}
       <div class="media">
         <div class="media-left">
@@ -140,7 +140,7 @@
             <a href="{{ c.author.url }}">{{ c.author.displayName }}</a>
             发布于 {{ c.date.strftime('%Y-%m-%d %H:%M:%S') }}
           </p>
-          <p>{{ c.content}}</p>
+          <p>{{ c.content }}</p>
         </div>
       </div>
     {% endfor %}
