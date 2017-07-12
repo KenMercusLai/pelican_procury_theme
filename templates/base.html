@@ -8,10 +8,18 @@
 
   <link rel="shortcut icon" href="{{SITEURL}}/theme/img/favicon.ico">
   <link href="https://vjs.zencdn.net/5.8.8/video-js.css" rel="stylesheet">
+  <script src="https://vjs.zencdn.net/5.8.8/video.js"></script>
+
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic%7CRoboto:400,700%7CDroid+Serif" rel="stylesheet" type="text/css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" type="text/css">
   <link href="{{SITEURL}}/theme/css/style.css" rel="stylesheet" type="text/css">
   <link href="{{SITEURL}}/theme/css/fonts.css" rel="stylesheet" type="text/css">
+
+  <link href="{{SITEURL}}/theme/css/libjass.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/libjass.min.js"></script>
+
+  <link href="{{SITEURL}}/theme/css/videojs.ass.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/videojs.ass.js"></script>
   {% block custom_head %}
 
   {% endblock %}
@@ -101,7 +109,8 @@
   </footer>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="https://vjs.zencdn.net/5.8.8/video.js"></script>
+
   <script type="text/javascript" src="{{SITEURL}}/theme/js/site.js"></script>
+
   {% block scripts %}
   {% endblock %}
